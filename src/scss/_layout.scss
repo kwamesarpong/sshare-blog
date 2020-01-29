@@ -1,9 +1,32 @@
 // header
-.header-bg {
+.header {
   min-height: 100vh;
   // background-color: red;
   background-image: url("../assets/Picture-1.png");
   background-size: cover;
+  // background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__text {
+    font-family: "DM Serif Display", serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    min-height: 57vh;
+
+    h4 {
+      font-size: 1.15rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
 }
 
 // .logo__box {
@@ -14,6 +37,7 @@
 
 .logo__box {
   text-decoration: none;
+  letter-spacing: 1px;
   color: #fff;
   display: grid;
   grid-template-columns: min-content 1fr;
@@ -25,6 +49,7 @@
     font-size: 1rem;
     font-weight: 600;
   }
+
   &-2 {
     font-size: 0.6rem;
     font-weight: 500;
@@ -47,6 +72,11 @@
 .icon__black {
   color: #000;
 }
+
 .icon__white {
   color: #fff;
+}
+
+.fa-2x {
+  font-size: 1.5em;
 }

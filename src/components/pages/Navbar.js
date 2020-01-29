@@ -7,7 +7,7 @@ import { ReactComponent as LogoSvg } from "../../assets/LOGO/ICON/SISTAZSHARE-IC
 
 class Navbar extends Component {
   render() {
-    const whitePage = this.props;
+    // const whitePage = this.props;
 
     return (
       <nav id="navbar" className="navbar navbar-expand-sm">
