@@ -4,9 +4,9 @@ import Navbar from "./Navbar";
 class Header extends Component {
   render() {
     return (
-      <header className="header">
+      <div className="header-bg">
         <Navbar whitePage={false} />
-      </header>
+      </div>
     );
   }
 }

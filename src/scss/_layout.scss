@@ -1,5 +1,17 @@
-.header {
-  // background-image: url("../assets/");
-  // background-position: top;
+.header-bg {
+  min-height: 100vh;
+  // background-color: red;
+  background-image: url("../assets/Picture-1.png");
   background-size: cover;
+}
+
+.logo {
+  height: 3.25rem;
+}
+
+.icon__black {
+  color: #000;
+}
+.icon__white {
+  color: #fff;
 }
