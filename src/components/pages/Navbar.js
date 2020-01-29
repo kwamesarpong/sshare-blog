@@ -12,7 +12,11 @@ class Navbar extends Component {
     return (
       <nav id="navbar" className="navbar navbar-expand-sm">
         <Link className="navbar-brand mr-auto" to="/">
-          <LogoSvg className="logo" alt="logo" />
+          <div className="logo__box">
+            <LogoSvg className="logo logo__box--icon" alt="logo" />
+            <p className="logo__box-1">Sistaz Share</p>
+            <p className="logo__box-2">Connect & Learn</p>
+          </div>
           {/* <img src={whitePage ? blackLogo : imgLogo } alt="logo" className="img-fluid"/> */}
         </Link>
         <div>
