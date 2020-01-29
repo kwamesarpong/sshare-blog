@@ -28,7 +28,7 @@ class Navbar extends Component {
             </li>
             <li className="nav-item">
               <Link className="nav-link button" to="/menu">
-                <i class="fas fa-bars fa-2x icon__white"></i>
+                <i class="fas fa-bars icon icon__white"></i>
               </Link>
             </li>
           </ul>

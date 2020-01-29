@@ -69,14 +69,14 @@
   height: 3.25rem;
 }
 
-.icon__black {
-  color: #000;
-}
+.icon {
+  font-size: 1.2rem;
 
-.icon__white {
-  color: #fff;
-}
+  &__black {
+    color: #000;
+  }
 
-.fa-2x {
-  font-size: 1.5em;
+  &__white {
+    color: #fff;
+  }
 }
