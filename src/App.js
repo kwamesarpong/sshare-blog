@@ -3,8 +3,9 @@ import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 
 import store from "./store";
-import Header from "./components/pages/Header";
+// import Header from "./components/pages/Header";
 import "./scss/main.scss";
+import Home from "./components/pages/Home";
 
 class App extends Component {
   render() {
@@ -12,7 +13,7 @@ class App extends Component {
       <Provider store={store}>
         <BrowserRouter>
           <Switch>
-            <Route exact path="/" component={Header} />
+            <Route exact path="/" component={Home} />
           </Switch>
         </BrowserRouter>
       </Provider>
