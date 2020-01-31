@@ -6,6 +6,7 @@ import store from "./store";
 // import Header from "./components/pages/Header";
 import "./scss/main.scss";
 import Home from "./components/pages/Home";
+import About from "./components/pages/About";
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Home} />
+            <Route exact path="/about" component={About} />
           </Switch>
         </BrowserRouter>
       </Provider>
