@@ -3,6 +3,69 @@
     max-width: 85%;
     transform: translateY(-1.1rem);
   }
+}
 
-  
+.category {
+  background-color: #b0f4ea;
+  padding: 7rem 0;
+  p {
+    margin: 2rem 15rem 6rem 15rem;
+  }
+
+  &__image {
+    min-height: 28vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.2s;
+
+    cursor: pointer;
+
+    &:hover {
+      transform: translateY(-1rem) scale(1.03);
+    }
+
+    &-text {
+      font-family: "DM Serif Display", serif;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      align-self: flex-end;
+      //   margin-bottom: auto;
+
+      font-size: 0.8rem;
+    }
+
+    &-1 {
+      //   background-image: url("../assets/mind-and-body.png");
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("../assets/mind-and-body.png");
+    }
+    &-2 {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("../assets/feminism.png");
+    }
+    &-3 {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("../assets/lifestyle2.png");
+    }
+    &-4 {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("../assets/motivation2.png");
+    }
+    &-5 {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+        url("../assets/love-and-rela2.png");
+    }
+    &-6 {
+      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+        url("../assets/money.png");
+    }
+  }
 }
