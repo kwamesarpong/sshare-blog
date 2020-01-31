@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 
-import AboutImg from "./../../assets/about.jpg";
 import ImageMiniCard from "../utils/ImageMiniCard";
+import AboutImg from "./../../assets/about.jpg";
+import phoneImg from "./../../assets/Delivery-Cristina.jpg";
 
 class About extends Component {
   render() {
@@ -46,6 +47,48 @@ class About extends Component {
               <ImageMiniCard title="Motivation" imgNum="4" />
               <ImageMiniCard title="Love & Relationships" imgNum="5" />
               <ImageMiniCard title="Money" imgNum="6" />
+            </div>
+          </div>
+        </div>
+
+        <div className="settee container text-center">
+          <h3 className="heading heading__secondary-2 mb-5">
+            on the settee of engaging ...
+          </h3>
+          <div className="row">
+            <div className="col-md-6 text-right vertical">
+              <p>insightful outlooks on life</p>
+              <p>expert opinions</p>
+              <p>embracing diversity</p>
+              <p>building capacity</p>
+              <p>collaborating mutual perspectives</p>
+            </div>
+            <div className="text-left col-md-6 pad-left">
+              <p>educational modules</p>
+              <p>daring voices</p>
+              <p>acknowledging differences</p>
+              <p>harnessing growth</p>
+              <p>exploring strengths & opportunities</p>
+            </div>
+          </div>
+        </div>
+
+        <div className="enlighten container">
+          <div className="row">
+            <div className="col-md-6 vertical">
+              <img src={phoneImg} alt="phone" className="img-fluid" />
+            </div>
+            <div className="col-md-6 text-left pad-left">
+              <h3 className="heading heading__secondary-2 mb-5">
+                Enlightenment on the go !
+              </h3>
+              <p>
+                Harnessing the convenience of digital technology, we’re the
+                ideal hub for exploring women’s discourses, while offering
+                everyone from around the world the chance to contribute their
+                knowledge, skills and experience to help make the world of women
+                better.
+              </p>
             </div>
           </div>
         </div>
