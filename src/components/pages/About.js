@@ -2,10 +2,12 @@ import React, { Component } from "react";
 import Navbar from "./Navbar";
 
 import { ReactComponent as PhoneImg } from "../../assets/PHONE/PHONE.svg";
+import { ReactComponent as About2Img } from "../../assets/SISTAZSHARE-ABOUT-PAGE-2.svg";
 import ImageMiniCard from "../utils/ImageMiniCard";
 import AboutImg from "./../../assets/about.jpg";
 import commPerson from "./../../assets/comm-person.png";
 import CommunityCard from "../utils/CommunityCard";
+import { Link } from "react-router-dom";
 
 class About extends Component {
   state = {
@@ -130,6 +132,40 @@ class About extends Component {
                 message={this.state.message}
                 img={commPerson}
               />
+            </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="learn">
+            <div className="container">
+              <h3 className="heading heading__secondary ml-4 mb-5">
+                Learn + Connect
+              </h3>
+
+              <div className="row">
+                <div className="col-md-4">
+                  <div>
+                    <Link
+                      to="/explore"
+                      className="button button__black mb-3 ml-4"
+                    >
+                      Explore
+                    </Link>
+                  </div>
+                  <div>
+                    <Link
+                      to="/contribute"
+                      className="button button__black ml-4"
+                    >
+                      Contribute
+                    </Link>
+                  </div>
+                </div>
+                <div className="col-md-8">
+                  <About2Img className="img-fluid" />
+                </div>
+              </div>
             </div>
           </div>
         </div>
