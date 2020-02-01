@@ -82,3 +82,17 @@
   border-right: 1px solid #000;
   padding-right: 4.5rem;
 }
+
+.enlighten {
+  background-color: #b0f4ea;
+  padding: 6rem 0;
+
+  .img-fluid {
+    max-width: 50%;
+  }
+
+  p,
+  h3 {
+    width: 80%;
+  }
+}

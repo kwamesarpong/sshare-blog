@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 
+import { ReactComponent as PhoneImg } from "../../assets/PHONE/PHONE.svg";
 import ImageMiniCard from "../utils/ImageMiniCard";
 import AboutImg from "./../../assets/about.jpg";
+
 import phoneImg from "./../../assets/Delivery-Cristina.jpg";
 
 class About extends Component {
@@ -73,22 +75,24 @@ class About extends Component {
           </div>
         </div>
 
-        <div className="enlighten container">
-          <div className="row">
-            <div className="col-md-6 vertical">
-              <img src={phoneImg} alt="phone" className="img-fluid" />
-            </div>
-            <div className="col-md-6 text-left pad-left">
-              <h3 className="heading heading__secondary-2 mb-5">
-                Enlightenment on the go !
-              </h3>
-              <p>
-                Harnessing the convenience of digital technology, we’re the
-                ideal hub for exploring women’s discourses, while offering
-                everyone from around the world the chance to contribute their
-                knowledge, skills and experience to help make the world of women
-                better.
-              </p>
+        <div className="enlighten">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6 vertical text-right">
+                <PhoneImg className="img-fluid" />
+              </div>
+              <div className="col-md-6 text-left pad-left mt-4">
+                <h3 className="heading heading__secondary-2 mb-5">
+                  Enlightenment on the go !
+                </h3>
+                <p className="">
+                  Harnessing the convenience of digital technology, we’re the
+                  ideal hub for exploring women’s discourses, while offering
+                  everyone from around the world the chance to contribute their
+                  knowledge, skills and experience to help make the world of
+                  women better.
+                </p>
+              </div>
             </div>
           </div>
         </div>
