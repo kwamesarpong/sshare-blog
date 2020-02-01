@@ -4,10 +4,19 @@ import Navbar from "./Navbar";
 import { ReactComponent as PhoneImg } from "../../assets/PHONE/PHONE.svg";
 import ImageMiniCard from "../utils/ImageMiniCard";
 import AboutImg from "./../../assets/about.jpg";
-
-import phoneImg from "./../../assets/Delivery-Cristina.jpg";
+import commPerson from "./../../assets/comm-person.png";
+import CommunityCard from "../utils/CommunityCard";
 
 class About extends Component {
+  state = {
+    name: "Amina Able",
+    country: "Ghana",
+    message: `Sistaz Share spotlights the everyday modern woman, narrating
+    the savvy patterns that make up the complexities of her
+    life. We introduce you to a digital sphere of telling the
+    timeless chronicles of women’s lives, in real time.`
+  };
+
   render() {
     return (
       <div className="about">
@@ -28,7 +37,7 @@ class About extends Component {
           </div>
         </div>
 
-        <div className="category text-center pt-5">
+        <div className="category text-center">
           {/* <div className="container"> */}
           <h3 className="heading heading__secondary-2">
             we pool articles & stories for women ...
@@ -93,6 +102,34 @@ class About extends Component {
                   women better.
                 </p>
               </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="community">
+          <div className="container">
+            <h3 className="heading heading__secondary mb-5 text-center">
+              From the Community ...
+            </h3>
+            <div className="row">
+              <CommunityCard
+                name={this.state.name}
+                country={this.state.country}
+                message={this.state.message}
+                img={commPerson}
+              />
+              <CommunityCard
+                name={this.state.name}
+                country={this.state.country}
+                message={this.state.message}
+                img={commPerson}
+              />
+              <CommunityCard
+                name={this.state.name}
+                country={this.state.country}
+                message={this.state.message}
+                img={commPerson}
+              />
             </div>
           </div>
         </div>

@@ -7,7 +7,7 @@
 
 .category {
   background-color: #b0f4ea;
-  padding: 7rem 0;
+  padding: 5rem 0;
   p {
     margin: 2rem 15rem 6rem 15rem;
   }
@@ -94,5 +94,46 @@
   p,
   h3 {
     width: 80%;
+  }
+}
+
+.community {
+  padding: 5rem 0;
+
+  &__card {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 1.4rem;
+
+    &-img {
+      grid-row: 1 / span 2;
+      height: 9vh;
+      border-radius: 50%;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    .community__card-1 {
+      font-weight: 600;
+      margin-top: 0.3rem;
+    }
+    .community__card-2 {
+      font-weight: 300;
+      font-size: 0.8rem;
+      transform: translateY(-0.5rem);
+    }
+  }
+
+  &__border {
+    border: 1px solid #b0f4ea;
+    border-radius: 5px;
+    padding: 1rem;
+  }
+
+  &__text {
+    font-size: 0.9rem;
+    font-weight: 300;
   }
 }
