@@ -36,12 +36,15 @@ class Navbar extends Component {
         <div>
           <ul className="nav navbar-nav ml-auto">
             <li className="nav-item">
-              <Link className="nav-link button button__black" to="/contribute">
+              <Link
+                className="nav-link button button__black mr-3"
+                to="/contribute"
+              >
                 Contribute
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link button" to="/menu">
+              <Link className="nav-link" to="/menu">
                 {whitePage ? (
                   <i className="fas fa-bars icon icon__black"></i>
                 ) : (

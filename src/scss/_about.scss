@@ -1,4 +1,5 @@
 .about {
+  overflow: hidden;
   &__img {
     max-width: 85%;
     transform: translateY(-1.1rem);
@@ -8,8 +9,15 @@
 .category {
   background-color: #b0f4ea;
   padding: 5rem 0;
+
+  overflow: hidden;
+
   p {
     margin: 2rem 15rem 6rem 15rem;
+
+    @include respond(phone) {
+      margin: 2rem 1rem 3rem 1rem;
+    }
   }
 
   &__image {
@@ -26,6 +34,10 @@
     transition: all 0.3s;
 
     cursor: pointer;
+
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
 
     &:hover {
       transform: translateY(-1rem) scale(1.03);
@@ -75,17 +87,44 @@
 
   p {
     color: #00b399;
+    @include respond(phone) {
+      text-align: center !important;
+      padding-left: 0;
+    }
   }
 }
 
 .vertical {
   border-right: 1px solid #000;
   padding-right: 4.5rem;
+
+  @include respond(phone) {
+    // border-bottom: 1px solid #000;
+    // text-align: center !important;
+    padding-bottom: 2.5rem;
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.hori {
+  @include respond(phone) {
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin: 0 3rem;
+    padding-bottom: 3rem;
+  }
 }
 
 .enlighten {
   background-color: #b0f4ea;
   padding: 6rem 0;
+
+  .cent {
+    @include respond(phone) {
+      text-align: center !important;
+    }
+  }
 
   .img-fluid {
     max-width: 50%;
@@ -94,6 +133,11 @@
   p,
   h3 {
     width: 80%;
+    @include respond(phone) {
+      text-align: center !important;
+      // padding-left: 0;
+      width: 100%;
+    }
   }
 }
 
@@ -130,6 +174,10 @@
     border: 1px solid #b0f4ea;
     border-radius: 5px;
     padding: 1rem;
+
+    @include respond(phone) {
+      margin-bottom: 1rem;
+    }
   }
 
   &__text {
@@ -139,7 +187,6 @@
 }
 
 .learn {
-
   background-color: #b0f4ea;
   padding: 5rem 0;
 }

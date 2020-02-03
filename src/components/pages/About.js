@@ -40,17 +40,17 @@ class About extends Component {
         </div>
 
         <div className="category text-center">
-          {/* <div className="container"> */}
-          <h3 className="heading heading__secondary-2">
-            we pool articles & stories for women ...
-          </h3>
-          <p>
-            Sistaz Share acknowledges the everyday modern woman, narrating the
-            savvy patterns that make up the complexities of her life. We
-            introduce you to a digital sphere of telling the timeless chronicles
-            of women’s lives, in real time.
-          </p>
-          {/* </div> */}
+          <div className="container">
+            <h3 className="heading heading__secondary-2">
+              We pool articles & stories for women ...
+            </h3>
+            <p>
+              Sistaz Share acknowledges the everyday modern woman, narrating the
+              savvy patterns that make up the complexities of her life. We
+              introduce you to a digital sphere of telling the timeless
+              chronicles of women’s lives, in real time.
+            </p>
+          </div>
 
           <div className="container">
             <div className="row">
@@ -65,8 +65,8 @@ class About extends Component {
         </div>
 
         <div className="settee container text-center">
-          <h3 className="heading heading__secondary-2 mb-5">
-            on the settee of engaging ...
+          <h3 className="heading heading__secondary-2 mx-2 mb-5">
+            On the settee of engaging ...
           </h3>
           <div className="row">
             <div className="col-md-6 text-right vertical">
@@ -74,7 +74,7 @@ class About extends Component {
               <p>expert opinions</p>
               <p>embracing diversity</p>
               <p>building capacity</p>
-              <p>collaborating mutual perspectives</p>
+              <p className="hori">collaborating mutual perspectives</p>
             </div>
             <div className="text-left col-md-6 pad-left">
               <p>educational modules</p>
@@ -89,12 +89,12 @@ class About extends Component {
         <div className="enlighten">
           <div className="container">
             <div className="row">
-              <div className="col-md-6 vertical text-right">
+              <div className="col-md-6 vertical text-right cent">
                 <PhoneImg className="img-fluid" />
               </div>
-              <div className="col-md-6 text-left pad-left mt-4">
+              <div className="col-md-6 text-left pad-left mt-4 cent">
                 <h3 className="heading heading__secondary-2 mb-5">
-                  Enlightenment on the go !
+                  Enlightenment on the go!
                 </h3>
                 <p className="">
                   Harnessing the convenience of digital technology, we’re the

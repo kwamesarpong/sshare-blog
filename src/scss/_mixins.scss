@@ -1,0 +1,47 @@
+// Media Queries
+
+/*
+0-600px: Phone
+600px - 900px: Table Portrait
+900px - 1200px: Table landscape
+1200px - 1800px: normal styles apply here
+
+1800px +: big desktop
+
+$breakpoint argument options
+-phone
+-tab-port
+-tab-land
+-desktop
+
+*/
+
+@mixin respond($breakpoint) {
+  // 600px
+  @if $breakpoint == phone {
+    @media (max-width: 37.5em) {
+      @content;
+    }
+  }
+
+  // 900px
+  @if $breakpoint == tab-port {
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  // 1200px
+  @if $breakpoint == tab-land {
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  //1800px
+  @if $breakpoint == desktop {
+    @media (min-width) {
+      @content;
+    }
+  }
+}

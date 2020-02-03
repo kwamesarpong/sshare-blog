@@ -1,0 +1,5 @@
+.navbar-nav {
+  @include respond(phone) {
+    flex-direction: row;
+  }
+}

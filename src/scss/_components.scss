@@ -10,6 +10,12 @@
     cursor: pointer;
     padding: 0.4rem 1.2rem !important;
     // margin: 0 1rem;
+
+    @include respond(phone) {
+      font-size: 0.6rem;
+      padding: 0.3rem 1rem !important;
+      margin-right: 0.5rem;
+    }
   }
 
   &__black {
