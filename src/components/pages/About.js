@@ -33,7 +33,7 @@ class About extends Component {
               <img
                 src={AboutImg}
                 alt="about"
-                className="img-fluid about about__img"
+                className="img-fluid about about__img mt-4"
               />
             </div>
           </div>
