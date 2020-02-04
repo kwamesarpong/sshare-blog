@@ -1,11 +1,37 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 
-import peopleFlowerImg from "../../assets/contribute-flower.jpg";
+// import peopleFlowerImg from "../../assets/contribute-flower.jpg";
+// import peopleFlowerImg1 from "../../assets/contribute-2.jpg";
 
-import { ReactComponent as Test } from "../../assets/SISTAZSHARE-CONTRIBUTE.svg";
+import { ReactComponent as ContributeImg1 } from "../../assets/SISTAZSHARE-CONTRIBUTE.svg";
+import { ReactComponent as ContributeImg2 } from "../../assets/SISTAZSHARE-CONTRIBUTE-2.svg";
+import ContributeCard from "../utils/ContributeCard";
 
 class Contribute extends Component {
+  state = {
+    num: {
+      num1: "1",
+      num2: "2",
+      num3: "3"
+    },
+    title: {
+      title1: "Have something ...",
+      title2: "Post it here ...",
+      title3: "Share it ..."
+    },
+    text: {
+      text1: `Your contributions towards women matter. Put your thoughts into – articles,
+        podcasts, videos, photos, illustrations, memes or request some Facebook
+        or Twitter time with us.`,
+      text2: `Your profile on Sistaz Share lets you publish all your digital
+      media content for women to the world. Own a documentary of all your works
+      in one place, especially made for empowering women.`,
+      text3: `Sistaz Share pushes all every thing you post to all social media
+      platforms from your profile ! Imagine the number of women’s lives you transform
+      as your content reaches the world over. Readily accessible, clicks and swipes away`
+    }
+  };
   render() {
     return (
       <div className="contribute">
@@ -15,7 +41,7 @@ class Contribute extends Component {
           <div className="row">
             <div className="col-md-6">
               {/* // svg image  */}
-              <Test className="img-fluid" />
+              <ContributeImg1 className="img-fluid" />
 
               {/* jpg image  */}
               {/* <img
@@ -42,6 +68,23 @@ class Contribute extends Component {
                 <span>&nbsp;</span>
               </div> */}
             </div>
+          </div>
+        </div>
+
+        <div className="container">
+          <div className="contribute__section-2 py-5">
+            <div className="row justify-content-center">
+              <div className="col-md-6">
+                <ContributeImg2 className="img-fluid" />
+              </div>
+            </div>
+          </div>
+          <div className="row">
+            <ContributeCard
+              num={this.state.num.num1}
+              title={this.state.title.title1}
+              text={this.state.text.text1}
+            />
           </div>
         </div>
       </div>
