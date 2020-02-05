@@ -1,0 +1,31 @@
+.contribute2 {
+  background-color: #b0f4ea;
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .button {
+    border-radius: 0;
+    font-size: 1rem;
+    padding: 0.7rem 3rem !important;
+  }
+
+  .img-fluid {
+    max-width: 35%;
+
+    transform: translateY(-8rem);
+  }
+
+  p:last-child {
+    font-weight: 600;
+  }
+}
+
+.contribute__cont {
+  &--rticle {
+    background-color: #000;
+  }
+}

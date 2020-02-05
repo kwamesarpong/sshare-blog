@@ -8,6 +8,7 @@ import "./scss/main.scss";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contribute from "./components/pages/Contribute";
+import ContributePost from "./components/pages/ContributePost";
 
 class App extends Component {
   render() {
@@ -18,6 +19,7 @@ class App extends Component {
             <Route exact path="/" component={Home} />
             <Route exact path="/about" component={About} />
             <Route exact path="/contribute" component={Contribute} />
+            <Route exact path="/contribute-post" component={ContributePost} />
           </Switch>
         </BrowserRouter>
       </Provider>
