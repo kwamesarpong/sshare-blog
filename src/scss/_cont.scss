@@ -11,5 +11,55 @@
   //   }
 
   &__section-2 {
+    // background-color: #f7f7f7;
+    @include respond(phone) {
+      margin: 0 1rem;
+    }
+  }
+
+  &__badge {
+    @include respond(phone) {
+      padding: 0 1rem;
+
+      .img-fluid {
+        max-width: 40%;
+        margin: 0 auto;
+      }
+
+      .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+      }
+
+      h3 {
+        padding-top: 1rem !important;
+      }
+    }
+
+    background-color: #f7f7f7;
+
+    h4 {
+      color: #00b399;
+    }
+
+    &--text {
+      // display: inline;
+      border-bottom: 1px solid #000;
+      font-weight: 600;
+      letter-spacing: 2px;
+      padding-bottom: 5px;
+      margin-top: 6rem;
+
+      @include respond(phone) {
+        letter-spacing: 1px;
+      }
+    }
+  }
+}
+.img__last {
+  @include respond(phone) {
+    .img-fluid {
+      max-width: 100%;
+    }
   }
 }
