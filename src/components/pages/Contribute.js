@@ -71,19 +71,33 @@ class Contribute extends Component {
           </div>
         </div>
 
-        <div className="container">
-          <div className="contribute__section-2 py-5">
+        <div className="container pt-5">
+          <h3 className="heading heading__secondary-2 pt-5 text-center">
+            AllerVite !
+          </h3>
+
+          <div className="contribute__section-2 pb-5">
             <div className="row justify-content-center">
               <div className="col-md-6">
                 <ContributeImg2 className="img-fluid" />
               </div>
             </div>
           </div>
-          <div className="row">
+          <div className="row pb-5">
             <ContributeCard
               num={this.state.num.num1}
               title={this.state.title.title1}
               text={this.state.text.text1}
+            />
+            <ContributeCard
+              num={this.state.num.num2}
+              title={this.state.title.title2}
+              text={this.state.text.text2}
+            />
+            <ContributeCard
+              num={this.state.num.num3}
+              title={this.state.title.title3}
+              text={this.state.text.text3}
             />
           </div>
         </div>
