@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 
 import { ReactComponent as LogoSvgBlack } from "../../assets/LOGO/ICON/SISTAZSHARE-ICON-B.svg";
 import { ReactComponent as LoginImg1 } from "../../assets/SISTAZSHARE-LOGIN-1.svg";
+import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
+
+import commPerson from "./../../assets/comm-person.png";
+
 import Navbar from "./Navbar";
+import SharePost from "../utils/SharePost";
 
 class ContributePost extends Component {
   render() {
@@ -25,7 +30,7 @@ class ContributePost extends Component {
                 </div>
               </div>
 
-              <h3 className="heading heading__secondary-2 pt-5">
+              <h3 className="heading heading__secondary-2 p-5 text-center">
                 Contribute your knowledge, skills & experience to empower women
               </h3>
 
@@ -67,9 +72,55 @@ class ContributePost extends Component {
         <hr />
         <Navbar whitePage={true} />
 
-        <div className="container">
-          <div className="contribute__cont--article"></div>
+        <div className="container py-5">
+          <div className="contribute__cont--article">
+            <h5 className="">
+              Share your articles
+              <span className="mt-1">
+                <i className="fas fa-caret-right ml-2"></i>
+              </span>
+            </h5>
+            <p>
+              Got some educational, informational or enlightening digital
+              multimedia resource for women you would want us to share with us ?
+            </p>
+          </div>
+          <div className="contribute__cont--article my-5">
+            <h5 className="">
+              Go live
+              <span className="mt-1">
+                <i className="fas fa-caret-right ml-2"></i>
+              </span>
+            </h5>
+            <p>
+              Want to share your life experiences with women out there ? Or you
+              want us to host you on a program and get interactive on our social
+              media platforms ?
+            </p>
+          </div>
         </div>
+
+        <div className="e-badge px-4">
+          <div className="community__card">
+            <img
+              src={commPerson}
+              alt="contributor"
+              className="community__card-img"
+            />
+            <p className="community__card-title">
+              Amina Able{" "}
+              <span>
+                <BadgeGrey className="ml-2 img-fluid" />
+              </span>
+            </p>
+            <p className="community__card-subtitle">Ghana</p>
+          </div>
+          <h6 className="heading heading__tertiary-3 pt-4 font-weight-bold">
+            Earn a badge <span>COMPLETE PROFILE</span>
+          </h6>
+        </div>
+
+        <SharePost text="Share Your Articles" />
       </div>
     );
   }

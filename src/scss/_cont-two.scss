@@ -25,7 +25,83 @@
 }
 
 .contribute__cont {
-  &--rticle {
+  &--article {
     background-color: #000;
+    color: #fff;
+    h5 {
+      color: #00b399;
+    }
+
+    padding: 2rem;
+  }
+
+  .img-fluid:last-child {
+    max-width: 2%;
+  }
+
+  .heading {
+    letter-spacing: 0;
+  }
+
+  .heading__tertiary-3 span {
+    font-size: 0.6rem;
+    color: #00b399;
+  }
+
+  &--share {
+    // .form-control,
+    // .form-control:focus {
+    //   border-color: #fff;
+    //   border-bottom: 1px solid #e7e7e7;
+    //   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+    //   // padding-bottom: 5rem;
+
+    // }
+
+    form {
+      border: 1px solid #e7e7e7;
+      border-radius: 4px;
+      padding: 3rem;
+      width: 90%;
+    }
+
+    input,
+    select,
+    input:active,
+    select:focus,
+    input:focus,
+    select:active {
+      color: #00b399;
+      border-color: #fff;
+      outline: none;
+      background-color: #fff;
+    }
+
+    label {
+      display: block;
+      width: 70%;
+      color: #00b399;
+      cursor: pointer;
+
+      border-bottom: 1px solid #e7e7e7;
+      padding-bottom: 1.3rem;
+    }
+
+    input[type="file"] {
+      display: none;
+      padding-bottom: 3rem;
+    }
+
+    input[type="url"] {
+      padding-bottom: 1rem;
+      border: none;
+      border-bottom: 1px solid #e7e7e7;
+      width: 70%;
+      margin-bottom: 2rem;
+
+      &::placeholder {
+        color: #00b399;
+      }
+    }
   }
 }
