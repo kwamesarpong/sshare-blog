@@ -17,14 +17,33 @@
     max-width: 35%;
 
     transform: translateY(-8rem);
+
+    @include respond(phone) {
+      max-width: 70%;
+      transform: translateY(0);
+    }
   }
 
   p:last-child {
     font-weight: 600;
+    @include respond(phone) {
+      font-size: 0.7rem;
+    }
   }
 }
 
 .contribute__cont {
+  .p-5 {
+    @include respond(phone) {
+      // font-size: 1.5rem;
+      padding: 0.5rem !important;
+    }
+  }
+  .heading__secondary-2 {
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
+  }
   &--article {
     background-color: #000;
     color: #fff;
