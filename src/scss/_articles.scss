@@ -1,0 +1,72 @@
+.articles {
+  &__large {
+    .icons {
+      color: #00b399;
+      font-size: 1.5rem;
+
+      @include respond(phone) {
+        font-size: 1.2rem;
+      }
+
+      &__facebook:hover {
+        color: #3b5998;
+      }
+      &__twitter:hover {
+        color: #00acee;
+      }
+      &__linkedin:hover {
+        color: #922a76;
+      }
+      &__whatsapp:hover {
+        color: #00b399;
+      }
+      &__link:hover {
+        color: #007bff;
+      }
+    }
+
+    h4 {
+      font-family: "Nunito", sans-serif;
+      font-weight: 700;
+      letter-spacing: 3px;
+      font-size: 1.3rem;
+    }
+
+    h3 {
+      color: #00b399;
+    }
+
+    h6 {
+      color: #00b399;
+      font-size: 0.65rem;
+      letter-spacing: 1px;
+    }
+
+    p:last-child {
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+
+    word-spacing: 2px;
+    line-height: 1.7;
+    // color: #343a40;
+    // color: #6c757d;
+  }
+
+  &__small {
+    background-color: #b0f4ea;
+
+    .heading {
+      letter-spacing: 1px;
+    }
+
+    .heading__tertiary {
+      font-size: 0.9rem;
+    }
+
+    p {
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+  }
+}
