@@ -49,21 +49,12 @@
   }
 
   &--share {
-    // .form-control,
-    // .form-control:focus {
-    //   border-color: #fff;
-    //   border-bottom: 1px solid #e7e7e7;
-    //   box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
-    //   // padding-bottom: 5rem;
-
+    // form {
+    //   border: 1px solid #e7e7e7;
+    //   border-radius: 4px;
+    //   padding: 3rem;
+    //   width: 90%;
     // }
-
-    form {
-      border: 1px solid #e7e7e7;
-      border-radius: 4px;
-      padding: 3rem;
-      width: 90%;
-    }
 
     input,
     select,
@@ -77,8 +68,21 @@
       background-color: #fff;
     }
 
-    label {
+    .label {
       display: block;
+      width: 70%;
+      color: #00b399;
+      cursor: pointer;
+
+      border-bottom: 1px solid #e7e7e7;
+      padding-bottom: 1.3rem;
+    }
+
+    label {
+      color: #00b399;
+    }
+
+    .test22 {
       width: 70%;
       color: #00b399;
       cursor: pointer;
@@ -92,7 +96,9 @@
       padding-bottom: 3rem;
     }
 
-    input[type="url"] {
+    input[type="url"],
+    input[type="text"],
+    input[type="checkbox"] {
       padding-bottom: 1rem;
       border: none;
       border-bottom: 1px solid #e7e7e7;
@@ -103,5 +109,17 @@
         color: #00b399;
       }
     }
+    input[type="checkbox"] {
+      width: 1%;
+      transform: scale(1.6);
+      margin-right: 1.3rem;
+    }
+  }
+
+  &--border {
+    border: 1px solid #e7e7e7;
+    border-radius: 4px;
+    padding: 2rem;
+    width: 90%;
   }
 }

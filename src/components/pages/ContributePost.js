@@ -8,7 +8,8 @@ import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY
 import commPerson from "./../../assets/comm-person.png";
 
 import Navbar from "./Navbar";
-import SharePost from "../utils/SharePost";
+import SharePost from "../utils/ShareArticle";
+import Golive from "../utils/GoLive";
 
 class ContributePost extends Component {
   render() {
@@ -121,6 +122,7 @@ class ContributePost extends Component {
         </div>
 
         <SharePost text="Share Your Articles" />
+        <Golive text="Go live" />
       </div>
     );
   }
