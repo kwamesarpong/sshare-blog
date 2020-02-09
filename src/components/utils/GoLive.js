@@ -60,7 +60,7 @@ const Golive = ({ text }) => {
               </div>
               <div className="pb-3">
                 <input type="checkbox" name="twitter" id="twitter" />
-                <label className="test22" htmlFor="twitter">
+                <label className="social__label" htmlFor="twitter">
                   Twitter Discussion
                 </label>
               </div>

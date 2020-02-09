@@ -56,6 +56,9 @@
 
   .img-fluid:last-child {
     max-width: 2%;
+    @include respond(phone) {
+      max-width: 9%;
+    }
   }
 
   .heading {
@@ -101,7 +104,7 @@
       color: #00b399;
     }
 
-    .test22 {
+    .social__label {
       width: 70%;
       color: #00b399;
       cursor: pointer;
@@ -140,5 +143,9 @@
     border-radius: 4px;
     padding: 2rem;
     width: 90%;
+
+    @include respond(phone) {
+      width: 100%;
+    }
   }
 }
