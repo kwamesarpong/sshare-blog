@@ -55,3 +55,29 @@
     margin-bottom: 1rem;
   }
 }
+
+.card {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-column-gap: 1.4rem;
+
+  &-img {
+    grid-row: 1 / span 2;
+    height: 10vh;
+    border-radius: 50%;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+
+  .community__card-title {
+    font-weight: 600;
+    margin-top: 1rem;
+  }
+  .community__card-subtitle {
+    font-weight: 300;
+    font-size: 0.8rem;
+    transform: translateY(-0.7rem);
+  }
+}

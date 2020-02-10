@@ -161,7 +161,7 @@
 
     &-img {
       grid-row: 1 / span 2;
-      height: 7vh;
+      height: 10vh;
       border-radius: 50%;
     }
 
@@ -171,12 +171,12 @@
 
     .community__card-title {
       font-weight: 600;
-      margin-top: 0.3rem;
+      margin-top: 1rem;
     }
     .community__card-subtitle {
       font-weight: 300;
       font-size: 0.8rem;
-      transform: translateY(-0.5rem);
+      transform: translateY(-0.7rem);
     }
   }
 

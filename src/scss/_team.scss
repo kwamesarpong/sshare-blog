@@ -1,0 +1,32 @@
+.team {
+  &__officers {
+    background-color: #b0f4ea;
+    min-height: 60vh;
+
+    .community__card-img {
+      height: 12vh;
+    }
+
+    .community__card-title {
+      margin-top: 1rem;
+    }
+
+    .community__card-subtitle {
+      transform: translateY(-0.7rem);
+    }
+
+    &-want {
+      font-weight: 700;
+      color: #029c85;
+    }
+    &-link {
+      font-weight: 700;
+      color: #000;
+
+      &:hover {
+        text-decoration: none;
+        color: #000;
+      }
+    }
+  }
+}

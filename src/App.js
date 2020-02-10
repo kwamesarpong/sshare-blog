@@ -14,6 +14,7 @@ import Careers from "./components/pages/Careers";
 import Legal from "./components/pages/Legal";
 import Menu from "./components/pages/Menu";
 import Partnerships from "./components/pages/Partnerships";
+import Team from "./components/pages/Team";
 
 class App extends Component {
   render() {
@@ -30,6 +31,7 @@ class App extends Component {
             <Route exact path="/legal" component={Legal} />
             <Route exact path="/menu" component={Menu} />
             <Route exact path="/partnerships" component={Partnerships} />
+            <Route exact path="/team" component={Team} />
           </Switch>
         </BrowserRouter>
       </Provider>

@@ -99,26 +99,26 @@ class ContributePost extends Component {
               media platforms ?
             </p>
           </div>
-        </div>
 
-        <div className="e-badge px-4">
-          <div className="community__card">
-            <img
-              src={commPerson}
-              alt="contributor"
-              className="community__card-img"
-            />
-            <p className="community__card-title">
-              Amina Able{" "}
-              <span>
-                <BadgeGrey className="ml-2 img-fluid" />
-              </span>
-            </p>
-            <p className="community__card-subtitle">Ghana</p>
+          <div className="e-badge px-4 py-4">
+            <div className="community__card">
+              <img
+                src={commPerson}
+                alt="contributor"
+                className="community__card-img"
+              />
+              <p className="community__card-title">
+                Amina Able{" "}
+                <span>
+                  <BadgeGrey className="ml-2 img-fluid" />
+                </span>
+              </p>
+              <p className="community__card-subtitle">Ghana</p>
+            </div>
+            <h6 className="heading heading__tertiary-3 pt-4 font-weight-bold">
+              Earn a badge <span className="ml-2">COMPLETE PROFILE</span>
+            </h6>
           </div>
-          <h6 className="heading heading__tertiary-3 pt-4 font-weight-bold">
-            Earn a badge <span className="ml-2">COMPLETE PROFILE</span>
-          </h6>
         </div>
 
         <SharePost text="Share Your Articles" />
