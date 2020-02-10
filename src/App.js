@@ -13,6 +13,7 @@ import Articles from "./components/pages/Articles";
 import Careers from "./components/pages/Careers";
 import Legal from "./components/pages/Legal";
 import Menu from "./components/pages/Menu";
+import Partnerships from "./components/pages/Partnerships";
 
 class App extends Component {
   render() {
@@ -28,6 +29,7 @@ class App extends Component {
             <Route exact path="/careers" component={Careers} />
             <Route exact path="/legal" component={Legal} />
             <Route exact path="/menu" component={Menu} />
+            <Route exact path="/partnerships" component={Partnerships} />
           </Switch>
         </BrowserRouter>
       </Provider>
