@@ -6,8 +6,8 @@ const CommunityCard = ({ name, country, img, message }) => {
       <div className="community__border">
         <div className="community__card">
           <img src={img} alt="contributor" className="community__card-img" />
-          <p className="community__card-1">{name}</p>
-          <p className="community__card-2">{country}</p>
+          <p className="community__card-title">{name}</p>
+          <p className="community__card-subtitle">{country}</p>
         </div>
         <p className="mt-4 community__text">{message}</p>
       </div>

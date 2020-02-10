@@ -3,16 +3,22 @@
     background-color: #b0f4ea;
     min-height: 60vh;
 
-    .community__card-img {
-      height: 12vh;
-    }
+    .community__card {
+      @include respond(phone) {
+        margin-bottom: 3rem;
+      }
 
-    .community__card-title {
-      margin-top: 1rem;
-    }
+      &-img {
+        height: 12vh;
+      }
 
-    .community__card-subtitle {
-      transform: translateY(-0.7rem);
+      &--title {
+        margin-top: 1rem;
+      }
+
+      &-subtitle {
+        transform: translateY(-0.7rem);
+      }
     }
 
     &-want {
