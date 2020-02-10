@@ -10,6 +10,7 @@ import About from "./components/pages/About";
 import Contribute from "./components/pages/Contribute";
 import ContributePost from "./components/pages/ContributePost";
 import Articles from "./components/pages/Articles";
+import Careers from "./components/pages/Careers";
 
 class App extends Component {
   render() {
@@ -22,6 +23,7 @@ class App extends Component {
             <Route exact path="/contribute" component={Contribute} />
             <Route exact path="/contribute-post" component={ContributePost} />
             <Route exact path="/articles" component={Articles} />
+            <Route exact path="/careers" component={Careers} />
           </Switch>
         </BrowserRouter>
       </Provider>

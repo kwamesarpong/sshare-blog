@@ -1,0 +1,19 @@
+.careers {
+  overflow: hidden;
+  p {
+    width: 85%;
+    @include respond(phone) {
+      width: 100%;
+    }
+  }
+
+  &__positions {
+    background-color: #b0f4ea;
+
+    overflow: hidden;
+    &--cv {
+      font-weight: 700;
+      color: #029c85;
+    }
+  }
+}
