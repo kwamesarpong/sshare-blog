@@ -1,0 +1,30 @@
+.menu {
+  &__links {
+    list-style: none;
+    font-size: 2.3rem;
+    margin-bottom: 1rem;
+    @include respond(phone) {
+      font-size: 1.5rem;
+    }
+
+    transition: all 0.2s;
+    a {
+      color: #00b399;
+      text-decoration: none;
+    }
+    &:hover {
+      transform: translateX(1.3rem) scale(1.03);
+    }
+  }
+
+  input {
+    margin-top: 2rem;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: #fff;
+    @include respond(phone) {
+      font-size: 1.2rem;
+    }
+  }
+}
