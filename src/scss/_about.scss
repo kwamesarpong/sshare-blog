@@ -136,8 +136,9 @@
     }
   }
 
-  .img-fluid {
+  .about-img-1 {
     max-width: 50%;
+    height: auto;
   }
 
   p,
@@ -203,4 +204,5 @@
 .learn {
   background-color: #b0f4ea;
   padding: 5rem 0;
+  border-radius: 5px;
 }

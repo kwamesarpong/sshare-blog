@@ -45,14 +45,7 @@ class Contribute extends Component {
           <div className="row">
             <div className="col-md-6">
               {/* // svg image  */}
-              <ContributeImg1 className="img-fluid" />
-
-              {/* jpg image  */}
-              {/* <img
-                src={peopleFlowerImg}
-                alt="people Flower"
-                className="img-fluid"
-              /> */}
+              <ContributeImg1 />
             </div>
             <div className="col-md-6 align-self-end">
               <div className="contribute__header">
@@ -84,7 +77,7 @@ class Contribute extends Component {
           <div className="contribute__section-2 pb-5">
             <div className="row justify-content-center">
               <div className="col-md-6">
-                <ContributeImg2 className="img-fluid" />
+                <ContributeImg2 />
               </div>
             </div>
 
@@ -112,7 +105,7 @@ class Contribute extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-2">
-                <ContributeBadge className="img-fluid py-5" />
+                <ContributeBadge className="contribute__badge-image py-5" />
               </div>
               <div className="col-md-9">
                 <h3 className="heading heading__secondary-2 pt-5">
@@ -143,11 +136,11 @@ class Contribute extends Component {
                   Tell Your Friends About Sistaz Share
                 </p>
               </div>
-              {/* <div className="col-md-2"></div> */}
+
               <div className="col-md-5">
-                <div className="img__last">
-                  <ContributeImg3 className="img-fluid text-center" />
-                </div>
+
+                <ContributeImg3 className="text-center" />
+
               </div>
             </div>
           </div>

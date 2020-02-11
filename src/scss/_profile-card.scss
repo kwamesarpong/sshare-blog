@@ -1,0 +1,53 @@
+.profile {
+  // padding: 5rem 0;
+
+  @include respond(phone) {
+    margin: 0;
+  }
+
+  &__card {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 1.4rem;
+
+    padding-bottom: 1.5rem;
+
+    @include respond(phone) {
+      margin-bottom: 0;
+      padding-bottom: 0 !important;
+    }
+
+    &-img {
+      height: 9vh;
+      grid-row: 1 / span 2;
+      border-radius: 50%;
+
+      // transform: translateY(-1rem);
+      margin-left: 0.5rem;
+
+      // @include respond(phone) {
+      //   max-width: 70%;
+      //   transform: translateY(0);
+      // }
+    }
+
+    &-img1 {
+      max-width: 15%;
+
+      @include respond(phone) {
+        max-width: 10%;
+      }
+    }
+
+    &-title {
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    &-subtitle {
+      font-weight: 300;
+      font-size: 0.8rem;
+      transform: translateY(-1.5rem);
+    }
+  }
+}

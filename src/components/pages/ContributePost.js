@@ -10,6 +10,7 @@ import commPerson from "./../../assets/comm-person.png";
 import Navbar from "./Navbar";
 import SharePost from "../utils/ShareArticle";
 import Golive from "../utils/GoLive";
+import ProfileCard from "../utils/ProfileCard";
 
 class ContributePost extends Component {
   render() {
@@ -60,7 +61,7 @@ class ContributePost extends Component {
                 </Link>
               </div>
 
-              <LoginImg1 className="img-fluid" />
+              <LoginImg1 className="contribute2__img" />
 
               <p className="text-muted text-center pb-5">
                 By clicking “Sign In”, you agree to our{" "}
@@ -100,7 +101,13 @@ class ContributePost extends Component {
             </p>
           </div>
 
-          <div className="e-badge px-4 py-4">
+          <ProfileCard
+            commPerson={commPerson}
+            name="Amina Able"
+            country="Ghana"
+          />
+
+          {/* <div className="e-badge px-4 py-4">
             <div className="community__card">
               <img
                 src={commPerson}
@@ -110,15 +117,12 @@ class ContributePost extends Component {
               <p className="community__card-title">
                 Amina Able{" "}
                 <span>
-                  <BadgeGrey className="ml-2 img-fluid" />
+                  <BadgeGrey className="ml-2 contribute__cont-img" />
                 </span>
               </p>
-              <p className="community__card-subtitle">Ghana</p>
+              <p className="community__card-subtitle pt-2">Ghana</p>
             </div>
-            <h6 className="heading heading__tertiary-3 pt-4 font-weight-bold">
-              Earn a badge <span className="ml-2">COMPLETE PROFILE</span>
-            </h6>
-          </div>
+          </div> */}
         </div>
 
         <SharePost text="Share Your Articles" />

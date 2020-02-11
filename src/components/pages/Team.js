@@ -11,7 +11,7 @@ class Team extends Component {
         <Navbar whitePage={true} />
 
         <div className="container py-5">
-          <h1 className="heading heading__secondary pb-3">Team</h1>
+          <h3 className="heading heading__secondary pb-3">Team</h3>
 
           <p>Sistaz Share was built, owned and managed by</p>
 

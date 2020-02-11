@@ -13,7 +13,7 @@
     padding: 0.7rem 3rem !important;
   }
 
-  .img-fluid {
+  &__img {
     max-width: 35%;
 
     transform: translateY(-8rem);
@@ -54,7 +54,7 @@
     padding: 2rem;
   }
 
-  .img-fluid:last-child {
+  &-img {
     max-width: 2%;
     @include respond(phone) {
       max-width: 9%;

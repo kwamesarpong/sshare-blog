@@ -21,7 +21,7 @@
     @include respond(phone) {
       padding: 0 1rem;
 
-      .img-fluid {
+      &-image {
         max-width: 40%;
         margin: 0 auto;
       }
@@ -56,10 +56,4 @@
     }
   }
 }
-.img__last {
-  @include respond(phone) {
-    .img-fluid {
-      max-width: 100%;
-    }
-  }
-}
+

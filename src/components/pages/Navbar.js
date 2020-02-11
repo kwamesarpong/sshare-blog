@@ -31,7 +31,6 @@ class Navbar extends Component {
               </>
             )}
           </div>
-          {/* <img src={whitePage ? blackLogo : imgLogo } alt="logo" className="img-fluid"/> */}
         </Link>
         <div>
           <ul className="nav navbar-nav ml-auto">

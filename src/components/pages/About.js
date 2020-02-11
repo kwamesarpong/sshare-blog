@@ -33,7 +33,7 @@ class About extends Component {
               <img
                 src={AboutImg}
                 alt="about"
-                className="img-fluid about about__img mt-4"
+                className="about-img-1 about about__img mt-4"
               />
             </div>
           </div>
@@ -90,7 +90,7 @@ class About extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-6 vertical text-right cent">
-                <PhoneImg className="img-fluid" />
+                <PhoneImg className="about-img-1" />
               </div>
               <div className="col-md-6 text-left pad-left mt-4 cent">
                 <h3 className="heading heading__secondary-2 mb-5">
@@ -163,7 +163,7 @@ class About extends Component {
                   </div>
                 </div>
                 <div className="col-md-8">
-                  <About2Img className="img-fluid" />
+                  <About2Img className="about-img" />
                 </div>
               </div>
             </div>
