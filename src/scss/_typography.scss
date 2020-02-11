@@ -50,6 +50,14 @@
   }
 }
 
+.mar-left {
+  margin-left: 8rem;
+
+  @include respond(phone) {
+    margin-left: 4rem;
+  }
+}
+
 .mar-lar {
   margin-right: 15rem;
 
