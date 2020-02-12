@@ -10,7 +10,7 @@ import commPerson from "./../../assets/comm-person.png";
 import Navbar from "./Navbar";
 import SharePost from "../utils/ShareArticle";
 import Golive from "../utils/GoLive";
-import ProfileCard from "../utils/ProfileCard";
+// import ProfileCard from "../utils/ProfileCard";
 
 class ContributePost extends Component {
   render() {

@@ -1,0 +1,60 @@
+.contributor-profile {
+  min-height: 60vh;
+  &__card {
+    margin-bottom: 2rem;
+
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-column-gap: 1.5rem;
+
+    &-img {
+      grid-row: 1 / span 2;
+      height: 18vh;
+      border-radius: 50%;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+
+    &-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-top: 2rem;
+    }
+    &-subtitle {
+      //   font-weight: 300;
+      font-size: 1rem;
+      transform: translateY(-2rem);
+    }
+
+    &-img1 {
+      max-width: 4%;
+    }
+  }
+
+  h5 {
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    span {
+      color: #00b399;
+      font-size: 0.7rem;
+    }
+  }
+
+  &__links > a {
+    font-family: "DM Serif Display", serif;
+    color: #000;
+    font-size: 1.5rem;
+
+    &:hover {
+      text-decoration: none;
+      color: #00b399;
+    }
+  }
+
+  .col-md-9 {
+    border-right: 1px solid #000;
+  }
+}

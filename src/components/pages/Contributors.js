@@ -92,15 +92,12 @@ class Contributors extends Component {
             <div className="col-md-3">
               <ContributorsSvg className="img-fluid pb-5 ml-2" />
               <Link
-                to="/careers"
+                to="/register"
                 className="button button__black mb-3 ml-2 mr-5"
               >
                 JOIN US
               </Link>
-              <Link
-                to="/careers"
-                className="button button__black ml-2 mr-5 mb-5"
-              >
+              <Link to="/share" className="button button__black ml-2 mr-5 mb-5">
                 TELL A FRIEND
               </Link>
             </div>
