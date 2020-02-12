@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 import store from "./store";
 // import Header from "./components/pages/Header";
 import "./scss/main.scss";
+
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Contribute from "./components/pages/Contribute";
