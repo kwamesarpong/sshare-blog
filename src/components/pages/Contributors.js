@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-
+import { Link } from "react-router-dom";
 import Navbar from "./Navbar";
 
-import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
+import { ReactComponent as ContributorsSvg } from "../../assets/SISTAZSHARE-CONTRIBUTE-4.svg";
 
 import commPerson from "./../../assets/comm-person.png";
 import ProfileCard from "../utils/ProfileCard";
@@ -89,7 +89,21 @@ class Contributors extends Component {
               />
             </div>
 
-            <div className="col-md-3"></div>
+            <div className="col-md-3">
+              <ContributorsSvg className="img-fluid pb-5 ml-2" />
+              <Link
+                to="/careers"
+                className="button button__black mb-3 ml-2 mr-5"
+              >
+                JOIN US
+              </Link>
+              <Link
+                to="/careers"
+                className="button button__black ml-2 mr-5 mb-5"
+              >
+                TELL A FRIEND
+              </Link>
+            </div>
           </div>
         </div>
       </div>

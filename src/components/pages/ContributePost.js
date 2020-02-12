@@ -101,13 +101,13 @@ class ContributePost extends Component {
             </p>
           </div>
 
-          <ProfileCard
+          {/* <ProfileCard
             commPerson={commPerson}
             name="Amina Able"
             country="Ghana"
-          />
+          /> */}
 
-          {/* <div className="e-badge px-4 py-4">
+          <div className="e-badge px-4 py-4">
             <div className="community__card">
               <img
                 src={commPerson}
@@ -122,7 +122,7 @@ class ContributePost extends Component {
               </p>
               <p className="community__card-subtitle pt-2">Ghana</p>
             </div>
-          </div> */}
+          </div>
         </div>
 
         <SharePost text="Share Your Articles" />
