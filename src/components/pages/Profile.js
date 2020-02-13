@@ -38,14 +38,15 @@ class Profile extends Component {
                 Earn a badge <span className="ml-3">COMPLETE PROFILE</span>
               </h5>
 
-              <div className="contributor-profile__links pt-5">
+              <div className="contributor-profile__links py-5">
                 <Link className="contributor-profile__mr">Articles</Link>
                 <span className="contributor-profile__mr">●</span>
                 <Link className="contributor-profile__mr">Live</Link>
                 <span className="contributor-profile__mr">●</span>
                 <Link className="">Series</Link>
               </div>
-              <Link className="log-out">Log out</Link>
+              <Link className="text-danger">Log out</Link>
+              <hr />
             </div>
             <div className="col-md-3">
               <h5 className="heading heading__tertiary pt-5 pb-3">
@@ -77,16 +78,20 @@ class Profile extends Component {
                 name="Amina Able"
                 country="Ghana"
               /> */}
-
-              <Link
-                to="/register"
-                className="button button__black mb-3 ml-2 mr-5"
-              >
-                JOIN US
-              </Link>
-              <Link to="/share" className="button button__black ml-2 mr-5 mb-5">
-                TELL A FRIEND
-              </Link>
+              <div>
+                <Link
+                  to="/register"
+                  className="button button__black mt-5 mb-3 ml-5 mr-5"
+                >
+                  JOIN US
+                </Link>
+                <Link
+                  to="/share"
+                  className="button button__black ml-5 mr-5 mb-5"
+                >
+                  TELL A FRIEND
+                </Link>
+              </div>
             </div>
           </div>
         </div>

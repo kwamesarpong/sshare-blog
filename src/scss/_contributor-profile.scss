@@ -74,8 +74,13 @@
 
   .col-md-9 {
     border-right: 1px solid #000;
+    hr {
+      display: none;
+      @include respond(phone) {
+        display: block;
+      }
+    }
     @include respond(phone) {
-      border-bottom: 1px solid #000;
       border-right: 0;
     }
   }
