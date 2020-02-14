@@ -17,7 +17,7 @@ class Contributors extends Component {
             type="text"
             name="search"
             id="search"
-            placeholder="Search ..."
+            placeholder="Search People ..."
             className="mb-5"
           />
 

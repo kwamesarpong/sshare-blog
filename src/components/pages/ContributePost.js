@@ -122,6 +122,9 @@ class ContributePost extends Component {
               </p>
               <p className="community__card-subtitle pt-2">Ghana</p>
             </div>
+            <h5 className="heading heading__tertiary-3 mt-3">
+              Earn a badge <span className="ml-3">COMPLETE PROFILE</span>
+            </h5>
           </div>
         </div>
 

@@ -19,6 +19,7 @@ import Team from "./components/pages/Team";
 import TellAFriend from "./components/pages/TellAFriend";
 import Contributors from "./components/pages/Contributors";
 import Profile from "./components/pages/Profile";
+import Series from "./components/pages/Series";
 
 class App extends Component {
   render() {
@@ -39,6 +40,7 @@ class App extends Component {
             <Route exact path="/tell-a-friend" component={TellAFriend} />
             <Route exact path="/contributors" component={Contributors} />
             <Route exact path="/profile" component={Profile} />
+            <Route exact path="/series" component={Series} />
           </Switch>
         </BrowserRouter>
       </Provider>

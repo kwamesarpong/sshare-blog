@@ -1,18 +1,48 @@
 import React from "react";
+import { Link } from "react-router-dom";
+// import Series from "../pages/Series";
 
-import backgroundImg from "./../../assets/Picture 30.png";
-import backgroundImg2 from "./../../assets/Picture 2.png";
-const ArticlesCardLarge = ({ title, author, post, time, category }) => {
+const ArticlesCardLarge = ({
+  title,
+  author,
+  post,
+  time,
+  category,
+  img1,
+  img2,
+  series,
+  seriesTitle,
+  seriesAuthor,
+  seriesPost
+}) => {
   return (
     // <div className="large">
     <div className="col-md-9">
       <div className="articles__large">
-        <img src={backgroundImg} alt={title} className="img-fluid" />
+        <img src={img1} alt={title} className="img-fluid" />
         <h4 className="pb-1 pt-4">{title}</h4>
         <h6>{author}</h6>
         <hr />
         <p className="pb-5">{post}</p>
-        <p className="text-muted pb-5">
+        {series ? (
+          <div>
+            <h5 className="pb-1 pt-4">{seriesTitle}</h5>
+            <h6>{seriesAuthor}</h6>
+            <p className="pb-5">{seriesPost}</p>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        {series ? (
+          <div>
+            <h5 className="pb-1 pt-4">{seriesTitle}</h5>
+            <h6>{seriesAuthor}</h6>
+            <p className="pb-5">{seriesPost}</p>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <small className="text-muted pb-5">
           {`${time} minutes read`}
 
           <span className="ml-5 icons">
@@ -32,11 +62,25 @@ const ArticlesCardLarge = ({ title, author, post, time, category }) => {
               <i className="fas fa-link mr-3 icons icons__link"></i>{" "}
             </a>
           </span>
-        </p>
+        </small>
 
-        <h3 className="heading heading__tertiary-3 pb-4">{category}</h3>
+        {img2 ? (
+          <>
+            <h3 className="heading heading__tertiary-3 py-5">{category}</h3>
+            <img src={img2} alt={title} className="img-fluid pb-5" />
+          </>
+        ) : (
+          <div></div>
+        )}
 
-        <img src={backgroundImg2} alt={title} className="img-fluid pb-5" />
+        {series ? (
+          <div className=" articles__link">
+            <Link>EXPLORE NEXT</Link>
+            <i className="fas fa-caret-right ml-3"></i>
+          </div>
+        ) : (
+          <div></div>
+        )}
       </div>
     </div>
   );

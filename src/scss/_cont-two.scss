@@ -26,6 +26,8 @@
 
   p:last-child {
     font-weight: 600;
+    font-size: 0.7rem;
+
     @include respond(phone) {
       font-size: 0.7rem;
     }
@@ -101,7 +103,12 @@
     }
 
     label {
+      display: inline-block;
+      width: 70%;
       color: #00b399;
+      padding-bottom: 1.3rem;
+      border-bottom: 1px solid #e7e7e7;
+      cursor: pointer;
     }
 
     .social__label {

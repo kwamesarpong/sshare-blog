@@ -3,6 +3,9 @@ import Navbar from "./Navbar";
 import ArticlesCardLarge from "../utils/ArticlesCardLarge";
 import ArticlesCardSmall from "../utils/ArticlesCardSmall";
 
+import backgroundImg from "../../assets/Picture 30.png";
+import backgroundImg2 from "../../assets/Picture 2.png";
+
 class Articles extends Component {
   state = {
     title: "Congruent",
@@ -30,6 +33,8 @@ class Articles extends Component {
               post={post}
               time={time}
               category={category}
+              img1={backgroundImg}
+              img2={backgroundImg2}
             />
             <ArticlesCardSmall />
           </div>

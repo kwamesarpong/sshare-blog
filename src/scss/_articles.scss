@@ -6,6 +6,10 @@
       letter-spacing: 3px;
       font-size: 1.3rem;
     }
+    h5 {
+      font-weight: 700;
+      font-size: 1.3rem;
+    }
 
     h3 {
       color: #00b399;
@@ -17,10 +21,10 @@
       letter-spacing: 1px;
     }
 
-    p:last-child {
-      font-size: 0.7rem;
-      font-weight: 600;
-    }
+    // p:last-child {
+    //   font-size: 0.7rem;
+    //   font-weight: 600;
+    // }
 
     word-spacing: 2px;
     line-height: 1.7;
@@ -43,5 +47,13 @@
       font-size: 0.7rem;
       font-weight: 700;
     }
+  }
+
+  &__link > a,
+  &__link {
+    color: #00b399;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin: 7rem 0;
   }
 }
