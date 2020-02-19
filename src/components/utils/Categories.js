@@ -3,82 +3,7 @@ import Category from "./Category";
 // import CategoryItem from "./CategoryItem";
 
 class Categories extends Component {
-  state = {
-    cats: [
-      {
-        MindAndBody: [
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          }
-        ]
-      },
-      {
-        Education: [
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          }
-        ]
-      },
-      {
-        Finance: [
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          },
-          {
-            title: "The secret Treat",
-            author: "Amber Nicole",
-            imgUrl: "some image"
-          }
-        ]
-      }
-    ]
-  };
+  state = {};
 
   // after we get products from db
   // componentDidMount() {
@@ -87,29 +12,20 @@ class Categories extends Component {
   // }
 
   render() {
-    const { cats } = this.state;
-
-    // let showCats;
-
-    // if (cats === null) {
-    //   showCats = <div>Loading</div>; // TODO: Show spinner
-    // } else {
-    //   showCats = <Category categories={cats} />;
-    // }
+    console.log(this.props.categories);
 
     return (
       <div>
-        {!cats ? (
+        {!this.props.categories ? (
           <div>Loading</div> // TODO: Show spinner
         ) : (
-          <Category categories={cats} />
+          <Category categories={this.props.categories} />
           //   cats.map((categories, index) => (
           //     <div>
           //       <Category key={index} categories={categories} />
           //     </div>
           //   ))
         )}
-        {/* <div>{showCats}</div> */}
       </div>
     );
   }

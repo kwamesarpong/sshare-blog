@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 
+import backgroundImg2 from "../../assets/Picture 2.png";
+
 class CategoryItem extends Component {
   state = {
     list: []
@@ -12,7 +14,17 @@ class CategoryItem extends Component {
     //   console.log(categoryItem[key]);
     // }
 
-    return <div></div>;
+    return (
+      <div>
+        <div className="col-md-4">
+          <img src={backgroundImg2} alt="body and mind" className="img-fluid" />
+        </div>
+        <div className="col-md-2">
+          <h5 className="heading heading__tertiary-3">The Secret Treat</h5>
+          <p>AMBER NICOLE</p>
+        </div>
+      </div>
+    );
   }
 }
 
