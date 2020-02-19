@@ -1,13 +1,6 @@
 import axios from "axios";
 import { FETCH_CATEGORIES } from "./types";
 
-// "lovesexrelationships"
-// "motivationinspiration"
-// "money"
-// "feminism"
-// "lifestyleculture"
-// "news"
-
 axios.defaults.headers.common["Devless-token"] =
   "ecdc2527d340c7ecc4056cc1db6f6a51";
 
@@ -44,20 +37,11 @@ export const fetchCategories = () => async dispatch => {
       axios.get(URLS.news)
     ]);
 
-    console.log(res);
-
     const categories = res.map(category => {
       return category.data.payload.results;
     });
 
-    console.log(categories);
-
-    // const categories = res.data.payload.results;
-
-    // console.log(res.data.payload.results);
-
-    // const categories = res.data.payload.
-    // dispatch({ type: FETCH_CATEGORIES, payload: categories });
+    dispatch({ type: FETCH_CATEGORIES, payload: categories });
   } catch (error) {
     console.log(error);
   }

@@ -2,27 +2,40 @@ import React, { Component } from "react";
 import CategoryItem from "./CategoryItem";
 
 class Category extends Component {
+  getFirstHalf = () => {
+    const firstHalfArr = this.props.categories.filter((cat, index) => {
+      if (index !== 0 && index !== 1) return cat;
+    });
+
+    return firstHalfArr;
+  };
+  getSecondHalf = () => {
+    const secondHalfArr = this.props.categories.filter((cat, index) => {
+      if (index !== 2 && index !== 3) return cat;
+    });
+
+    return secondHalfArr;
+  };
+
   render() {
-    const { categories } = this.props;
+    // const { categories } = this.props;
 
-    // const firstCat = categories.splice(0, 1);
-    // const secCat = categories.splice(1);
-
-    // console.log(firstCat);
-    // console.log(secCat);
-
-    console.log(categories);
+    // console.log(this.getFirstHalf());
+    // console.log(this.getSecondHalf());
 
     return (
       <div>
-        <h3 className="heading heading__secondary-2">Category Name</h3>
         <div className="row">
-          <div className="col-md-6">
-            {categories.map((categoryItem, index) => (
+          <div className="col-md-6 mb-4">
+            {this.getFirstHalf().map((categoryItem, index) => (
               <CategoryItem key={index} categoryItem={categoryItem} />
             ))}
           </div>
-          <div className="col-md-6"></div>
+          <div className="col-md-6">
+            {this.getSecondHalf().map((categoryItem, index) => (
+              <CategoryItem key={index} categoryItem={categoryItem} />
+            ))}
+          </div>
         </div>
       </div>
     );

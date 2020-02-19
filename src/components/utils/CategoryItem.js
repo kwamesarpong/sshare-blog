@@ -7,21 +7,22 @@ class CategoryItem extends Component {
     list: []
   };
   render() {
-    const { categoryItem } = this.props;
-
-    // for (let key in categoryItem) {
-    //   console.log(key);
-    //   console.log(categoryItem[key]);
-    // }
+    const { author, category, title } = this.props.categoryItem;
 
     return (
       <div>
-        <div className="col-md-4">
-          <img src={backgroundImg2} alt="body and mind" className="img-fluid" />
-        </div>
-        <div className="col-md-2">
-          <h5 className="heading heading__tertiary-3">The Secret Treat</h5>
-          <p>AMBER NICOLE</p>
+        <div className="row  mb-5">
+          <div className="col-md-8">
+            <img
+              src={backgroundImg2}
+              alt="body and mind"
+              className="img-fluid"
+            />
+          </div>
+          <div className="col-md-4">
+            <h5 className="font-weight-bold">{title}</h5>
+            <p>{author}</p>
+          </div>
         </div>
       </div>
     );

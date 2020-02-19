@@ -11,7 +11,7 @@ export default function(state = initialState, action) {
     case FETCH_CATEGORIES:
       return {
         ...state,
-        categories: action.payload
+        categories: payload
       };
     default:
       return state;
