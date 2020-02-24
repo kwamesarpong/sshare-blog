@@ -22,8 +22,8 @@ const URLS = {
 };
 
 export const fetchCategories = () => async dispatch => {
-  axios.defaults.headers.common["Devless-token"] =
-    "ecdc2527d340c7ecc4056cc1db6f6a51";
+  // axios.defaults.headers.common["Devless-token"] =
+  //   "ecdc2527d340c7ecc4056cc1db6f6a51";
 
   try {
     // const res = await axios.get(mindBodyUrl);

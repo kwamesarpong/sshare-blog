@@ -43,7 +43,6 @@ class Home extends Component {
               <Categories categories={category} />
             </div>
           ))}
-          {/* <Categories categories={mindBody} /> */}
         </div>
       </div>
     );

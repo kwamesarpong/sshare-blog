@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { fetchArticle } from "../../actions/ArticlesAction";
+
 import Navbar from "./Navbar";
 import ArticlesCardLarge from "../utils/ArticlesCardLarge";
 import ArticlesCardSmall from "../utils/ArticlesCardSmall";
@@ -19,8 +22,22 @@ class Articles extends Component {
         savvy patterns that make up the complexities other life. Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities of her life. We introduce you to a
         digital sphere of telling the timeless chronicles of women’s lives, in real time. Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities other life`
   };
+
+  componentDidMount() {
+    const { id } = this.props.match.params;
+    console.log(id);
+
+    this.props.fetchArticle(id);
+
+    // console.log(this.props);
+  }
+
   render() {
     const { title, author, post, time, category } = this.state;
+    const { article } = this.props;
+
+    console.log(article.articles);
+
     return (
       <div className="articles">
         <Navbar whitePage={true} />
@@ -44,4 +61,10 @@ class Articles extends Component {
   }
 }
 
-export default Articles;
+const mapStateToProps = state => {
+  return {
+    article: state.articles
+  };
+};
+
+export default connect(mapStateToProps, { fetchArticle })(Articles);
