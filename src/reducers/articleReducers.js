@@ -7,7 +7,6 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case FETCH_ARTICLE:
-      console.log(payload);
       return {
         ...state,
         articles: payload

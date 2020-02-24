@@ -25,18 +25,24 @@ class Articles extends Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
-    console.log(id);
 
     this.props.fetchArticle(id);
-
-    // console.log(this.props);
   }
 
   render() {
     const { title, author, post, time, category } = this.state;
-    const { article } = this.props;
+    // const { post, time } = this.state;
+    // const { id, title, author, category } = this.props.article.articles;
 
-    console.log(article.articles);
+    console.log(this.props.article.devless_user_id);
+
+    // const { id } = this.props.article;
+
+    // const { articles } = this.props.article;
+
+    // console.log(id, title, author, category);
+
+    // const { author, title, category } = articles;
 
     return (
       <div className="articles">
@@ -63,7 +69,7 @@ class Articles extends Component {
 
 const mapStateToProps = state => {
   return {
-    article: state.articles
+    article: state.articles.articles
   };
 };
 
