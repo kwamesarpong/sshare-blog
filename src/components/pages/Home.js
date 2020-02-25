@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { getCategoriesTitle } from "../utils/utilsfunctions";
+
 import { fetchCategories } from "../../actions/categoriesAction";
 
 import Categories from "../utils/Categories";
@@ -10,23 +12,6 @@ class Home extends Component {
   componentDidMount() {
     this.props.fetchCategories();
   }
-
-  getCategoryTitle = categories => {
-    const categoryNames = categories.map(category => {
-      if (category.category === "lovesexrelationships")
-        return "Love ●  Sex ●  Relationships";
-      if (category.category === "motivationinspiration")
-        return "Motivation ●  Inspiration";
-      if (category.category === "money") return "Money";
-      if (category.category === "feminism") return "Feminism";
-      if (category.category === "lifestyleculture")
-        return "Lifestyle ●  Culture";
-      if (category.category === "news") return "News";
-      if (category.category === "mindnbody") return "Mind ● And ● Body";
-    });
-
-    return categoryNames[0];
-  };
 
   render() {
     const { categories } = this.props;
@@ -38,7 +23,8 @@ class Home extends Component {
           {categories.map((category, index) => (
             <div key={index}>
               <h5 className="heading heading__tertiary-2 my-5 text-uppercase">
-                {this.getCategoryTitle(category)}
+                {getCategoriesTitle(category)}
+                {/* {this.getCategoryTitle(category)} */}
               </h5>
               <Categories categories={category} />
             </div>

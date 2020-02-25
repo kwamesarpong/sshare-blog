@@ -8,7 +8,7 @@ class CategoryItem extends Component {
   render() {
     const { author, category, title, id } = this.props.categoryItem;
 
-    console.log(this.props.categoryItem);
+    // console.log(this.props.categoryItem);
 
     return (
       <div>

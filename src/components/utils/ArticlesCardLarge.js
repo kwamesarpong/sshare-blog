@@ -23,7 +23,8 @@ const ArticlesCardLarge = ({
         <h4 className="pb-1 pt-4">{title}</h4>
         <h6>{author}</h6>
         <hr />
-        <p className="pb-5">{post}</p>
+        {/* <p className="pb-5">{post}</p> */}
+        <div dangerouslySetInnerHTML={{ __html: post }}></div>
         {series ? (
           <div>
             <h5 className="pb-1 pt-4">{seriesTitle}</h5>
@@ -66,7 +67,9 @@ const ArticlesCardLarge = ({
 
         {img2 ? (
           <>
-            <h3 className="heading heading__tertiary-3 py-5">{category}</h3>
+            <h3 className="heading heading__tertiary py-5">
+              More from {category}
+            </h3>
             <img src={img2} alt={title} className="img-fluid pb-5" />
           </>
         ) : (

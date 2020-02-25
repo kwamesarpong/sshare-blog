@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+
+import { getCategoryTitle } from "../utils/utilsfunctions";
+
 import { fetchArticle } from "../../actions/ArticlesAction";
 
 import Navbar from "./Navbar";
@@ -30,19 +33,18 @@ class Articles extends Component {
   }
 
   render() {
-    const { title, author, post, time, category } = this.state;
-    // const { post, time } = this.state;
+    // const { title, author, post, time, category } = this.state;
+    const { post, time } = this.state;
     // const { id, title, author, category } = this.props.article.articles;
 
-    console.log(this.props.article.devless_user_id);
+    const { article } = this.props;
 
-    // const { id } = this.props.article;
-
-    // const { articles } = this.props.article;
-
-    // console.log(id, title, author, category);
-
-    // const { author, title, category } = articles;
+    if (!article) {
+      console.log("loading");
+    } else {
+      console.log(article);
+      // console.log(article.author, article.category, article.title);
+    }
 
     return (
       <div className="articles">
@@ -50,15 +52,22 @@ class Articles extends Component {
 
         <div className="container pt-5">
           <div className="row">
-            <ArticlesCardLarge
-              title={title}
-              author={author}
-              post={post}
-              time={time}
-              category={category}
-              img1={backgroundImg}
-              img2={backgroundImg2}
-            />
+            {article ? (
+              <ArticlesCardLarge
+                title={article.title}
+                author={article.author}
+                post={article.blog_story}
+                // post={post}
+                time={time}
+                category={getCategoryTitle(article.category)}
+                // { article.img_url : }
+                // img1={article.img_url} for when we getting actual images
+                img1={backgroundImg}
+                img2={backgroundImg2}
+              />
+            ) : (
+              <div>Loading...</div> //todo: add spinner
+            )}
             <ArticlesCardSmall />
           </div>
         </div>
