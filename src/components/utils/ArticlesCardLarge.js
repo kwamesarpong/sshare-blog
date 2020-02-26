@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
+import readingTime from "reading-time";
 // import Series from "../pages/Series";
 
 const ArticlesCardLarge = ({
@@ -15,6 +17,8 @@ const ArticlesCardLarge = ({
   seriesAuthor,
   seriesPost
 }) => {
+  const estimatedTime = readingTime(post);
+
   return (
     // <div className="large">
     <div className="col-md-9">
@@ -44,7 +48,8 @@ const ArticlesCardLarge = ({
           <div></div>
         )}
         <small className="text-muted pb-5">
-          {`${time} minutes read`}
+          {estimatedTime.text}
+          {/* {`${estimatedTime} minutes read`} */}
 
           <span className="ml-5 icons">
             <a href="" target="_blank" rel="noopener noreferrer">
