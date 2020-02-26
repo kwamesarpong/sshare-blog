@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import readingTime from "reading-time";
+
 import { getCategoryTitle } from "../utils/utilsfunctions";
 
 import { fetchArticle } from "../../actions/ArticlesAction";
+import { fetchCategories } from "../../actions/categoriesAction";
 
 import Navbar from "./Navbar";
 import ArticlesCardLarge from "../utils/ArticlesCardLarge";
@@ -13,38 +16,39 @@ import backgroundImg from "../../assets/Picture 30.png";
 import backgroundImg2 from "../../assets/Picture 2.png";
 
 class Articles extends Component {
-  state = {
-    title: "Congruent",
-    author: "TARSHA ALBRIGHT",
-    time: 5,
-    category: "MORE FROM MIND ∙ BODY",
-    post: `Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the
-        complexities of her life. We introduce you to a digital sphere of telling the timeless chronicles of women’s lives, in real time.
-        Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities of her life. We introduce you to a digital sphere of telling the timeless chronicles of
-        women’s lives, in real time. Sistaz Share spotlights the everyday modern woman, narrating the
-        savvy patterns that make up the complexities other life. Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities of her life. We introduce you to a
-        digital sphere of telling the timeless chronicles of women’s lives, in real time. Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities other life`
-  };
+  // state = {
+  //   title: "Congruent",
+  //   author: "TARSHA ALBRIGHT",
+  //   time: 5,
+  //   category: "MORE FROM MIND ∙ BODY",
+  //   post: `Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the
+  //       complexities of her life. We introduce you to a digital sphere of telling the timeless chronicles of women’s lives, in real time.
+  //       Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities of her life. We introduce you to a digital sphere of telling the timeless chronicles of
+  //       women’s lives, in real time. Sistaz Share spotlights the everyday modern woman, narrating the
+  //       savvy patterns that make up the complexities other life. Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities of her life. We introduce you to a
+  //       digital sphere of telling the timeless chronicles of women’s lives, in real time. Sistaz Share spotlights the everyday modern woman, narrating the savvy patterns that make up the complexities other life`
+  // };
 
   componentDidMount() {
     const { id } = this.props.match.params;
 
     this.props.fetchArticle(id);
+    this.props.fetchCategories();
   }
 
   render() {
-    // const { title, author, post, time, category } = this.state;
-    const { post, time } = this.state;
-    // const { id, title, author, category } = this.props.article.articles;
+    const { article, categories } = this.props;
 
-    const { article } = this.props;
+    const sideCategories = categories.map(cat => cat[0]);
 
-    if (!article) {
-      console.log("loading");
-    } else {
-      console.log(article);
-      // console.log(article.author, article.category, article.title);
-    }
+    console.log(sideCategories);
+
+    // if (!article) {
+    //   console.log("loading");
+    // } else {
+    //   console.log(article);
+    //   // console.log(article.author, article.category, article.title);
+    // }
 
     return (
       <div className="articles">
@@ -58,17 +62,17 @@ class Articles extends Component {
                 author={article.author}
                 post={article.blog_story}
                 // post={post}
-                time={time}
+                time={readingTime(article.blog_story).text}
                 category={getCategoryTitle(article.category)}
                 // { article.img_url : }
                 // img1={article.img_url} for when we getting actual images
                 img1={backgroundImg}
                 img2={backgroundImg2}
               />
-            ) : (
-              <div>Loading...</div> //todo: add spinner
-            )}
-            <ArticlesCardSmall />
+            ) : null}
+            {sideCategories ? (
+              <ArticlesCardSmall sideCategories={sideCategories} />
+            ) : null}
           </div>
         </div>
       </div>
@@ -78,8 +82,11 @@ class Articles extends Component {
 
 const mapStateToProps = state => {
   return {
-    article: state.articles.articles
+    article: state.articles.articles,
+    categories: state.categories.categories
   };
 };
 
-export default connect(mapStateToProps, { fetchArticle })(Articles);
+export default connect(mapStateToProps, { fetchArticle, fetchCategories })(
+  Articles
+);
