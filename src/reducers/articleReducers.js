@@ -1,4 +1,4 @@
-import { FETCH_ARTICLE } from "../actions/types";
+import { FETCH_ARTICLE, FETCH_AUTHOR_ARTICLES } from "../actions/types";
 
 const initialState = {};
 
@@ -7,6 +7,11 @@ export default function(state = initialState, action) {
 
   switch (type) {
     case FETCH_ARTICLE:
+      return {
+        ...state,
+        article: payload
+      };
+    case FETCH_AUTHOR_ARTICLES:
       return {
         ...state,
         articles: payload

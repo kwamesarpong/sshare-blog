@@ -20,6 +20,7 @@ import TellAFriend from "./components/pages/TellAFriend";
 import Contributors from "./components/pages/Contributors";
 import Profile from "./components/pages/Profile";
 import Series from "./components/pages/Series";
+import ArticlesPage from "./components/pages/ArticlesPage";
 
 class App extends Component {
   render() {
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/contribute" component={Contribute} />
             <Route exact path="/contribute-post" component={ContributePost} />
+            <Route exact path="/articles" component={ArticlesPage} />
             <Route exact path="/articles/:id" component={Articles} />
             <Route exact path="/careers" component={Careers} />
             <Route exact path="/legal" component={Legal} />

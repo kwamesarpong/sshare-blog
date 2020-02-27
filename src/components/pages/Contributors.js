@@ -23,11 +23,14 @@ class Contributors extends Component {
 
           <div className="row">
             <div className="col-md-3">
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
+              <Link to="/articles">
+                <ProfileCard
+                  commPerson={commPerson}
+                  name="Amina Able"
+                  country="Ghana"
+                />
+              </Link>
+
               <ProfileCard
                 commPerson={commPerson}
                 name="Amina Able"

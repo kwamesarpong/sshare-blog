@@ -82,7 +82,7 @@ class Articles extends Component {
 
 const mapStateToProps = state => {
   return {
-    article: state.articles.articles,
+    article: state.articles.article,
     categories: state.categories.categories
   };
 };

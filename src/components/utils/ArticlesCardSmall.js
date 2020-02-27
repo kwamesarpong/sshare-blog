@@ -2,10 +2,10 @@ import React from "react";
 import ArticlesCardImg from "./ArticlesCardImg";
 
 import cardImg1 from "../../assets/mind-and-body.png";
-import cardImg2 from "../../assets/motivation.png";
-import cardImg3 from "../../assets/Picture 15.png";
-import cardImg4 from "../../assets/Picture 19.png";
-import cardImg5 from "../../assets/Picture 24.png";
+// import cardImg2 from "../../assets/motivation.png";
+// import cardImg3 from "../../assets/Picture 15.png";
+// import cardImg4 from "../../assets/Picture 19.png";
+// import cardImg5 from "../../assets/Picture 24.png";
 import { getCategoryTitle } from "./utilsfunctions";
 
 const ArticlesCardSmall = ({ sideCategories }) => {
