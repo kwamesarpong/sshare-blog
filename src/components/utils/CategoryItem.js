@@ -11,17 +11,17 @@ class CategoryItem extends Component {
     // console.log(this.props.categoryItem);
 
     return (
-      <div>
-        <Link to={`/articles/${id}`}>
+      <div className="categories__item">
+        <Link to={`/articles/${id}`} className="categories__item-link">
           <div className="row  mb-5">
-            <div className="col-md-8">
+            <div className="col-md-7">
               <img
                 src={backgroundImg2}
                 alt="body and mind"
                 className="img-fluid"
               />
             </div>
-            <div className="col-md-4">
+            <div className="col-md-5">
               <h5 className="font-weight-bold">{title}</h5>
               <p>{author}</p>
             </div>

@@ -11,4 +11,33 @@
   hr {
     border-top: 1px solid #00b399;
   }
+
+  &__item {
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: #000 !important;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: #666 !important;
+    }
+  }
+
+  // &__item {
+  //   &-link:link,
+  //   // &-link:hover,
+  //   &-link:visited,
+  //   &-link:active {
+  //     text-decoration: none;
+  //     color: #000 !important;
+  //   }
+  //   &-link:hover {
+  //     text-decoration: none;
+  //     color: rgb(43, 42, 42) !important;
+  //   }
+
+  // }
 }

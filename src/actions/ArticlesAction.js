@@ -19,7 +19,7 @@ export const fetchArticle = articleId => async dispatch => {
 };
 
 export const fetchAuthorArticles = authorId => async dispatch => {
-  const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${"Amber Nicole"}`;
+  const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${"First Choice"}`;
 
   try {
     const res = await axios.get(url);

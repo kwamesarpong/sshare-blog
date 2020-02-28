@@ -21,8 +21,8 @@ class ArticlesPage extends Component {
         <Navbar whitePage={true} />
         <div className="container py-5">
           {articles ? (
-            <h2 className="heading heading__secondary-2">
-              Articles from {articles[0].author}
+            <h2 className="heading heading__secondary-2 pb-5">
+              Articles from <span className="ml-3"> {articles[0].author} </span>
             </h2>
           ) : null}
           <div>{articles ? <Categories categories={articles} /> : null}</div>
