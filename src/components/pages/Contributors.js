@@ -1,17 +1,53 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Navbar from "./Navbar";
+import { connect } from "react-redux";
 
-import { ReactComponent as ContributorsSvg } from "../../assets/SISTAZSHARE-CONTRIBUTE-4.svg";
+import Navbar from "./Navbar";
+import { fetchAuthors } from "../../actions/AuthorAction";
+
+// import { ReactComponent as ContributorsSvg } from "../../assets/SISTAZSHARE-CONTRIBUTE-4.svg";
 
 import commPerson from "./../../assets/comm-person.png";
 import ProfileCard from "../utils/ProfileCard";
 
 class Contributors extends Component {
+  componentDidMount() {
+    this.props.fetchAuthors();
+  }
+
+  renderContributors = authors => {
+    // array of N elements, where N is the number of rows needed
+    const rows = [...Array(Math.ceil(authors.length / 4))];
+
+    // chunk the products into the array of rows
+    const authorRows = rows.map((row, index) =>
+      authors.slice(index * 4, index * 4 + 4)
+    );
+
+    // map the rows as div.row
+    const content = authorRows.map((row, index) => (
+      <Link to="/articles" className="row" key={index}>
+        {row.map(author => (
+          <ProfileCard
+            className="col-md-3"
+            key={author.id}
+            commPerson={commPerson}
+            name="Amina Able"
+            country="Ghana"
+          />
+        ))}
+      </Link>
+    ));
+
+    return <div>{content}</div>;
+  };
+
   render() {
+    const { authors } = this.props;
     return (
       <div className="contributors">
         <Navbar whitePage={true} />
+
         <div className="container">
           <input
             type="text"
@@ -21,78 +57,9 @@ class Contributors extends Component {
             className="mb-5"
           />
 
-          <div className="row">
-            <div className="col-md-3">
-              <Link to="/articles">
-                <ProfileCard
-                  commPerson={commPerson}
-                  name="Amina Able"
-                  country="Ghana"
-                />
-              </Link>
+          {authors ? this.renderContributors(authors) : null}
 
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-            </div>
-            <div className="col-md-3">
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-            </div>
-            <div className="col-md-3">
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-            </div>
-
-            <div className="col-md-3">
+          {/* <div className="col-md-3">
               <ContributorsSvg className="img-fluid pb-5 ml-2" />
               <Link
                 to="/register"
@@ -104,11 +71,17 @@ class Contributors extends Component {
                 TELL A FRIEND
               </Link>
             </div>
-          </div>
+          </div>  */}
         </div>
       </div>
     );
   }
 }
 
-export default Contributors;
+const mapStateToProps = state => {
+  return {
+    authors: state.authors.authors
+  };
+};
+
+export default connect(mapStateToProps, { fetchAuthors })(Contributors);
