@@ -32,7 +32,11 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/contribute" component={Contribute} />
             <Route exact path="/contribute-post" component={ContributePost} />
-            <Route exact path="/articles" component={ArticlesPage} />
+            <Route
+              exact
+              path="/contributors-articles/:id"
+              component={ArticlesPage}
+            />
             <Route exact path="/articles/:id" component={Articles} />
             <Route exact path="/careers" component={Careers} />
             <Route exact path="/legal" component={Legal} />
