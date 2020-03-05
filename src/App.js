@@ -32,11 +32,8 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/contribute" component={Contribute} />
             <Route exact path="/contribute-post" component={ContributePost} />
-            <Route
-              exact
-              path="/contributors-articles/:id"
-              component={ArticlesPage}
-            />
+            <Route exact path="/contributor/:id" component={ArticlesPage} />
+            {/* <Route exact path="/contributors/:id" component={ArticlesPage} /> what i will use */}
             <Route exact path="/articles/:id" component={Articles} />
             <Route exact path="/careers" component={Careers} />
             <Route exact path="/legal" component={Legal} />
