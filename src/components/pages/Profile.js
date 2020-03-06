@@ -12,6 +12,8 @@ import RadioBtn from "../utils/RadioBtn";
 
 class Profile extends Component {
   render() {
+    console.log(this.props.author);
+
     return (
       <div className="contributor-profile">
         <Navbar whitePage={true} />

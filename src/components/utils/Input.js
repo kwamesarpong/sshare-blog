@@ -2,9 +2,9 @@ import React from "react";
 
 const Input = ({ name, label, type }) => {
   return (
-    <div class="form-group">
-      <label for={`${name}`}>{label}</label>
-      <input type={type} class="form-control" id={`${name}`} />
+    <div className="form-group">
+      <label htmlFor={`${name}`}>{label}</label>
+      <input type={type} className="form-control" id={`${name}`} />
     </div>
   );
 };

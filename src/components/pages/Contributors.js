@@ -65,7 +65,9 @@ class Contributors extends Component {
                           className="col-md-4"
                           key={author.id}
                           onClick={() =>
-                            this.props.history.push(`/contributor/${author.id}`)
+                            this.props.history.push(
+                              `/contributors/${author.id}`
+                            )
                           }
                         >
                           <ProfileCard
@@ -85,8 +87,6 @@ class Contributors extends Component {
                   : null}
               </div>
             </div>
-
-            {/* {authors ? this.renderContributors(authors) : null} */}
 
             <div className="col-md-3">
               <ContributorsSvg className="img-fluid pb-5 ml-2" />

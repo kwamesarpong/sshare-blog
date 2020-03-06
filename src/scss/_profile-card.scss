@@ -1,20 +1,6 @@
 .profile {
-  // padding: 5rem 0;
   color: #000;
-
-  // &__item {
-  //   a:link,
-  //   a:visited,
-  //   a:active {
-  //     text-decoration: none;
-  //     color: #000 !important;
-  //   }
-
-  //   a:hover {
-  //     text-decoration: none;
-  //     color: #666 !important;
-  //   }
-  // }
+  cursor: pointer;
 
   @include respond(phone) {
     margin: 0;
@@ -26,7 +12,7 @@
     grid-column-gap: 1.4rem;
 
     padding-bottom: 1.5rem;
-    margin: 0 2rem;
+    // margin: 0 2rem;
 
     &:hover {
       text-decoration: none;
@@ -39,7 +25,7 @@
     }
 
     &-img {
-      height: 9vh;
+      height: 10vh;
       grid-row: 1 / span 2;
       border-radius: 50%;
 
