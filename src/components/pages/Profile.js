@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { Radio } from "pretty-checkbox-react";
+import { connect } from "react-redux";
 
+import { fetchAuthor } from "../../actions/AuthorAction";
 import Navbar from "./Navbar";
 
 import ProfileCard from "../utils/ProfileCard";
@@ -11,8 +12,15 @@ import Input from "../utils/Input";
 import RadioBtn from "../utils/RadioBtn";
 
 class Profile extends Component {
+  componentDidMount() {
+    const { id } = this.props.match.params;
+
+    this.props.fetchAuthor(id);
+  }
   render() {
-    console.log(this.props.author);
+    // console.log(this.props.author);
+
+    const { author } = this.props;
 
     return (
       <div className="contributor-profile">
@@ -21,20 +29,24 @@ class Profile extends Component {
         <div className="container py-5">
           <div className="row">
             <div className="col-md-9">
-              <div className="contributor-profile__card">
-                <img
-                  src={commPerson}
-                  alt="contributor"
-                  className="contributor-profile__card-img"
-                />
-                <p className="contributor-profile__card-title">
-                  Amina Able
-                  <span>
-                    <BadgeGrey className="ml-3 contributor-profile__card-img1" />
-                  </span>
-                </p>
-                <p className="contributor-profile__card-subtitle pt-2">Ghana</p>
-              </div>
+              {author ? (
+                <div className="contributor-profile__card">
+                  <img
+                    src={commPerson} //todo use real image when added
+                    alt="contributor"
+                    className="contributor-profile__card-img"
+                  />
+                  <p className="contributor-profile__card-title">
+                    {author.name}
+                    <span>
+                      <BadgeGrey className="ml-3 contributor-profile__card-img1" />
+                    </span>
+                  </p>
+                  <p className="contributor-profile__card-subtitle pt-2">
+                    {author.location}
+                  </p>
+                </div>
+              ) : null}
 
               <h5 className="heading heading__tertiary">
                 Earn a badge <span className="ml-3">COMPLETE PROFILE</span>
@@ -192,4 +204,10 @@ class Profile extends Component {
   }
 }
 
-export default Profile;
+const mapStateToProps = state => {
+  return {
+    author: state.authors.author
+  };
+};
+
+export default connect(mapStateToProps, { fetchAuthor })(Profile);
