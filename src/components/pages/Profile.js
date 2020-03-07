@@ -22,6 +22,10 @@ class Profile extends Component {
 
     const { author } = this.props;
 
+    if (author) {
+      console.log(author.id);
+    }
+
     return (
       <div className="contributor-profile">
         <Navbar whitePage={true} />
@@ -53,11 +57,20 @@ class Profile extends Component {
               </h5>
 
               <div className="contributor-profile__links py-5">
-                <Link className="contributor-profile__mr">Articles</Link>
-                <span className="contributor-profile__mr">●</span>
-                <Link className="contributor-profile__mr">Live</Link>
-                <span className="contributor-profile__mr">●</span>
-                <Link className="">Series</Link>
+                {author ? (
+                  <>
+                    <Link
+                      to={`/profile/${author.name}`}
+                      className="contributor-profile__mr"
+                    >
+                      Articles
+                    </Link>
+                    <span className="contributor-profile__mr">●</span>
+                    <Link className="contributor-profile__mr">Live</Link>
+                    <span className="contributor-profile__mr">●</span>
+                    <Link className="">Series</Link>
+                  </>
+                ) : null}
               </div>
               <Link className="text-danger">Log out</Link>
               <hr />

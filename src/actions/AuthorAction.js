@@ -11,6 +11,7 @@ export const fetchAuthors = () => async dispatch => {
     const res = await axios.get(url);
 
     const authors = res.data.payload.results;
+    console.log(authors);
 
     dispatch({ type: FETCH_AUTHORS, payload: authors });
 

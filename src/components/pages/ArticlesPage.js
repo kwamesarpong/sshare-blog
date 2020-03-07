@@ -9,9 +9,11 @@ import Navbar from "./Navbar";
 
 class ArticlesPage extends Component {
   componentDidMount() {
-    const { id } = this.props.match.params;
+    const { name } = this.props.match.params;
 
-    this.props.fetchAuthorArticles(id);
+    console.log(name);
+
+    this.props.fetchAuthorArticles(name);
   }
   render() {
     const { articles } = this.props;
@@ -24,8 +26,8 @@ class ArticlesPage extends Component {
             <h2 className=" pb-5">
               Articles from{" "}
               <span className="heading heading__secondary-2 ml-2">
-                {" "}
-                {articles[0].author}{" "}
+                {/* {" "}
+                {articles[0].author}{" "} */}
               </span>
             </h2>
           ) : null}

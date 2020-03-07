@@ -15,30 +15,6 @@ class Contributors extends Component {
     this.props.fetchAuthors();
   }
 
-  // render () {
-
-  //   const { authors } = this.props
-
-  //   console.log(authors)
-
-  // return (
-  //     <div className="row">
-  //       <div className="col-md-9">
-  //       {}
-  //       </div>
-  //       <div className="col-md-3">
-  //         <ContributorsSvg className="img-fluid pb-5 ml-2" />
-  //         <Link to="/register" className="button button__black mb-3 ml-2 mr-5">
-  //           JOIN US
-  //         </Link>
-  //         <Link to="/share" className="button button__black ml-2 mr-5 mb-5">
-  //           TELL A FRIEND
-  //         </Link>
-  //       </div>
-  //     </div>
-  //   );
-  // };
-
   render() {
     const { authors } = this.props;
     console.log(authors);

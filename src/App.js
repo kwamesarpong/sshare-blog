@@ -32,7 +32,7 @@ class App extends Component {
             <Route exact path="/about" component={About} />
             <Route exact path="/contribute" component={Contribute} />
             <Route exact path="/contribute-post" component={ContributePost} />
-            {/* <Route exact path="/contributor/:id" component={ArticlesPage} /> */}
+            <Route exact path="/profile/:name" component={ArticlesPage} />
             <Route exact path="/contributors/:id" component={Profile} />
             <Route exact path="/articles/:id" component={Articles} />
             <Route exact path="/careers" component={Careers} />
@@ -42,7 +42,7 @@ class App extends Component {
             <Route exact path="/team" component={Team} />
             <Route exact path="/tell-a-friend" component={TellAFriend} />
             <Route exact path="/contributors" component={Contributors} />
-            <Route exact path="/profile" component={Profile} />
+            {/* <Route exact path="/profile" component={Profile} /> */}
             <Route exact path="/series" component={Series} />
           </Switch>
         </BrowserRouter>
