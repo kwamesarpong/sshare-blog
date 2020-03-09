@@ -17,7 +17,9 @@ class ArticlesPage extends Component {
   }
   render() {
     const { articles } = this.props;
+
     console.log(articles);
+
     return (
       <div className="articles__page">
         <Navbar whitePage={true} />

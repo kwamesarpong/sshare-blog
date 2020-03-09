@@ -1,4 +1,9 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { fetchCategories } from "../../actions/categoriesAction";
+
 import Navbar from "./Navbar";
 
 import { ReactComponent as PhoneImg } from "../../assets/PHONE/PHONE.svg";
@@ -7,9 +12,14 @@ import ImageMiniCard from "../utils/ImageMiniCard";
 import AboutImg from "./../../assets/about.jpg";
 import commPerson from "./../../assets/comm-person.png";
 import CommunityCard from "../utils/CommunityCard";
-import { Link } from "react-router-dom";
+
+import { getCategoryTitle, getCategoriesTitle } from "../utils/utilsfunctions";
 
 class About extends Component {
+  componentDidMount() {
+    this.props.fetchCategories();
+  }
+
   state = {
     name: "Amina Able",
     country: "Ghana",
@@ -19,7 +29,20 @@ class About extends Component {
     timeless chronicles of women’s lives, in real time.`
   };
 
+  // renderImageCards = categories => {
+  //   return categories.map(category => {
+  //     console.log(category);
+  //     return (
+  //       <div key={category.id}>
+  //         <ImageMiniCard title={getCategoriesTitle(category)} imgNum="1" />
+  //       </div>
+  //     );
+  //   });
+  // };
+
   render() {
+    const { categories } = this.props;
+
     return (
       <div className="about">
         <Navbar whitePage={true} />
@@ -54,6 +77,8 @@ class About extends Component {
 
           <div className="container">
             <div className="row">
+              {/* {categories ? this.renderImageCards(categories) : null} */}
+
               <ImageMiniCard title="Mind & Body" imgNum="1" />
               <ImageMiniCard title="Feminism" imgNum="2" />
               <ImageMiniCard title="Lifestyle" imgNum="3" />
@@ -174,4 +199,10 @@ class About extends Component {
   }
 }
 
-export default About;
+const mapStateToProps = state => {
+  return {
+    categories: state.categories.categories
+  };
+};
+
+export default connect(mapStateToProps, { fetchCategories })(About);
