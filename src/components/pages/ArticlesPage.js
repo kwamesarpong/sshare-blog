@@ -1,39 +1,35 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
-
-import { fetchAuthorArticles } from "../../actions/ArticlesAction";
+import { fetchCategory } from "../../actions/categoriesAction";
 
 import Categories from "../utils/Categories";
 import Navbar from "./Navbar";
+import { getCategoryTitle, getCategoriesTitle } from "../utils/utilsfunctions";
 
 class ArticlesPage extends Component {
   componentDidMount() {
-    const { name } = this.props.match.params;
+    const { category } = this.props.match.params;
 
-    console.log(name);
+    // console.log(category, "from article page");
 
-    this.props.fetchAuthorArticles(name);
+    this.props.fetchCategory(category);
   }
   render() {
-    const { articles } = this.props;
-
-    console.log(articles);
+    const { category } = this.props;
 
     return (
       <div className="articles__page">
         <Navbar whitePage={true} />
         <div className="container py-5">
-          {articles ? (
+          {category ? (
             <h2 className=" pb-5">
               Articles from{" "}
               <span className="heading heading__secondary-2 ml-2">
-                {/* {" "}
-                {articles[0].author}{" "} */}
+                {getCategoriesTitle(category)}
               </span>
             </h2>
           ) : null}
-          <div>{articles ? <Categories categories={articles} /> : null}</div>
+          <div>{category ? <Categories categories={category} /> : null}</div>
         </div>
       </div>
     );
@@ -42,8 +38,8 @@ class ArticlesPage extends Component {
 
 const mapStateToProps = state => {
   return {
-    articles: state.articles.articles
+    category: state.categories.category
   };
 };
 
-export default connect(mapStateToProps, { fetchAuthorArticles })(ArticlesPage);
+export default connect(mapStateToProps, { fetchCategory })(ArticlesPage);

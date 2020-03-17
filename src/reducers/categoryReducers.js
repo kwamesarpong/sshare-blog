@@ -1,7 +1,8 @@
-import { FETCH_CATEGORIES } from "../actions/types";
+import { FETCH_CATEGORIES, FETCH_CATEGORY } from "../actions/types";
 
 const initialState = {
-  categories: []
+  categories: [],
+  category: []
 };
 
 export default function(state = initialState, action) {
@@ -12,6 +13,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         categories: payload
+      };
+    case FETCH_CATEGORY:
+      return {
+        ...state,
+        category: payload
       };
     default:
       return state;

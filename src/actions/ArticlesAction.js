@@ -5,7 +5,7 @@ axios.defaults.headers.common["Devless-token"] =
   "ecdc2527d340c7ecc4056cc1db6f6a51";
 
 export const fetchArticle = articleId => async dispatch => {
-  const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=id,${articleId}`;
+  const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=id,${articleId}`;
 
   try {
     const res = await axios.get(url);
@@ -19,9 +19,9 @@ export const fetchArticle = articleId => async dispatch => {
 };
 
 export const fetchAuthorArticles = authorName => async dispatch => {
-  const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${authorName}`;
-  // const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${"Bibi Trap"}`;
-  // const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts`;
+  // const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${authorName}`;
+  // const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${"Bibi Trap"}`;
+  const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts`;
 
   try {
     const res = await axios.get(url);
