@@ -41,8 +41,6 @@ export const fetchCategories = () => async dispatch => {
       return category.data.payload.results;
     });
 
-    console.log(categories, "categories list");
-
     dispatch({ type: FETCH_CATEGORIES, payload: categories });
   } catch (error) {
     console.log(error);
@@ -56,8 +54,6 @@ export const fetchCategory = category => async dispatch => {
     const res = await axios.get(url);
 
     dispatch({ type: FETCH_CATEGORY, payload: res.data.payload.results });
-
-    console.log(res);
   } catch (err) {
     console.log(err);
   }

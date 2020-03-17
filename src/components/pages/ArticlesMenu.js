@@ -16,14 +16,12 @@ class ArticlesMenu extends Component {
   render() {
     const { categories } = this.props;
 
-    console.log(categories);
-
     return (
       <div className="menu">
         <Navbar whitePage={true} />
 
         <div className="container py-4">
-          <h2 className="my-5">List of Articles Categories</h2>
+          <h2 className="my-5">Articles Categories</h2>
           <div className="row">
             <div className="col-md-6">
               <ul>

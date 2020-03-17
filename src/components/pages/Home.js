@@ -16,8 +16,6 @@ class Home extends Component {
   render() {
     const { categories } = this.props;
 
-    console.log(categories);
-
     return (
       <div>
         <Header />

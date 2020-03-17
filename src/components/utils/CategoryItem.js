@@ -8,8 +8,6 @@ class CategoryItem extends Component {
   render() {
     const { author, category, title, id } = this.props.categoryItem;
 
-    // console.log(this.props.categoryItem);
-
     return (
       <div className="categories__item">
         <Link to={`/articles/${id}`} className="categories__item-link">

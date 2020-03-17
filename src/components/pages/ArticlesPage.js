@@ -4,13 +4,11 @@ import { fetchCategory } from "../../actions/categoriesAction";
 
 import Categories from "../utils/Categories";
 import Navbar from "./Navbar";
-import { getCategoryTitle, getCategoriesTitle } from "../utils/utilsfunctions";
+import { getCategoriesTitle } from "../utils/utilsfunctions";
 
 class ArticlesPage extends Component {
   componentDidMount() {
     const { category } = this.props.match.params;
-
-    // console.log(category, "from article page");
 
     this.props.fetchCategory(category);
   }

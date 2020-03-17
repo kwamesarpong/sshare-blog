@@ -29,17 +29,6 @@ class About extends Component {
     timeless chronicles of women’s lives, in real time.`
   };
 
-  // renderImageCards = categories => {
-  //   return categories.map(category => {
-  //     console.log(category);
-  //     return (
-  //       <div key={category.id}>
-  //         <ImageMiniCard title={getCategoriesTitle(category)} imgNum="1" />
-  //       </div>
-  //     );
-  //   });
-  // };
-
   render() {
     const { categories } = this.props;
 

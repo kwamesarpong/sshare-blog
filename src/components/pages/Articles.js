@@ -41,15 +41,6 @@ class Articles extends Component {
 
     const sideCategories = categories.map(cat => cat[0]);
 
-    console.log(sideCategories);
-
-    // if (!article) {
-    //   console.log("loading");
-    // } else {
-    //   console.log(article);
-    //   // console.log(article.author, article.category, article.title);
-    // }
-
     return (
       <div className="articles">
         <Navbar whitePage={true} />

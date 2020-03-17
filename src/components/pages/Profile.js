@@ -18,13 +18,7 @@ class Profile extends Component {
     this.props.fetchAuthor(id);
   }
   render() {
-    // console.log(this.props.author);
-
     const { author } = this.props;
-
-    if (author) {
-      console.log(author.id);
-    }
 
     return (
       <div className="contributor-profile">

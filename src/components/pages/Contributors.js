@@ -17,7 +17,7 @@ class Contributors extends Component {
 
   render() {
     const { authors } = this.props;
-    console.log(authors);
+
     return (
       <div className="contributors">
         <Navbar whitePage={true} />

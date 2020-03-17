@@ -20,9 +20,6 @@ class Category extends Component {
   render() {
     // const { categories } = this.props;
 
-    // console.log(this.getFirstHalf());
-    // console.log(this.getSecondHalf());
-
     return (
       <div>
         <div className="row">

@@ -11,11 +11,8 @@ export const fetchAuthors = () => async dispatch => {
     const res = await axios.get(url);
 
     const authors = res.data.payload.results;
-    console.log(authors);
 
     dispatch({ type: FETCH_AUTHORS, payload: authors });
-
-    console.log(authors);
   } catch (error) {
     console.log(error);
   }
@@ -29,8 +26,6 @@ export const fetchAuthor = authorId => async dispatch => {
     const res = await axios.get(url);
 
     const author = res.data.payload.results[0];
-
-    console.log(res.data.payload.results[0]);
 
     dispatch({ type: FETCH_AUTHOR, payload: author });
   } catch (error) {
