@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { fetchCategories } from "../../actions/categoriesAction";
 
 import { getCategoriesTitle } from "../utils/utilsfunctions";
 
-import { fetchCategories } from "../../actions/categoriesAction";
-
 import Categories from "../utils/Categories";
 import Header from "./Header";
+import Loader from "react-loader-spinner";
 
 class Home extends Component {
   componentDidMount() {
@@ -30,6 +30,7 @@ class Home extends Component {
             </div>
           ))}
         </div>
+
       </div>
     );
   }

@@ -1,20 +1,45 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
 
 import { fetchCategories } from "../../actions/categoriesAction";
+import { getCategoriesTitle } from "../utils/utilsfunctions";
 
 import { ReactComponent as ArticleMenu } from "../../assets/SISTAZSHARE-CONTRIBUTE-4.svg";
-
 import Navbar from "./Navbar";
-import { getCategoriesTitle } from "../utils/utilsfunctions";
 
 class ArticlesMenu extends Component {
   componentDidMount() {
     this.props.fetchCategories();
   }
+
   render() {
-    const { categories } = this.props;
+    const { categories, loading } = this.props.categories;
+
+    console.log(this.props);
+
+    let renderCat;
+
+    if (categories === null || loading) {
+      renderCat = (
+        <Loader
+          type="ThreeDots"
+          color="#00b399"
+          height={100}
+          width={100}
+          // timeout={3000} //3 secs
+        />
+      );
+    } else {
+      renderCat = categories.map(category => (
+        <li key={category[0].id} className="menu__links link-font">
+          <Link to={`/articles/${category[0].category}`}>
+            {getCategoriesTitle(category)}
+          </Link>
+        </li>
+      ));
+    }
 
     return (
       <div className="menu">
@@ -24,20 +49,8 @@ class ArticlesMenu extends Component {
           <h2 className="my-5">Articles Categories</h2>
           <div className="row">
             <div className="col-md-6">
-              <ul>
-                {categories
-                  ? categories.map(category => (
-                      <li
-                        key={category[0].id}
-                        className="menu__links link-font"
-                      >
-                        <Link to={`/articles/${category[0].category}`}>
-                          {getCategoriesTitle(category)}
-                        </Link>
-                      </li>
-                    ))
-                  : null}
-              </ul>
+              {/* <ul>{this.renderLinks(categories)}</ul> */}
+              <ul>{renderCat}</ul>
 
               <input
                 type="text"
@@ -68,7 +81,7 @@ class ArticlesMenu extends Component {
 
 const mapStateToProps = state => {
   return {
-    categories: state.categories.categories
+    categories: state.categories
   };
 };
 
