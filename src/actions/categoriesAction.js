@@ -25,7 +25,7 @@ export const fetchCategories = () => async dispatch => {
   // axios.defaults.headers.common["Devless-token"] =
   //   "ecdc2527d340c7ecc4056cc1db6f6a51";
 
-  dispatch(setPostLoading());
+  dispatch(setCategoriesLoading());
 
   try {
     // const res = await axios.get(mindBodyUrl);
@@ -52,7 +52,7 @@ export const fetchCategories = () => async dispatch => {
 export const fetchCategory = category => async dispatch => {
   const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=category,${category}`;
 
-  dispatch(setPostLoading());
+  dispatch(setCategoriesLoading());
 
   try {
     const res = await axios.get(url);
@@ -64,7 +64,7 @@ export const fetchCategory = category => async dispatch => {
 };
 
 // Set loading state
-export const setPostLoading = () => {
+export const setCategoriesLoading = () => {
   return {
     type: CATEGORY_LOADING
   };

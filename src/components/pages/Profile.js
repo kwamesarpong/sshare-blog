@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
+import { Animated } from "react-animated-css";
 
 import { fetchAuthor } from "../../actions/AuthorAction";
 import Navbar from "./Navbar";
@@ -18,7 +20,58 @@ class Profile extends Component {
     this.props.fetchAuthor(id);
   }
   render() {
-    const { author } = this.props;
+    const { author, loading } = this.props.authors;
+
+    console.log(this.props);
+
+    let renderProfile;
+
+    if (author === null || loading) {
+      renderProfile = (
+        <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
+      );
+    } else {
+      renderProfile = (
+        <div>
+          <div className="contributor-profile__card">
+            <img
+              src={commPerson} //todo use real image when added
+              alt="contributor"
+              className="contributor-profile__card-img"
+            />
+            <p className="contributor-profile__card-title">
+              {author.name}
+              <span>
+                <BadgeGrey className="ml-3 contributor-profile__card-img1" />
+              </span>
+            </p>
+            <p className="contributor-profile__card-subtitle pt-2">
+              {author.location}
+            </p>
+          </div>
+
+          <h5 className="heading heading__tertiary">
+            Earn a badge <span className="ml-3">COMPLETE PROFILE</span>
+          </h5>
+
+          <div className="contributor-profile__links py-5">
+            <Link
+              to={`/profile/${author.name}`}
+              className="contributor-profile__mr"
+            >
+              Articles
+            </Link>
+            <span className="contributor-profile__mr">●</span>
+            <Link className="contributor-profile__mr">Live</Link>
+            <span className="contributor-profile__mr">●</span>
+            <Link className="">Series</Link>
+          </div>
+
+          <Link className="text-danger">Log out</Link>
+          <hr />
+        </div>
+      );
+    }
 
     return (
       <div className="contributor-profile">
@@ -27,47 +80,15 @@ class Profile extends Component {
         <div className="container py-5">
           <div className="row">
             <div className="col-md-9">
-              {author ? (
-                <div className="contributor-profile__card">
-                  <img
-                    src={commPerson} //todo use real image when added
-                    alt="contributor"
-                    className="contributor-profile__card-img"
-                  />
-                  <p className="contributor-profile__card-title">
-                    {author.name}
-                    <span>
-                      <BadgeGrey className="ml-3 contributor-profile__card-img1" />
-                    </span>
-                  </p>
-                  <p className="contributor-profile__card-subtitle pt-2">
-                    {author.location}
-                  </p>
-                </div>
-              ) : null}
-
-              <h5 className="heading heading__tertiary">
-                Earn a badge <span className="ml-3">COMPLETE PROFILE</span>
-              </h5>
-
-              <div className="contributor-profile__links py-5">
-                {author ? (
-                  <>
-                    <Link
-                      to={`/profile/${author.name}`}
-                      className="contributor-profile__mr"
-                    >
-                      Articles
-                    </Link>
-                    <span className="contributor-profile__mr">●</span>
-                    <Link className="contributor-profile__mr">Live</Link>
-                    <span className="contributor-profile__mr">●</span>
-                    <Link className="">Series</Link>
-                  </>
-                ) : null}
-              </div>
-              <Link className="text-danger">Log out</Link>
-              <hr />
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={2000}
+                animationOutDuration={2000}
+                animationOut="fadeOut"
+                isVisible={true}
+              >
+                {renderProfile}
+              </Animated>
             </div>
             <div className="col-md-3">
               <h5 className="heading heading__tertiary pt-5 pb-3">
@@ -213,7 +234,7 @@ class Profile extends Component {
 
 const mapStateToProps = state => {
   return {
-    author: state.authors.author
+    authors: state.authors
   };
 };
 

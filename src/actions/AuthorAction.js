@@ -1,11 +1,13 @@
 import axios from "axios";
-import { FETCH_AUTHORS, FETCH_AUTHOR } from "./types";
+import { FETCH_AUTHORS, FETCH_AUTHOR, AUTHOR_LOADING } from "./types";
 
 axios.defaults.headers.common["Devless-token"] =
   "ecdc2527d340c7ecc4056cc1db6f6a51";
 
 export const fetchAuthors = () => async dispatch => {
   const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=author`;
+
+  dispatch(setAuthorsLoading());
 
   try {
     const res = await axios.get(url);
@@ -22,6 +24,8 @@ export const fetchAuthor = authorId => async dispatch => {
   // const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=author&where=id,1`;
   const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=author&where=id,${authorId}`;
 
+  dispatch(setAuthorsLoading());
+
   try {
     const res = await axios.get(url);
 
@@ -31,4 +35,11 @@ export const fetchAuthor = authorId => async dispatch => {
   } catch (error) {
     console.log(error);
   }
+};
+
+// Set loading state
+export const setAuthorsLoading = () => {
+  return {
+    type: AUTHOR_LOADING
+  };
 };

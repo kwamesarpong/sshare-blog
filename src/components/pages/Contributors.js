@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import Loader from "react-loader-spinner";
+import { Animated } from "react-animated-css";
 
 import Navbar from "./Navbar";
 import { fetchAuthors } from "../../actions/AuthorAction";
@@ -16,7 +18,46 @@ class Contributors extends Component {
   }
 
   render() {
-    const { authors } = this.props;
+    const { authors, loading } = this.props.authors;
+
+    console.log(this.props);
+
+    let renderContributors;
+
+    if (authors === null || loading) {
+      renderContributors = (
+        <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
+      );
+    } else {
+      renderContributors = authors.map(author => (
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={400}
+          animationOut="fadeOut"
+          isVisible={true}
+        >
+          <div
+            className="col-md-4"
+            key={author.id}
+            onClick={() =>
+              this.props.history.push(`/contributors/${author.id}`)
+            }
+          >
+            <ProfileCard
+              // className="col-md-4"
+              // onClick={() =>
+              //   this.props.history.push(
+              //     `/contributor/${author.id}`
+              //   )
+              // }
+              commPerson={commPerson}
+              name={author.name}
+              country={author.location}
+            />
+          </div>
+        </Animated>
+      ));
+    }
 
     return (
       <div className="contributors">
@@ -33,35 +74,7 @@ class Contributors extends Component {
 
           <div className="row">
             <div className="col-md-9">
-              <div className="row">
-                {authors
-                  ? authors.map(author => {
-                      return (
-                        <div
-                          className="col-md-4"
-                          key={author.id}
-                          onClick={() =>
-                            this.props.history.push(
-                              `/contributors/${author.id}`
-                            )
-                          }
-                        >
-                          <ProfileCard
-                            // className="col-md-4"
-                            // onClick={() =>
-                            //   this.props.history.push(
-                            //     `/contributor/${author.id}`
-                            //   )
-                            // }
-                            commPerson={commPerson}
-                            name={author.name}
-                            country={author.location}
-                          />
-                        </div>
-                      );
-                    })
-                  : null}
-              </div>
+              <div className="row">{renderContributors}</div>
             </div>
 
             <div className="col-md-3">
@@ -85,7 +98,7 @@ class Contributors extends Component {
 
 const mapStateToProps = state => {
   return {
-    authors: state.authors.authors
+    authors: state.authors
   };
 };
 
