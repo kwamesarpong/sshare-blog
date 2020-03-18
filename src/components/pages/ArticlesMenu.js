@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
+import { Animated } from "react-animated-css";
 
 import { fetchCategories } from "../../actions/categoriesAction";
 import { getCategoriesTitle } from "../utils/utilsfunctions";
@@ -17,27 +18,29 @@ class ArticlesMenu extends Component {
   render() {
     const { categories, loading } = this.props.categories;
 
-    console.log(this.props);
-
-    let renderCat;
+    let renderLinks;
 
     if (categories === null || loading) {
-      renderCat = (
-        <Loader
-          type="ThreeDots"
-          color="#00b399"
-          height={100}
-          width={100}
-          // timeout={3000} //3 secs
-        />
+      renderLinks = (
+        // render animated dots when fetching data
+        <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
       );
     } else {
-      renderCat = categories.map(category => (
-        <li key={category[0].id} className="menu__links link-font">
-          <Link to={`/articles/${category[0].category}`}>
-            {getCategoriesTitle(category)}
-          </Link>
-        </li>
+      renderLinks = categories.map(category => (
+        // this let links fadein nicely
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={800}
+          animationOutDuration={800}
+          animationOut="fadeOut"
+          isVisible={true}
+        >
+          <li key={category[0].id} className="menu__links link-font">
+            <Link to={`/articles/${category[0].category}`}>
+              {getCategoriesTitle(category)}
+            </Link>
+          </li>
+        </Animated>
       ));
     }
 
@@ -50,7 +53,8 @@ class ArticlesMenu extends Component {
           <div className="row">
             <div className="col-md-6">
               {/* <ul>{this.renderLinks(categories)}</ul> */}
-              <ul>{renderCat}</ul>
+
+              <ul>{renderLinks}</ul>
 
               <input
                 type="text"
