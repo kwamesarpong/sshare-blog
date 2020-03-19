@@ -95,3 +95,15 @@
               </div>
               <Link className="text-danger">Log out</Link>
               <hr />
+
+
+
+              {categories.map((category, index) => (
+                <div key={index}>
+                  <h5 className="heading heading__tertiary-2 my-5 text-uppercase">
+                    {getCategoriesTitle(category)}
+                    {/* {this.getCategoryTitle(category)} */}
+                  </h5>
+                  <Categories categories={category} />
+                </div>
+              ))}

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { fetchCategories } from "../../actions/categoriesAction";
+import { Animated } from "react-animated-css";
 
 import { getCategoriesTitle } from "../utils/utilsfunctions";
 
@@ -14,23 +15,39 @@ class Home extends Component {
   }
 
   render() {
-    const { categories } = this.props;
+    const { categories, loading } = this.props.categories;
+
+    let renderCategory;
+
+    if (categories === null || loading) {
+      renderCategory = (
+        <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
+      );
+    } else {
+      renderCategory = categories.map((category, index) => (
+        <div key={index}>
+          <h5 className="heading heading__tertiary-2 my-5 text-uppercase">
+            {getCategoriesTitle(category)}
+            {/* {this.getCategoryTitle(category)} */}
+          </h5>
+          <Categories categories={category} />
+        </div>
+      ));
+    }
 
     return (
       <div>
-        <Header />
-        <div className="container categories my-5">
-          {categories.map((category, index) => (
-            <div key={index}>
-              <h5 className="heading heading__tertiary-2 my-5 text-uppercase">
-                {getCategoriesTitle(category)}
-                {/* {this.getCategoryTitle(category)} */}
-              </h5>
-              <Categories categories={category} />
-            </div>
-          ))}
-        </div>
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={1000}
+          animationOutDuration={1000}
+          animationOut="fadeOut"
+          isVisible={true}
+        >
+          <Header />
+        </Animated>
 
+        <div className="container categories my-5">{renderCategory}</div>
       </div>
     );
   }
@@ -38,7 +55,7 @@ class Home extends Component {
 
 const mapStateToProps = state => {
   return {
-    categories: state.categories.categories
+    categories: state.categories
   };
 };
 
