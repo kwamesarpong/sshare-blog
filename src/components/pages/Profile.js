@@ -35,7 +35,7 @@ class Profile extends Component {
         <div>
           <div className="contributor-profile__card">
             <img
-              src={commPerson} //todo use real image when added
+              src={author.author_img} //todo use real image when added
               alt="contributor"
               className="contributor-profile__card-img"
             />
