@@ -50,6 +50,10 @@
   }
 }
 
+.pad-x-2 {
+  padding: 0 2.5rem;
+}
+
 .mar-left {
   margin-left: 8rem;
 
@@ -64,4 +68,12 @@
   @include respond(phone) {
     margin-right: 0;
   }
+}
+
+.mar-top-2 {
+  margin-top: 2rem;
+}
+
+.mar-top-1 {
+  margin-top: 1rem;
 }
