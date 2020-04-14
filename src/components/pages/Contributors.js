@@ -53,6 +53,7 @@ class Contributors extends Component {
               commPerson={commPerson}
               name={author.name}
               country={author.location}
+              img={author.author_img}
             />
           </div>
         </Animated>
