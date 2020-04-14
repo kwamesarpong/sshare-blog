@@ -12,6 +12,7 @@ import ImageMiniCard from "../utils/ImageMiniCard";
 import AboutImg from "./../../assets/about.jpg";
 import commPerson from "./../../assets/comm-person.png";
 import CommunityCard from "../utils/CommunityCard";
+import { Animated } from "react-animated-css";
 
 import { getCategoryTitle, getCategoriesTitle } from "../utils/utilsfunctions";
 
@@ -36,20 +37,28 @@ class About extends Component {
       <div className="about">
         <Navbar whitePage={true} />
 
-        <div className="container mt-4">
-          <h1 className="heading heading__secondary">
-            Welcome to Sistaz Share...
-          </h1>
-          <div className="row justify-content-center">
-            <div className="col-md-8">
-              <img
-                src={AboutImg}
-                alt="about"
-                className="about-img-1 about about__img mt-4"
-              />
+        <Animated
+          animationIn="fadeIn"
+          animationInDuration={1000}
+          animationOutDuration={1000}
+          animationOut="fadeOut"
+          isVisible={true}
+        >
+          <div className="container mt-4">
+            <h1 className="heading heading__secondary">
+              Welcome to Sistaz Share...
+            </h1>
+            <div className="row justify-content-center">
+              <div className="col-md-8">
+                <img
+                  src={AboutImg}
+                  alt="about"
+                  className="about-img-1 about about__img mt-4"
+                />
+              </div>
             </div>
           </div>
-        </div>
+        </Animated>
 
         <div className="category text-center">
           <div className="container">

@@ -14,9 +14,9 @@
   }
 
   &__img {
-    max-width: 35%;
+    max-width: 30%;
 
-    transform: translateY(-8rem);
+    // transform: translateY(-8rem);
 
     @include respond(phone) {
       max-width: 70%;

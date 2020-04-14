@@ -23,6 +23,7 @@ import Profile from "./components/pages/Profile";
 import Series from "./components/pages/Series";
 import ArticlesPage from "./components/pages/ArticlesPage";
 import ArticlesMenu from "./components/pages/ArticlesMenu";
+import Login from "./components/pages/Login";
 
 class App extends Component {
   render() {
@@ -47,6 +48,7 @@ class App extends Component {
             <Route exact path="/contributors" component={Contributors} />
             {/* <Route exact path="/profile" component={Profile} /> */}
             <Route exact path="/series" component={Series} />
+            <Route exact path="/signup" component={Login} />
           </Switch>
         </BrowserRouter>
       </Provider>
