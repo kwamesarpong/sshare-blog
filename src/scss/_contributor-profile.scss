@@ -90,7 +90,7 @@
   }
 
   .col-md-9 {
-    border-right: 1px solid #000;
+    border-right: 1px solid #bbb;
     hr {
       display: none;
       @include respond(phone) {

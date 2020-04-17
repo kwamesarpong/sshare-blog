@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { Animated } from "react-animated-css";
 
-import { fetchAuthor } from "../../actions/AuthorAction";
+import { fetchAuthor, fetchAuthors } from "../../actions/AuthorAction";
 import { fetchAuthorArticles } from "../../actions/ArticlesAction";
 import Navbar from "./Navbar";
 
 import ProfileCard from "../utils/ProfileCard";
-import commPerson from "./../../assets/comm-person.png";
+// import commPerson from "./../../assets/comm-person.png";
 import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
 import Categories from "../utils/Categories";
 
@@ -121,12 +121,14 @@ class Profile2 extends Component {
 
     this.props.fetchAuthor(id);
 
+    this.props.fetchAuthors();
+
     // let authorName
 
     // this.props.fetchAuthorArticles(authorName);
   }
   render() {
-    const { author, loading } = this.props.authors;
+    const { author, authors, loading } = this.props.authors;
     // const { category } = this.props.categories
 
     let renderProfile;
@@ -181,6 +183,23 @@ class Profile2 extends Component {
       );
     }
 
+    let renderOtherAuthors;
+
+    if (authors === null || loading) {
+      renderOtherAuthors = (
+        <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
+      );
+    } else {
+      renderOtherAuthors = authors.map((authorProfile) => (
+        <ProfileCard
+          img={authorProfile.author_img}
+          name={authorProfile.name}
+          country={authorProfile.location}
+          key={authorProfile.id}
+        />
+      ));
+    }
+
     return (
       <div className="contributor-profile">
         <Navbar whitePage={true} />
@@ -198,50 +217,27 @@ class Profile2 extends Component {
                 {renderProfile}
               </Animated>
             </div>
-            <div className="col-md-3">
-              <h5 className="heading heading__tertiary pt-5 pb-3">
-                Other Contributors
-              </h5>
+            <div className="col-md-3 pl-5">
+              <Animated
+                animationIn="fadeIn"
+                animationInDuration={2000}
+                animationOutDuration={2000}
+                animationOut="fadeOut"
+                isVisible={true}
+              >
+                <h5 className="heading heading__tertiary pt-5 pb-3">
+                  Other Contributors
+                </h5>
 
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              />
-              {/* <ProfileCard
-                commPerson={commPerson}
-                name="Amina Able"
-                country="Ghana"
-              /> */}
-              <div>
-                <Link
-                  to="/register"
-                  className="button button__black mt-5 mb-3 ml-5 mr-5"
-                >
-                  JOIN US
-                </Link>
-                <Link
-                  to="/share"
-                  className="button button__black ml-5 mr-5 mb-5"
-                >
-                  TELL A FRIEND
-                </Link>
-              </div>
+                {renderOtherAuthors}
+
+                <div>
+                  <Link to="/share" className="ele-color">
+                    Tell A Friend
+                    <i className="fas fa-caret-right ml-3"></i>
+                  </Link>
+                </div>
+              </Animated>
             </div>
           </div>
         </div>
@@ -258,6 +254,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchAuthor, fetchAuthorArticles })(
-  Profile2
-);
+export default connect(mapStateToProps, {
+  fetchAuthor,
+  fetchAuthors,
+  fetchAuthorArticles,
+})(Profile2);

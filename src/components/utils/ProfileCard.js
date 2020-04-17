@@ -10,11 +10,11 @@ const ProfileCard = ({ commPerson, name, country, img }) => {
 
         <p className="profile__card-title">
           {name}
-          <span>
+          {/* <span>
             <BadgeGrey className="profile__card-img1 ml-2" />
-          </span>
+          </span> */}
         </p>
-        <p className="profile__card-subtitle pt-2">{country}</p>
+        <p className="profile__card-subtitle pt-3">{country}</p>
       </div>
       {/* </div> */}
     </div>
