@@ -1,0 +1,13 @@
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 0.7rem 0;
+  font-size: 0.7rem;
+  font-weight: 600;
+
+  &__links {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
+}

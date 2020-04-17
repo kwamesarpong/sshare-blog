@@ -8,6 +8,7 @@ import { getCategoriesTitle } from "../utils/utilsfunctions";
 import Categories from "../utils/Categories";
 import Header from "./Header";
 import Loader from "react-loader-spinner";
+import Footer from "../utils/Footer";
 
 class Home extends Component {
   componentDidMount() {
@@ -48,14 +49,15 @@ class Home extends Component {
         </Animated>
 
         <div className="container categories my-5">{renderCategory}</div>
+        {!loading ? <Footer /> : null}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    categories: state.categories
+    categories: state.categories,
   };
 };
 
