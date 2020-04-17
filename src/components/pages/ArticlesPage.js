@@ -7,6 +7,7 @@ import { Animated } from "react-animated-css";
 import Categories from "../utils/Categories";
 import Navbar from "./Navbar";
 import { getCategoriesTitle } from "../utils/utilsfunctions";
+import Footer from "../utils/Footer";
 
 class ArticlesPage extends Component {
   componentDidMount() {
@@ -52,14 +53,15 @@ class ArticlesPage extends Component {
             {/* <div>{category ? <Categories categories={category} /> : null}</div> */}
           </div>
         </Animated>
+        {!loading ? <Footer /> : null}
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    categories: state.categories
+    categories: state.categories,
   };
 };
 

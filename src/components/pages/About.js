@@ -15,6 +15,7 @@ import CommunityCard from "../utils/CommunityCard";
 import { Animated } from "react-animated-css";
 
 import { getCategoryTitle, getCategoriesTitle } from "../utils/utilsfunctions";
+import Footer from "../utils/Footer";
 
 class About extends Component {
   componentDidMount() {
@@ -27,7 +28,7 @@ class About extends Component {
     message: `Sistaz Share spotlights the everyday modern woman, narrating
     the savvy patterns that make up the complexities of her
     life. We introduce you to a digital sphere of telling the
-    timeless chronicles of women’s lives, in real time.`
+    timeless chronicles of women’s lives, in real time.`,
   };
 
   render() {
@@ -192,14 +193,17 @@ class About extends Component {
             </div>
           </div>
         </div>
+        <div className="mt-5">
+          <Footer />
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    categories: state.categories.categories
+    categories: state.categories.categories,
   };
 };
 

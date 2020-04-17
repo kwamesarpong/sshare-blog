@@ -4,6 +4,7 @@ import ArticlesCardLarge from "../utils/ArticlesCardLarge";
 import ArticlesCardSmall from "../utils/ArticlesCardSmall";
 
 import backgroundImg from "../../assets/Picture-1.png";
+import Footer from "../utils/Footer";
 
 class Series extends Component {
   // state = {
@@ -31,7 +32,7 @@ class Series extends Component {
       category,
       seriesAuthor,
       seriesPost,
-      seriesTitle
+      seriesTitle,
     } = this.state;
     return (
       <div className="series">
@@ -54,6 +55,7 @@ class Series extends Component {
             <ArticlesCardSmall />
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

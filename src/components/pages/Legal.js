@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import Footer from "../utils/Footer";
 
 class Legal extends Component {
   render() {
@@ -32,6 +33,7 @@ class Legal extends Component {
             </h5>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

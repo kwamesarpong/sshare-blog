@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import commPerson from "../../assets/comm-person.png";
+import Footer from "../utils/Footer";
 
 class Team extends Component {
   render() {
@@ -70,6 +71,7 @@ class Team extends Component {
             </Link>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

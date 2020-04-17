@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import Footer from "../utils/Footer";
 
 class Partnerships extends Component {
   render() {
@@ -46,6 +47,7 @@ class Partnerships extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

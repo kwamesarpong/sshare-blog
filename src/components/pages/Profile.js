@@ -12,6 +12,7 @@ import commPerson from "./../../assets/comm-person.png";
 import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
 import Input from "../utils/Input";
 import RadioBtn from "../utils/RadioBtn";
+import Footer from "../utils/Footer";
 
 class Profile extends Component {
   componentDidMount() {
@@ -227,14 +228,15 @@ class Profile extends Component {
             </div>
           </form>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    authors: state.authors
+    authors: state.authors,
   };
 };
 

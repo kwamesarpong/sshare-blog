@@ -11,18 +11,19 @@ import { ReactComponent as ContributeImg1 } from "../../assets/SISTAZSHARE-CONTR
 import { ReactComponent as ContributeImg2 } from "../../assets/SISTAZSHARE-CONTRIBUTE-2.svg";
 import { ReactComponent as ContributeBadge } from "../../assets/SISTAZSHARE-BADGE.svg";
 import { ReactComponent as ContributeImg3 } from "../../assets/SISTAZSHARE-CONTRIBUTE-3.svg";
+import Footer from "../utils/Footer";
 
 class Contribute extends Component {
   state = {
     num: {
       num1: "1",
       num2: "2",
-      num3: "3"
+      num3: "3",
     },
     title: {
       title1: "Have something ...",
       title2: "Post it here ...",
-      title3: "Share it ..."
+      title3: "Share it ...",
     },
     text: {
       text1: `Your contributions towards women matter. Put your thoughts into – articles,
@@ -33,8 +34,8 @@ class Contribute extends Component {
       in one place, especially made for empowering women.`,
       text3: `Sistaz Share pushes all every thing you post to all social media
       platforms from your profile ! Imagine the number of women’s lives you transform
-      as your content reaches the world over. Readily accessible, clicks and swipes away`
-    }
+      as your content reaches the world over. Readily accessible, clicks and swipes away`,
+    },
   };
   render() {
     return (
@@ -138,13 +139,12 @@ class Contribute extends Component {
               </div>
 
               <div className="col-md-5">
-
                 <ContributeImg3 className="text-center" />
-
               </div>
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

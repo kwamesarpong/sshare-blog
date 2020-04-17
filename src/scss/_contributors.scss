@@ -15,12 +15,16 @@
   //   }
 
   .col-md-3:last-child {
-    border-left: 1px solid #000;
+    border-left: 1px solid #bbb;
   }
 
   @include respond(phone) {
     .mr-5 {
       margin-right: 5rem !important;
     }
+  }
+
+  .footer {
+    margin-top: 5.5rem;
   }
 }

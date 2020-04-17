@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import { ReactComponent as InviteImg } from "../../assets/SISTAZSHARE-INVITE.svg";
+import Footer from "../utils/Footer";
 
 class TellAFriend extends Component {
   render() {
@@ -82,6 +83,7 @@ class TellAFriend extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

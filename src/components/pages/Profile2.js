@@ -12,6 +12,7 @@ import ProfileCard from "../utils/ProfileCard";
 // import commPerson from "./../../assets/comm-person.png";
 import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
 import Categories from "../utils/Categories";
+import Footer from "../utils/Footer";
 
 class Profile2 extends Component {
   state = {
@@ -241,6 +242,7 @@ class Profile2 extends Component {
             </div>
           </div>
         </div>
+        {!loading ? <Footer /> : null}
       </div>
     );
   }

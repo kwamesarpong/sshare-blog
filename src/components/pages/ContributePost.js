@@ -10,6 +10,7 @@ import commPerson from "./../../assets/comm-person.png";
 import Navbar from "./Navbar";
 import SharePost from "../utils/ShareArticle";
 import Golive from "../utils/GoLive";
+import Footer from "../utils/Footer";
 // import ProfileCard from "../utils/ProfileCard";
 
 class ContributePost extends Component {
@@ -130,6 +131,8 @@ class ContributePost extends Component {
 
         <SharePost text="Share Your Articles" />
         <Golive text="Go live" />
+
+        <Footer />
       </div>
     );
   }

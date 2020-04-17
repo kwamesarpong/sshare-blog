@@ -23,9 +23,9 @@ import Profile from "./components/pages/Profile";
 import Series from "./components/pages/Series";
 import ArticlesPage from "./components/pages/ArticlesPage";
 import ArticlesMenu from "./components/pages/ArticlesMenu";
-import Login from "./components/pages/Login";
 import CreateProfile from "./components/pages/CreateProfile";
 import Profile2 from "./components/pages/Profile2";
+import SignUp from "./components/pages/SignUp";
 
 class App extends Component {
   render() {
@@ -40,7 +40,7 @@ class App extends Component {
             <Route exact path="/articles/:category" component={ArticlesPage} />
             <Route exact path="/articles" component={ArticlesMenu} />
             <Route exact path="/contributors/:id" component={Profile} />
-            <Route exact path="/articles/:id" component={Articles} />
+            {/* <Route exact path="/articles/:id" component={Articles} /> */}
             <Route exact path="/careers" component={Careers} />
             <Route exact path="/legal" component={Legal} />
             <Route exact path="/menu" component={Menu} />
@@ -50,7 +50,7 @@ class App extends Component {
             <Route exact path="/contributors" component={Contributors} />
             {/* <Route exact path="/profile" component={Profile} /> */}
             <Route exact path="/series" component={Series} />
-            <Route exact path="/signup" component={Login} />
+            <Route exact path="/signup" component={SignUp} />
             <Route exact path="/create-profile" component={CreateProfile} />
             <Route exact path="/test-profile/:id" component={Profile2} />
           </Switch>

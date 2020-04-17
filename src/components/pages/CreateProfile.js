@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Input from "../utils/Input";
 import Navbar from "./Navbar";
 import { ReactComponent as BadgeGreyGreen } from "../../assets/SISTAZSHARE-BADGE.svg";
+import Footer from "../utils/Footer";
 
 class CreateProfile extends Component {
   render() {
@@ -78,6 +79,9 @@ class CreateProfile extends Component {
               </div>
             </div>
           </form>
+        </div>
+        <div className="mt-5">
+          <Footer />
         </div>
       </div>
     );

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Navbar from "./Navbar";
 import { ReactComponent as MenuImg } from "../../assets/SISTAZSHARE-MENU.svg";
+import Footer from "../utils/Footer";
 
 class Menu extends Component {
   render() {
@@ -57,6 +58,7 @@ class Menu extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

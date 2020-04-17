@@ -14,6 +14,7 @@ import ArticlesCardSmall from "../utils/ArticlesCardSmall";
 
 import backgroundImg from "../../assets/Picture 30.png";
 import backgroundImg2 from "../../assets/Picture 2.png";
+import Footer from "../utils/Footer";
 
 class Articles extends Component {
   // state = {
@@ -39,7 +40,7 @@ class Articles extends Component {
   render() {
     const { article, categories } = this.props;
 
-    const sideCategories = categories.map(cat => cat[0]);
+    const sideCategories = categories.map((cat) => cat[0]);
 
     return (
       <div className="articles">
@@ -66,15 +67,16 @@ class Articles extends Component {
             ) : null}
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
     article: state.articles.article,
-    categories: state.categories.categories
+    categories: state.categories.categories,
   };
 };
 

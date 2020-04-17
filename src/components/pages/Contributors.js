@@ -11,6 +11,7 @@ import { ReactComponent as ContributorsSvg } from "../../assets/SISTAZSHARE-CONT
 
 import commPerson from "./../../assets/comm-person.png";
 import ProfileCard from "../utils/ProfileCard";
+import Footer from "../utils/Footer";
 
 class Contributors extends Component {
   componentDidMount() {
@@ -29,7 +30,7 @@ class Contributors extends Component {
         <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
       );
     } else {
-      renderContributors = authors.map(author => (
+      renderContributors = authors.map((author) => (
         <Animated
           animationIn="fadeIn"
           animationInDuration={400}
@@ -92,14 +93,17 @@ class Contributors extends Component {
             </div>
           </div>
         </div>
+        <div className="mt-5">
+          <Footer />
+        </div>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    authors: state.authors
+    authors: state.authors,
   };
 };
 

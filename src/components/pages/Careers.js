@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import Footer from "../utils/Footer";
 
 class Careers extends Component {
   render() {
@@ -44,6 +45,7 @@ class Careers extends Component {
             </p>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }

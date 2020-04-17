@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 
 import { ReactComponent as LogoSvgBlack } from "../../assets/LOGO/ICON/SISTAZSHARE-ICON-B.svg";
 import { ReactComponent as LoginImg1 } from "../../assets/SISTAZSHARE-LOGIN-1.svg";
+import Footer from "../utils/Footer";
 
-class Login extends Component {
+class SignUp extends Component {
   render() {
     return (
       <div>
@@ -50,9 +51,10 @@ class Login extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
 }
 
-export default Login;
+export default SignUp;

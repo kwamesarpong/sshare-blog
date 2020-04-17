@@ -9,6 +9,7 @@ import { getCategoriesTitle } from "../utils/utilsfunctions";
 
 import { ReactComponent as ArticleMenu } from "../../assets/SISTAZSHARE-CONTRIBUTE-4.svg";
 import Navbar from "./Navbar";
+import Footer from "../utils/Footer";
 
 class ArticlesMenu extends Component {
   componentDidMount() {
@@ -78,6 +79,7 @@ class ArticlesMenu extends Component {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     );
   }
