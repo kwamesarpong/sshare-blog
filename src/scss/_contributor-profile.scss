@@ -30,6 +30,9 @@
         font-size: 1rem;
         margin-top: 1rem;
       }
+      i {
+        color: #029c85;
+      }
     }
     &-subtitle {
       //   font-weight: 300;
@@ -47,6 +50,20 @@
 
       @include respond(phone) {
         max-width: 10%;
+      }
+    }
+
+    &-text {
+      width: 70%;
+      @include respond(phone) {
+        width: 95%;
+        text-align: center;
+      }
+
+      + a {
+        color: #000;
+        font-weight: 600;
+        text-decoration: none;
       }
     }
   }
