@@ -24,6 +24,11 @@
     &-want {
       font-weight: 700;
       color: #029c85;
+
+      &:hover {
+        text-decoration: none;
+        color: #1ccab0;
+      }
     }
     &-link {
       font-weight: 700;
