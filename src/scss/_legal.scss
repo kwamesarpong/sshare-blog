@@ -11,8 +11,15 @@
     min-height: 65vh;
     background-color: #b0f4ea;
 
-    h5 {
+    h5,
+    hr {
       border-bottom: 1px solid #000;
+    }
+
+    p,
+    a {
+      color: #029c85;
+      font-weight: 400;
     }
 
     overflow: hidden;

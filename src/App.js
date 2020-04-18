@@ -26,6 +26,7 @@ import ArticlesMenu from "./components/pages/ArticlesMenu";
 import CreateProfile from "./components/pages/CreateProfile";
 import Profile2 from "./components/pages/Profile2";
 import SignUp from "./components/pages/SignUp";
+import Contact from "./components/pages/Contact";
 
 class App extends Component {
   render() {
@@ -53,7 +54,7 @@ class App extends Component {
             <Route exact path="/signup" component={SignUp} />
             <Route exact path="/create-profile" component={CreateProfile} />
             <Route exact path="/test-profile/:id" component={Profile2} />
-            <Route exact path="/team" component={Team} />
+            <Route exact path="/contact" component={Contact} />
           </Switch>
         </BrowserRouter>
       </Provider>
