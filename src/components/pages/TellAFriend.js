@@ -36,9 +36,9 @@ class TellAFriend extends Component {
                     <a href="" target="_blank" rel="noopener noreferrer">
                       <i className="fab fa-whatsapp-square mr-3 icons  icons__whatsapp"></i>{" "}
                     </a>
-                    <a href="" target="_blank" rel="noopener noreferrer">
+                    {/* <a href="" target="_blank" rel="noopener noreferrer">
                       <i className="fas fa-link mr-3 icons icons__link"></i>{" "}
-                    </a>
+                    </a> */}
                   </div>
 
                   <p className="mb-0">
@@ -57,19 +57,19 @@ class TellAFriend extends Component {
                     <div className="form-group">
                       <input
                         type="number"
-                        class="form-control"
+                        class="form-control text-center"
                         placeholder="WhatsApp Number"
                       />
                     </div>
-                    <div className="form-group">
+                    {/* <div className="form-group">
                       <input
                         type="email"
                         class="form-control "
                         placeholder="Email"
                       />
-                    </div>
+                    </div> */}
 
-                    <div className="pb-5 pt-2 mar-left">
+                    <div className="pb-5 pt-2">
                       <Link to="/careers" className="button button__black">
                         Submit
                       </Link>
@@ -83,7 +83,9 @@ class TellAFriend extends Component {
             </div>
           </div>
         </div>
-        <Footer />
+        <div className="mt-5">
+          <Footer />
+        </div>
       </div>
     );
   }
