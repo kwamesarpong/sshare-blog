@@ -19,18 +19,8 @@ class Legal extends Component {
 
         <div className="legal__terms">
           <div className="container py-4">
-            <h5 className="heading heading__tertiary-2 py-3">
-              <i className="fas fa-sort-down mr-3"></i>
-              Privacy
-            </h5>
-            <h5 className="heading heading__tertiary-2 py-3">
-              <i className="fas fa-sort-down mr-3"></i>
-              Terms
-            </h5>
-            <h5 className="heading heading__tertiary-2 py-3">
-              <i className="fas fa-sort-down mr-3"></i>
-              Contact
-            </h5>
+            <h5 className="heading heading__tertiary-2 py-5">Core</h5>
+            <h5 className="heading heading__tertiary-2 py-5">Volunteers</h5>
           </div>
         </div>
         <Footer />
