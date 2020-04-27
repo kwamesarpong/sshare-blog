@@ -77,7 +77,7 @@ class ContributePost extends Component {
 
         <div className="container py-5">
           <div className="contribute__cont--article">
-            <a href="mailto:" className="">
+            <a href="mailto:sistazshare@gmail.com" className="">
               Share your articles
               <span className="mt-1">
                 <i className="fas fa-caret-right ml-2"></i>
@@ -89,7 +89,7 @@ class ContributePost extends Component {
             </p>
           </div>
           <div className="contribute__cont--article my-5">
-            <a href="mailto:" className="">
+            <a href="mailto:sistazshare@gmail.com" className="">
               Go live
               <span className="mt-1">
                 <i className="fas fa-caret-right ml-2"></i>
