@@ -49,8 +49,10 @@
   &--article {
     background-color: #000;
     color: #fff;
-    h5 {
+    a {
       color: #00b399;
+      font-size: 1.25rem;
+      text-decoration: none;
     }
 
     padding: 2rem;

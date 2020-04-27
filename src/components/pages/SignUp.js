@@ -7,6 +7,15 @@ import Footer from "../utils/Footer";
 
 class SignUp extends Component {
   render() {
+    // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri={redirect-uri}&state=123456789`
+
+    // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789&scope=email`;
+
+    // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789&response_type=granted_scopes&scope=email`;
+    // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789&response_type=token&scope=email`;
+
+    const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789`;
+
     return (
       <div>
         <div className="container py-4">
@@ -30,12 +39,17 @@ class SignUp extends Component {
               </h3>
 
               <div className="py-3 text-center">
-                <Link
-                  className="nav-link button button__black "
-                  to="/contribute"
+                {/* <Link className="nav-link button button__black" to={URL}>
+                  Sign In With Facebook
+                </Link> */}
+                <a
+                  href={URL}
+                  // target="_blank"
+                  rel="noopener noreferrer"
+                  className="nav-link button button__black"
                 >
                   Sign In With Facebook
-                </Link>
+                </a>
               </div>
               <div className="row justify-content-center">
                 <div className="col-6 col-md-6 contribute2__img">

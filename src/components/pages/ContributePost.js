@@ -77,24 +77,24 @@ class ContributePost extends Component {
 
         <div className="container py-5">
           <div className="contribute__cont--article">
-            <h5 className="">
+            <a href="mailto:" className="">
               Share your articles
               <span className="mt-1">
                 <i className="fas fa-caret-right ml-2"></i>
               </span>
-            </h5>
+            </a>
             <p>
               Got some educational, informational or enlightening digital
               multimedia resource for women you would want us to share with us ?
             </p>
           </div>
           <div className="contribute__cont--article my-5">
-            <h5 className="">
+            <a href="mailto:" className="">
               Go live
               <span className="mt-1">
                 <i className="fas fa-caret-right ml-2"></i>
               </span>
-            </h5>
+            </a>
             <p>
               Want to share your life experiences with women out there ? Or you
               want us to host you on a program and get interactive on our social

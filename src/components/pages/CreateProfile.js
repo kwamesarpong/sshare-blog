@@ -5,8 +5,18 @@ import Input from "../utils/Input";
 import Navbar from "./Navbar";
 import { ReactComponent as BadgeGreyGreen } from "../../assets/SISTAZSHARE-BADGE.svg";
 import Footer from "../utils/Footer";
+import queryString from "query-string";
 
 class CreateProfile extends Component {
+  componentDidMount() {
+    console.log(this.props.location);
+
+    // console.log(this.props.history);
+
+    const userData = queryString.parse(this.props.location.search);
+
+    console.log(userData);
+  }
   render() {
     return (
       <div>
@@ -19,13 +29,13 @@ class CreateProfile extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-4 px-4">
-                  <div class="custom-file mb-3 mar-top-2">
+                  <div className="custom-file mb-3 mar-top-2">
                     <input
                       type="file"
-                      class="custom-file-input"
+                      className="custom-file-input"
                       id="customFile"
                     />
-                    <label class="custom-file-label" for="customFile">
+                    <label className="custom-file-label" htmlFor="customFile">
                       Upload Profile Picture
                     </label>
                   </div>
@@ -73,7 +83,9 @@ class CreateProfile extends Component {
                     sign in, as we review your form submissions.
                   </p>
                   <div className="profile__logout">
-                    <Link className="text-danger ">Log out</Link>
+                    <Link className="text-danger" to="">
+                      Log out
+                    </Link>
                   </div>
                 </div>
               </div>
