@@ -4,8 +4,18 @@ import { Link } from "react-router-dom";
 import { ReactComponent as LogoSvgBlack } from "../../assets/LOGO/ICON/SISTAZSHARE-ICON-B.svg";
 import { ReactComponent as LoginImg1 } from "../../assets/SISTAZSHARE-LOGIN-1.svg";
 import Footer from "../utils/Footer";
+import { FacebookProvider, LoginButton } from 'react-facebook';
 
 class SignUp extends Component {
+
+  handleResponse = data => {
+    console.log(data);
+  }
+ 
+  handleError = error => {
+    this.setState({ error });
+  }
+
   render() {
     // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri={redirect-uri}&state=123456789`
 
@@ -42,15 +52,27 @@ class SignUp extends Component {
                 {/* <Link className="nav-link button button__black" to={URL}>
                   Sign In With Facebook
                 </Link> */}
-                <a
+                {/* <a
                   href={URL}
                   // target="_blank"
                   rel="noopener noreferrer"
                   className="nav-link button button__black"
                 >
                   Sign In With Facebook
-                </a>
+                </a> */}
+
+                <FacebookProvider appId="533753947579439">
+                  <LoginButton
+                    scope="email"
+                    onCompleted={this.handleResponse}
+                    onError={this.handleError}
+                    className="nav-link button button__black"
+                  >
+                    <span>Sign In With Facebook</span>
+                  </LoginButton>
+                </FacebookProvider>
               </div>
+
               <div className="row justify-content-center">
                 <div className="col-6 col-md-6 contribute2__img">
                   <LoginImg1 className="img-fluid" />
