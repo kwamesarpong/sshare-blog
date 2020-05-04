@@ -8,6 +8,16 @@ import Footer from "../utils/Footer";
 import queryString from "query-string";
 
 class CreateProfile extends Component {
+  state = {
+    userData: {
+      profilePicture: "",
+      nationality: "",
+      bio: "",
+      url: "",
+      number: "",
+      email: "",
+    },
+  };
   componentDidMount() {
     console.log(this.props.location);
 
@@ -17,7 +27,25 @@ class CreateProfile extends Component {
 
     console.log(userData);
   }
+
+  handleChange = (event) => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+
+    console.log(this.state.userData);
+  };
   render() {
+    const {
+      profilePicture,
+      email,
+      bio,
+      nationality,
+      url,
+      number,
+    } = this.state.userData;
     return (
       <div>
         <Navbar whitePage={true} />
@@ -25,27 +53,39 @@ class CreateProfile extends Component {
           <h2 className="my-5 heading heading__primary">Profile</h2>
         </div>
         <div className="contributor-profile__bio py-4">
-          <form className="py-4">
+          <form onSubmit={this.handleSubmit} className="py-4">
             <div className="container">
               <div className="row">
                 <div className="col-md-4 px-4">
-                  <div className="custom-file mb-3 mar-top-2">
-                    <input
-                      type="file"
-                      className="custom-file-input"
-                      id="customFile"
-                    />
-                    <label className="custom-file-label" htmlFor="customFile">
-                      Upload Profile Picture
-                    </label>
-                  </div>
-                  <Input type="text" name="nationality" label="Nationality" />
-                  <Input type="text" name="bio" label="Bio" />
+                  <Input
+                    type="text"
+                    label="Image Url"
+                    name="profilePicture"
+                    value={profilePicture}
+                    onChange={this.handleChange}
+                  />
+
+                  <Input
+                    type="text"
+                    name="nationality"
+                    label="Nationality"
+                    value={nationality}
+                    onChange={this.handleChange}
+                  />
+                  <Input
+                    type="text"
+                    name="bio"
+                    label="Bio"
+                    value={bio}
+                    onChange={this.handleChange}
+                  />
 
                   <Input
                     type="url"
                     name="url"
                     label="Website or a preferred social media URL"
+                    value={url}
+                    onChange={this.handleChange}
                   />
                 </div>
 
@@ -54,17 +94,23 @@ class CreateProfile extends Component {
                     type="number"
                     name="telephone"
                     label="WhatsApp Number *"
+                    value={number}
+                    onChange={this.handleChange}
                   />
-                  <Input type="email" name="email" label="Email *" />
+                  <Input
+                    type="email"
+                    name="email"
+                    label="Email *"
+                    value={email}
+                    onChange={this.handleChange}
+                  />
                   <p className="mt-5">
                     * Information provided here will not be shared with the
                     public.
                   </p>
 
                   <div className="mar-top-2">
-                    <Link to="/share" className="button button__black px-5">
-                      save
-                    </Link>
+                    <button className="button button__black px-5">save</button>
                   </div>
                 </div>
 
