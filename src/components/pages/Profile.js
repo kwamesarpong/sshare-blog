@@ -10,9 +10,10 @@ import Navbar from "./Navbar";
 import ProfileCard from "../utils/ProfileCard";
 import commPerson from "./../../assets/comm-person.png";
 import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
-import Input from "../utils/Input";
+
 import RadioBtn from "../utils/RadioBtn";
 import Footer from "../utils/Footer";
+import TextInput from "../utils/TextInput";
 
 class Profile extends Component {
   componentDidMount() {
@@ -165,23 +166,23 @@ class Profile extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-6">
-                  <Input type="text" name="bio" label="Bio" />
-                  <Input
+                  <TextInput type="text" name="bio" label="Bio" />
+                  <TextInput
                     type="text"
                     name="skills"
                     label="Skills & Occupation"
                   />
-                  <Input
+                  <TextInput
                     type="text"
                     name="why"
                     label="Why women’s empowerment"
                   />
-                  <Input
+                  <TextInput
                     type="text"
                     name="reviews"
                     label="Reviews on Sistaz Share"
                   />
-                  <Input
+                  <TextInput
                     type="url"
                     name="url"
                     label="Website or a preferred social media URL"
@@ -206,8 +207,8 @@ class Profile extends Component {
                     <RadioBtn name="no" label="No" radioName="involveYes" />
                   </>
 
-                  <Input type="email" name="email" label="Email" />
-                  <Input type="number" name="telephone" label="Telephone" />
+                  <TextInput type="email" name="email" label="Email" />
+                  <TextInput type="number" name="telephone" label="Telephone" />
                 </div>
 
                 {/* <div className="col-md-4"></div> */}

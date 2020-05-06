@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-import Input from "../utils/Input";
+import TextInput from "../utils/TextInput";
 import Navbar from "./Navbar";
 import { ReactComponent as BadgeGreyGreen } from "../../assets/SISTAZSHARE-BADGE.svg";
 import Footer from "../utils/Footer";
@@ -9,23 +9,22 @@ import queryString from "query-string";
 
 class CreateProfile extends Component {
   state = {
-    userData: {
-      profilePicture: "",
-      nationality: "",
-      bio: "",
-      url: "",
-      number: "",
-      email: "",
-    },
+    profilePicture: "",
+    nationality: "",
+    bio: "",
+    url: "",
+    phone: "",
+    email: "",
+    errors: {},
   };
   componentDidMount() {
     console.log(this.props.location);
 
     // console.log(this.props.history);
 
-    const userData = queryString.parse(this.props.location.search);
+    // const userData = queryString.parse(this.props.location.search);
 
-    console.log(userData);
+    // console.log(userData);
   }
 
   handleChange = (event) => {
@@ -35,7 +34,7 @@ class CreateProfile extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(this.state.userData);
+    console.log(this.state);
   };
   render() {
     const {
@@ -44,8 +43,10 @@ class CreateProfile extends Component {
       bio,
       nationality,
       url,
-      number,
-    } = this.state.userData;
+      phone,
+      errors,
+    } = this.state;
+    // const { errors } = this.state;
     return (
       <div>
         <Navbar whitePage={true} />
@@ -57,53 +58,59 @@ class CreateProfile extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-4 px-4">
-                  <Input
+                  <TextInput
                     type="text"
                     label="Image Url"
                     name="profilePicture"
                     value={profilePicture}
                     onChange={this.handleChange}
+                    error={errors.name}
                   />
 
-                  <Input
-                    type="text"
-                    name="nationality"
+                  <TextInput
                     label="Nationality"
+                    name="nationality"
+                    type="text"
                     value={nationality}
                     onChange={this.handleChange}
+                    error={errors.name}
                   />
-                  <Input
-                    type="text"
-                    name="bio"
+                  <TextInput
                     label="Bio"
+                    name="bio"
+                    type="text"
                     value={bio}
                     onChange={this.handleChange}
+                    error={errors.name}
                   />
-
-                  <Input
-                    type="url"
-                    name="url"
+                  <TextInput
                     label="Website or a preferred social media URL"
+                    name="url"
+                    type="url"
                     value={url}
                     onChange={this.handleChange}
+                    error={errors.name}
                   />
                 </div>
 
                 <div className="col-md-4 px-4">
-                  <Input
-                    type="number"
-                    name="telephone"
+                  <TextInput
                     label="WhatsApp Number *"
-                    value={number}
+                    type="number"
+                    name="phone"
+                    value={phone}
                     onChange={this.handleChange}
+                    error={errors.name}
                   />
-                  <Input
-                    type="email"
-                    name="email"
+                  <TextInput
                     label="Email *"
+                    name="email"
+                    type="email"
                     value={email}
                     onChange={this.handleChange}
+                    error={errors.name}
                   />
+
                   <p className="mt-5">
                     * Information provided here will not be shared with the
                     public.
