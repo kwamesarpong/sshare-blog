@@ -1,20 +1,26 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+
+import { fetchAuthorFromFacebook } from "../../actions/AuthorAction";
 
 import { ReactComponent as LogoSvgBlack } from "../../assets/LOGO/ICON/SISTAZSHARE-ICON-B.svg";
 import { ReactComponent as LoginImg1 } from "../../assets/SISTAZSHARE-LOGIN-1.svg";
 import Footer from "../utils/Footer";
-import { FacebookProvider, LoginButton } from 'react-facebook';
+import { FacebookProvider, LoginButton } from "react-facebook";
 
 class SignUp extends Component {
+  handleResponse = (data) => {
+    this.props.fetchAuthorFromFacebook(data);
 
-  handleResponse = data => {
+    this.props.history.push("/create-profile");
+
     console.log(data);
-  }
- 
-  handleError = error => {
+  };
+
+  handleError = (error) => {
     this.setState({ error });
-  }
+  };
 
   render() {
     // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri={redirect-uri}&state=123456789`
@@ -24,7 +30,7 @@ class SignUp extends Component {
     // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789&response_type=granted_scopes&scope=email`;
     // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789&response_type=token&scope=email`;
 
-    const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789`;
+    // const URL = `https://www.facebook.com/v6.0/dialog/oauth?client_id=533753947579439&redirect_uri=http://localhost:3000/create-profile&state=123456789`;
 
     return (
       <div>
@@ -93,4 +99,10 @@ class SignUp extends Component {
   }
 }
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    author: state.authors,
+  };
+};
+
+export default connect(mapStateToProps, { fetchAuthorFromFacebook })(SignUp);
