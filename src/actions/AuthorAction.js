@@ -3,6 +3,7 @@ import {
   FETCH_AUTHORS,
   FETCH_AUTHOR,
   FETCH_AUTHOR_FACEBOOK,
+  SET_CURRENT_USER,
   AUTHOR_LOADING,
 } from "./types";
 
@@ -52,7 +53,9 @@ export const fetchAuthorFromFacebook = (userData) => async (dispatch) => {
   }
 };
 
-export const createAuthorProfile = (authorData) => async (dispatch) => {
+export const createAuthorProfile = (authorData, history) => async (
+  dispatch
+) => {
   // post url here
 
   dispatch(setAuthorsLoading());
@@ -60,7 +63,7 @@ export const createAuthorProfile = (authorData) => async (dispatch) => {
   const url = `https://api-sistazshare.herokuapp.com/api/v1/service/devless/rpc?action=signUp`;
 
   try {
-    axios.post(url, {
+    const res = axios.post(url, {
       jsonrpc: "2.0",
       method: "devless",
       id: "1000",
@@ -77,16 +80,16 @@ export const createAuthorProfile = (authorData) => async (dispatch) => {
             dob: authorData.dateOfBirth,
           },
           {
-            social_url: authorData.social_url,
+            social_url: authorData.url,
           },
           {
-            whatsapp: authorData.whatsapp_no,
+            whatsapp: authorData.phone,
           },
           {
             bio: authorData.bio,
           },
           {
-            profile_picture: authorData.profile_picture,
+            profile_picture: authorData.profilePicture,
           },
           {
             nationality: authorData.nationality,
@@ -94,6 +97,14 @@ export const createAuthorProfile = (authorData) => async (dispatch) => {
         ],
       ],
     });
+
+    console.log(res);
+
+    // if(res.data.payload.sometoken) {
+    //   localStorage.setItem("jwtToken", JSON.stringify(res))
+    // }
+
+    history.push("/");
   } catch (error) {
     console.log(error);
   }
@@ -145,4 +156,21 @@ export const setAuthorsLoading = () => {
   return {
     type: AUTHOR_LOADING,
   };
+};
+
+export const setCurrentUser = (token) => {
+  return {
+    type: SET_CURRENT_USER,
+    payload: token,
+  };
+};
+
+export const logoutUser = (history) => (dispatch) => {
+  //Remove token from localStorage
+  localStorage.removeItem("jwtToken");
+
+  //set current user to {}
+  dispatch(setCurrentUser({}));
+
+  history.push("/");
 };

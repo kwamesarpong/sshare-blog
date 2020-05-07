@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { createAuthorProfile } from "../../actions/AuthorAction";
 
 import { connect } from "react-redux";
 
@@ -15,7 +16,7 @@ class CreateProfile extends Component {
     email: this.props.author.author.profile.email,
     nationality: "",
     password: "",
-    confirmPassword: "",
+    dateOfBirth: "",
     bio: "",
     url: "",
     phone: "",
@@ -38,7 +39,7 @@ class CreateProfile extends Component {
       email,
       profilePicture,
       password,
-      confirmPassword,
+      dateOfBirth,
     } = this.state;
 
     const { first_name, last_name } = this.props.author.author.profile;
@@ -54,7 +55,7 @@ class CreateProfile extends Component {
       email,
       profilePicture,
       password,
-      confirmPassword,
+      dateOfBirth,
       first_name,
       last_name,
     };
@@ -97,18 +98,14 @@ class CreateProfile extends Component {
       this.setState({ errors: { password: "The Password field is required" } });
       return;
     }
-    if (confirmPassword === "") {
+    if (dateOfBirth === "") {
       this.setState({
         errors: { confirmPassword: "The confirm password field is required" },
       });
       return;
     }
-    if (password !== confirmPassword) {
-      this.setState({
-        errors: { confirmPassword: "Passwords do not match" },
-      });
-      return;
-    }
+
+    this.props.createAuthorProfile(userData, this.props.history);
 
     console.log(userData);
 
@@ -120,11 +117,9 @@ class CreateProfile extends Component {
       url: "",
       phone: "",
       password: "",
-      confirmPassword: "",
+      dateOfBirth: "",
       errors: {},
     });
-
-    // console.log(this.state);
   };
   render() {
     const {
@@ -136,7 +131,7 @@ class CreateProfile extends Component {
       profilePicture,
       email,
       password,
-      confirmPassword,
+      dateOfBirth,
     } = this.state;
 
     // const { profile } = this.props.author.author;
@@ -189,6 +184,14 @@ class CreateProfile extends Component {
 
                 <div className="col-md-4 px-4">
                   <TextInput
+                    label="Date of Birth"
+                    type="date"
+                    name="dateOfBirth"
+                    value={dateOfBirth}
+                    onChange={this.handleChange}
+                    error={errors.dateOfBirth}
+                  />
+                  <TextInput
                     label="WhatsApp Number"
                     type="number"
                     name="phone"
@@ -214,14 +217,7 @@ class CreateProfile extends Component {
                     onChange={this.handleChange}
                     error={errors.password}
                   />
-                  <TextInput
-                    label="Confirm Password"
-                    name="confirmPassword"
-                    type="password"
-                    value={confirmPassword}
-                    onChange={this.handleChange}
-                    error={errors.confirmPassword}
-                  />
+
                   <div className="text-center  mt-5">
                     <button className="button button__black px-5">save</button>
                   </div>
@@ -271,4 +267,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(CreateProfile);
+export default connect(mapStateToProps, { createAuthorProfile })(CreateProfile);
