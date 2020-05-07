@@ -11,21 +11,17 @@ import queryString from "query-string";
 
 class CreateProfile extends Component {
   state = {
+    profilePicture: this.props.author.author.profile.picture.data.url,
+    email: this.props.author.author.profile.email,
     nationality: "",
+    password: "",
+    confirmPassword: "",
     bio: "",
     url: "",
     phone: "",
     errors: {},
   };
-  componentDidMount() {
-    console.log(this.props.location);
-
-    // console.log(this.props.history);
-
-    // const userData = queryString.parse(this.props.location.search);
-
-    // console.log(userData);
-  }
+  componentDidMount() {}
 
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
@@ -34,57 +30,114 @@ class CreateProfile extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
 
-    const { profilePicture, nationality, bio, url, phone, email } = this.state;
+    const {
+      nationality,
+      bio,
+      url,
+      phone,
+      email,
+      profilePicture,
+      password,
+      confirmPassword,
+    } = this.state;
+
+    const { first_name, last_name } = this.props.author.author.profile;
+
+    console.log(first_name);
+    console.log(last_name);
+
+    const userData = {
+      nationality,
+      bio,
+      url,
+      phone,
+      email,
+      profilePicture,
+      password,
+      confirmPassword,
+      first_name,
+      last_name,
+    };
 
     if (profilePicture === "") {
       this.setState({
-        errors: { profilePicture: "Profile Picture is required" },
+        errors: { profilePicture: "The Profile Picture field is required" },
       });
       return;
     }
     if (nationality === "") {
-      this.setState({ errors: { nationality: "Nationality is required" } });
+      this.setState({
+        errors: { nationality: "The Nationality field is required" },
+      });
       return;
     }
     if (bio === "") {
-      this.setState({ errors: { bio: "Bio is required" } });
+      this.setState({ errors: { bio: "The Bio is required" } });
       return;
     }
     if (url === "") {
       this.setState({
-        errors: { url: "Website or preferred social media URL  is required" },
+        errors: {
+          url: "The Website or preferred social media URL field  is required",
+        },
       });
       return;
     }
     if (phone === "") {
-      this.setState({ errors: { phone: "A valid phone number is required" } });
+      this.setState({
+        errors: { phone: "The phone number field is required" },
+      });
       return;
     }
     if (email === "") {
-      this.setState({ errors: { email: "A valid email is required" } });
+      this.setState({ errors: { email: "The email field is required" } });
+      return;
+    }
+    if (password === "") {
+      this.setState({ errors: { password: "The Password field is required" } });
+      return;
+    }
+    if (confirmPassword === "") {
+      this.setState({
+        errors: { confirmPassword: "The confirm password field is required" },
+      });
+      return;
+    }
+    if (password !== confirmPassword) {
+      this.setState({
+        errors: { confirmPassword: "Passwords do not match" },
+      });
       return;
     }
 
-    console.log(this.state);
+    console.log(userData);
+
+    this.setState({
+      profilePicture: "",
+      email: "",
+      nationality: "",
+      bio: "",
+      url: "",
+      phone: "",
+      password: "",
+      confirmPassword: "",
+      errors: {},
+    });
+
+    // console.log(this.state);
   };
   render() {
-    const { bio, nationality, url, phone, errors } = this.state;
-
-    // console.log(this.props);
-    // const { errors } = this.state;
-
-    console.log(this.props.author.author);
-
-    const { profile } = this.props.author.author;
-
-    console.log("profile...", profile);
-
-    // let profile;
-    // if (this.props.author) {
-    //   profile = this.props.author.author.profile;
-    // }
-
-    // console.log(profile);
+    const {
+      bio,
+      nationality,
+      url,
+      phone,
+      errors,
+      profilePicture,
+      email,
+      password,
+      confirmPassword,
+    } = this.state;
 
     // const { profile } = this.props.author.author;
 
@@ -99,16 +152,14 @@ class CreateProfile extends Component {
             <div className="container">
               <div className="row">
                 <div className="col-md-4 px-4">
-                  {profile.picture.data.url ? (
-                    <TextInput
-                      type="text"
-                      label="Image Url"
-                      name="profilePicture"
-                      value={profile.picture.data.url}
-                      onChange={this.handleChange}
-                      error={errors.profilePicture}
-                    />
-                  ) : null}
+                  <TextInput
+                    type="text"
+                    label="Image Url"
+                    name="profilePicture"
+                    value={profilePicture}
+                    onChange={this.handleChange}
+                    error={errors.profilePicture}
+                  />
 
                   <TextInput
                     label="Nationality"
@@ -138,7 +189,7 @@ class CreateProfile extends Component {
 
                 <div className="col-md-4 px-4">
                   <TextInput
-                    label="WhatsApp Number *"
+                    label="WhatsApp Number"
                     type="number"
                     name="phone"
                     value={phone}
@@ -146,23 +197,32 @@ class CreateProfile extends Component {
                     error={errors.phone}
                   />
 
-                  {profile.email ? (
-                    <TextInput
-                      label="Email *"
-                      name="email"
-                      type="email"
-                      value={profile.email}
-                      onChange={this.handleChange}
-                      error={errors.email}
-                    />
-                  ) : null}
+                  <TextInput
+                    label="Email"
+                    name="email"
+                    type="email"
+                    value={email}
+                    onChange={this.handleChange}
+                    error={errors.email}
+                  />
 
-                  <p className="mt-5">
-                    * Information provided here will not be shared with the
-                    public.
-                  </p>
-
-                  <div className="mar-top-2">
+                  <TextInput
+                    label="Password"
+                    name="password"
+                    type="password"
+                    value={password}
+                    onChange={this.handleChange}
+                    error={errors.password}
+                  />
+                  <TextInput
+                    label="Confirm Password"
+                    name="confirmPassword"
+                    type="password"
+                    value={confirmPassword}
+                    onChange={this.handleChange}
+                    error={errors.confirmPassword}
+                  />
+                  <div className="text-center  mt-5">
                     <button className="button button__black px-5">save</button>
                   </div>
                 </div>
@@ -181,11 +241,17 @@ class CreateProfile extends Component {
                     in women’s empowerment activities earn a badge directly at
                     sign in, as we review your form submissions.
                   </p>
-                  <div className="profile__logout">
+
+                  <p className="mt-5">
+                    * Information provided here will not be shared with the
+                    public.
+                  </p>
+
+                  {/* <div className="profile__logout">
                     <Link className="text-danger" to="">
                       Log out
                     </Link>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>

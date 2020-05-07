@@ -57,11 +57,87 @@ export const createAuthorProfile = (authorData) => async (dispatch) => {
 
   dispatch(setAuthorsLoading());
 
+  const url = `https://api-sistazshare.herokuapp.com/api/v1/service/devless/rpc?action=signUp`;
+
   try {
-    // const res a
+    axios.post(url, {
+      jsonrpc: "2.0",
+      method: "devless",
+      id: "1000",
+      params: [
+        authorData.email,
+        authorData.password,
+        null,
+        null,
+        authorData.first_name,
+        authorData.last_name,
+        null,
+        [
+          {
+            dob: authorData.dateOfBirth,
+          },
+          {
+            social_url: authorData.social_url,
+          },
+          {
+            whatsapp: authorData.whatsapp_no,
+          },
+          {
+            bio: authorData.bio,
+          },
+          {
+            profile_picture: authorData.profile_picture,
+          },
+          {
+            nationality: authorData.nationality,
+          },
+        ],
+      ],
+    });
   } catch (error) {
     console.log(error);
   }
+
+  // {
+  //       jsonrpc: "2.0",
+  //       method: "devless",
+  //       id: "1000",
+  //       params: [
+  //         email,
+  //         password,
+  //         null,
+  //         null,
+  //         first_name,
+  //         last_name,
+  //         null,
+  //         [
+  //           {
+  //             dob: dateOfBirth
+  //           },
+  //           {
+  //             social_url: social_url
+  //           },
+  //           {
+  //             whatsapp: whatsapp_no
+  //           },
+  //           {
+  //             bio: bio
+  //           },
+  //           {
+  //             profile_picture: profile_picture
+  //           },
+  //           {
+  //             nationality: nationality
+  //           }
+  //         ]
+  //       ]
+  //     }
+
+  // try {
+  //   // const res a
+  // } catch (error) {
+  //   console.log(error);
+  // }
 };
 
 // Set loading state
