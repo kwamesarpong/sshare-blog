@@ -58,12 +58,12 @@ export const createAuthorProfile = (authorData, history) => async (
 ) => {
   // post url here
 
-  dispatch(setAuthorsLoading());
-
   const url = `https://api-sistazshare.herokuapp.com/api/v1/service/devless/rpc?action=signUp`;
 
+  dispatch(setAuthorsLoading());
+
   try {
-    const res = axios.post(url, {
+    const res = await axios.post(url, {
       jsonrpc: "2.0",
       method: "devless",
       id: "1000",
@@ -104,51 +104,12 @@ export const createAuthorProfile = (authorData, history) => async (
     //   localStorage.setItem("jwtToken", JSON.stringify(res))
     // }
 
+    // dispatch(setCurrentUser(userData))
+
     history.push("/");
   } catch (error) {
     console.log(error);
   }
-
-  // {
-  //       jsonrpc: "2.0",
-  //       method: "devless",
-  //       id: "1000",
-  //       params: [
-  //         email,
-  //         password,
-  //         null,
-  //         null,
-  //         first_name,
-  //         last_name,
-  //         null,
-  //         [
-  //           {
-  //             dob: dateOfBirth
-  //           },
-  //           {
-  //             social_url: social_url
-  //           },
-  //           {
-  //             whatsapp: whatsapp_no
-  //           },
-  //           {
-  //             bio: bio
-  //           },
-  //           {
-  //             profile_picture: profile_picture
-  //           },
-  //           {
-  //             nationality: nationality
-  //           }
-  //         ]
-  //       ]
-  //     }
-
-  // try {
-  //   // const res a
-  // } catch (error) {
-  //   console.log(error);
-  // }
 };
 
 // Set loading state
