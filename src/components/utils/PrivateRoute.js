@@ -2,12 +2,12 @@ import React from "react";
 import { connect } from "react-redux";
 import { Route, Redirect } from "react-router-dom";
 
-const PrivateRoute = ({ component: Component, auth, ...rest }) => (
-
+const PrivateRoute = ({ component: Component, author, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      auth.author.tokenDetail.accessToken === true ? (
+      author ? (
+
         <Component {...props} />
       ) : (
         <Redirect to="/signup" />
@@ -17,7 +17,7 @@ const PrivateRoute = ({ component: Component, auth, ...rest }) => (
 );
 
 const mapStateToProps = (state) => ({
-  auth: state.authors,
+  author: state.authors.author,
 });
 
 export default connect(mapStateToProps)(PrivateRoute);
