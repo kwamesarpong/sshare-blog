@@ -170,10 +170,7 @@ class About extends Component {
               <div className="row">
                 <div className="col-md-4">
                   <div>
-                    <Link
-                      to="/explore"
-                      className="button button__black mb-3 ml-4"
-                    >
+                    <Link to="/" className="button button__black mb-3 ml-4">
                       Explore
                     </Link>
                   </div>

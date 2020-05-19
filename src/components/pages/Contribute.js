@@ -127,10 +127,7 @@ class Contribute extends Component {
             <div className="row py-3">
               <div className="col-md-4 mar-lar">
                 <h4 className="heading heading__tertiary pt-5 pb-3">Ready ?</h4>
-                <Link
-                  className="nav-link button button__black "
-                  to="/contribute"
-                >
+                <Link className="nav-link button button__black " to="/signup">
                   JOIN US
                 </Link>
                 <p className="contribute__badge--text">
