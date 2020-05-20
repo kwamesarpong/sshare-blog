@@ -118,7 +118,15 @@ class Profile2 extends Component {
   };
 
   componentDidMount() {
-    const { id } = this.props.match.params;
+    // const { id } = this.props.match.params;
+
+    const authUser = JSON.parse(localStorage.getItem("Auth"));
+
+    const authorProfile = JSON.parse(localStorage.getItem("Auth"));
+
+    const id = authUser.id;
+
+    // console.log(id);
 
     this.props.fetchAuthor(id);
 

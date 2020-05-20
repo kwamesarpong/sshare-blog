@@ -1,4 +1,5 @@
 import axios from "axios";
+
 import {
   FETCH_AUTHORS,
   FETCH_AUTHOR,
@@ -35,9 +36,11 @@ export const fetchAuthor = (authorId) => async (dispatch) => {
   try {
     const res = await axios.get(url);
 
-    const author = res.data.payload.results[0];
+    // const author = res.data.payload.results[0];
 
-    dispatch({ type: FETCH_AUTHOR, payload: author });
+    console.log(res.data.payload);
+
+    // dispatch({ type: FETCH_AUTHOR, payload: author });
   } catch (error) {
     console.log(error);
   }
@@ -100,11 +103,40 @@ export const createAuthorProfile = (authorData, history) => async (
 
     console.log(res);
 
-    // if(res.data.payload.sometoken) {
-    //   localStorage.setItem("jwtToken", JSON.stringify(res))
-    // }
+    const { token, profile } = res.data.payload.result;
 
-    // dispatch(setCurrentUser(userData))
+    const {
+      first_name,
+      last_name,
+      email,
+      dateOfBirth,
+      socialUrl,
+      phone,
+      bio,
+      profilePicture,
+      nationality,
+    } = authorData;
+
+    const authorProfile = {
+      first_name,
+      last_name,
+      email,
+      dateOfBirth,
+      socialUrl,
+      bio,
+      phone,
+      profilePicture,
+      nationality,
+    };
+
+    dispatch(setCurrentUser(profile));
+    // save token to localstorage
+    if (token) {
+      localStorage.setItem("Auth", JSON.stringify(profile));
+    }
+
+    localStorage.setItem("sisterShareAuthFB", JSON.stringify(authorProfile));
+
 
     history.push("/");
   } catch (error) {
@@ -128,7 +160,7 @@ export const setCurrentUser = (token) => {
 
 export const logoutUser = (history) => (dispatch) => {
   //Remove token from localStorage
-  localStorage.removeItem("jwtToken");
+  localStorage.removeItem("Auth");
 
   //set current user to {}
   dispatch(setCurrentUser({}));

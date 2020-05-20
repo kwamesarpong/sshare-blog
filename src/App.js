@@ -28,6 +28,13 @@ import Profile2 from "./components/pages/Profile2";
 import SignUp from "./components/pages/SignUp";
 import Contact from "./components/pages/Contact";
 import PrivateRoute from "./components/utils/PrivateRoute";
+import { setCurrentUser } from "./actions/AuthorAction";
+
+// check for token and user payload
+if (localStorage.Auth) {
+  // set auth token header
+  store.dispatch(setCurrentUser(localStorage.Auth));
+}
 
 class App extends Component {
   render() {

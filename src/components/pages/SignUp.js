@@ -8,6 +8,7 @@ import { ReactComponent as LogoSvgBlack } from "../../assets/LOGO/ICON/SISTAZSHA
 import { ReactComponent as LoginImg1 } from "../../assets/SISTAZSHARE-LOGIN-1.svg";
 import Footer from "../utils/Footer";
 import { FacebookProvider, LoginButton } from "react-facebook";
+import Navbar from "./Navbar";
 
 class SignUp extends Component {
   handleResponse = (data) => {
@@ -16,9 +17,11 @@ class SignUp extends Component {
     this.props.history.push("/create-profile");
 
     console.log(data);
+    console.log("got here");
   };
 
   handleError = (error) => {
+    console.log(error);
     this.setState({ error });
   };
 
@@ -34,6 +37,7 @@ class SignUp extends Component {
 
     return (
       <div>
+        <Navbar whitePage={true} />
         <div className="container py-4">
           <div className="contribute2">
             <div className="container">
@@ -41,12 +45,16 @@ class SignUp extends Component {
                 <div className="logo__box">
                   <LogoSvgBlack className="logo logo__box--icon" alt="logo" />
 
-                  <>
-                    <p className="logo__box-1 logo__box-black">Sistaz Share</p>
-                    <p className="logo__box-2 logo__box-black">
-                      Connect & Learn
-                    </p>
-                  </>
+                  <Link to="/">
+                    <>
+                      <p className="logo__box-1 logo__box-black">
+                        Sistaz Share
+                      </p>
+                      <p className="logo__box-2 logo__box-black">
+                        Connect & Learn
+                      </p>
+                    </>
+                  </Link>
                 </div>
               </div>
 

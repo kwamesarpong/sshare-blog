@@ -60,6 +60,7 @@
 
   &-black {
     color: #000;
+    text-decoration: none;
   }
   // &-white {
   //   color: #000;
@@ -75,6 +76,10 @@
     font-size: 0.6rem;
     font-weight: 500;
     transform: translateY(-0.3rem);
+  }
+
+  a {
+    text-decoration: none;
   }
 
   p {
@@ -110,5 +115,3 @@
     color: #fff;
   }
 }
-
-

@@ -44,9 +44,6 @@ class CreateProfile extends Component {
 
     const { first_name, last_name } = this.props.author.author.profile;
 
-    console.log(first_name);
-    console.log(last_name);
-
     const userData = {
       nationality,
       bio,

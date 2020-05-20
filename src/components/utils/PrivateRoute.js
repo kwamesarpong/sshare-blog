@@ -6,12 +6,7 @@ const PrivateRoute = ({ component: Component, author, ...rest }) => (
   <Route
     {...rest}
     render={(props) =>
-      author ? (
-
-        <Component {...props} />
-      ) : (
-        <Redirect to="/signup" />
-      )
+      author ? <Component {...props} /> : <Redirect to="/signup" />
     }
   />
 );
