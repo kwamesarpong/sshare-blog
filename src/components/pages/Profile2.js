@@ -14,120 +14,26 @@ import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY
 import Categories from "../utils/Categories";
 import Footer from "../utils/Footer";
 
-let authorProfile;
+const authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
 class Profile2 extends Component {
-  state = {
-    showPost: false,
-    category: [
-      {
-        id: 1,
-        devless_user_id: 1,
-        author: "Amber Nicole",
-        category: "mindnbody",
-        title: "The Secret Treat",
-        blog_story: `Lorem ipsum dolor sit amet, consectetur adipiscing
-         elit, sed do eiusmod tempor incididunt ut labore et
-         dolore magna aliqua. Dignissim cras tincidunt lobortis
-         feugiat vivamus at augue eget. Posuere ac ut consequat
-         semper viverra nam libero justo laoreet. Elementum tempus
-         egestas sed sed risus pretium quam vulputate. Id ornare
-         arcu odio ut. Enim neque volutpat ac tincidunt vitae semper.
-         Eget sit amet tellus cras adipiscing enim eu. Massa massa
-         ultricies mi quis hendrerit. Tortor consequat id porta nibh
-         venenatis. Dictum non consectetur a erat nam at lectus urna duis.
-         Ultrices mi tempus imperdiet nulla malesuada pellentesque elit.
-         Et odio pellentesque diam volutpat commodo sed egestas egestas.
-         Interdum posuere lorem ipsum dolor sit amet consectetur. In arcu
-         cursus euismod quis viverra.`,
-        created_at: null,
-        img_url: null,
-        author_img: null,
-      },
-      {
-        id: 2,
-        devless_user_id: 1,
-        author: "Amber Nicole",
-        category: "mindnbody",
-        title: "The Secret Treat",
-        blog_story: `Lorem ipsum dolor sit amet, consectetur adipiscing
-         elit, sed do eiusmod tempor incididunt ut labore et
-         dolore magna aliqua. Dignissim cras tincidunt lobortis
-         feugiat vivamus at augue eget. Posuere ac ut consequat
-         semper viverra nam libero justo laoreet. Elementum tempus
-         egestas sed sed risus pretium quam vulputate. Id ornare
-         arcu odio ut. Enim neque volutpat ac tincidunt vitae semper.
-         Eget sit amet tellus cras adipiscing enim eu. Massa massa
-         ultricies mi quis hendrerit. Tortor consequat id porta nibh
-         venenatis. Dictum non consectetur a erat nam at lectus urna duis.
-         Ultrices mi tempus imperdiet nulla malesuada pellentesque elit.
-         Et odio pellentesque diam volutpat commodo sed egestas egestas.
-         Interdum posuere lorem ipsum dolor sit amet consectetur. In arcu
-         cursus euismod quis viverra.`,
-        created_at: null,
-        img_url: null,
-        author_img: null,
-      },
-      {
-        id: 3,
-        devless_user_id: 1,
-        author: "Amber Nicole",
-        category: "mindnbody",
-        title: "The Secret Treat",
-        blog_story: `Lorem ipsum dolor sit amet, consectetur adipiscing
-         elit, sed do eiusmod tempor incididunt ut labore et
-         dolore magna aliqua. Dignissim cras tincidunt lobortis
-         feugiat vivamus at augue eget. Posuere ac ut consequat
-         semper viverra nam libero justo laoreet. Elementum tempus
-         egestas sed sed risus pretium quam vulputate. Id ornare
-         arcu odio ut. Enim neque volutpat ac tincidunt vitae semper.
-         Eget sit amet tellus cras adipiscing enim eu. Massa massa
-         ultricies mi quis hendrerit. Tortor consequat id porta nibh
-         venenatis. Dictum non consectetur a erat nam at lectus urna duis.
-         Ultrices mi tempus imperdiet nulla malesuada pellentesque elit.
-         Et odio pellentesque diam volutpat commodo sed egestas egestas.
-         Interdum posuere lorem ipsum dolor sit amet consectetur. In arcu
-         cursus euismod quis viverra.`,
-        created_at: null,
-        img_url: null,
-        author_img: null,
-      },
-      {
-        id: 4,
-        devless_user_id: 1,
-        author: "Amber Nicole",
-        category: "mindnbody",
-        title: "The Secret Treat",
-        blog_story: `Lorem ipsum dolor sit amet, consectetur adipiscing
-         elit, sed do eiusmod tempor incididunt ut labore et
-         dolore magna aliqua. Dignissim cras tincidunt lobortis
-         feugiat vivamus at augue eget. Posuere ac ut consequat
-         semper viverra nam libero justo laoreet. Elementum tempus
-         egestas sed sed risus pretium quam vulputate. Id ornare
-         arcu odio ut. Enim neque volutpat ac tincidunt vitae semper.
-         Eget sit amet tellus cras adipiscing enim eu. Massa massa
-         ultricies mi quis hendrerit. Tortor consequat id porta nibh
-         venenatis. Dictum non consectetur a erat nam at lectus urna duis.
-         Ultrices mi tempus imperdiet nulla malesuada pellentesque elit.
-         Et odio pellentesque diam volutpat commodo sed egestas egestas.
-         Interdum posuere lorem ipsum dolor sit amet consectetur. In arcu
-         cursus euismod quis viverra.`,
-        created_at: null,
-        img_url: null,
-        author_img: null,
-      },
-    ],
-  };
-
   componentDidMount() {
-    const authUser = JSON.parse(localStorage.getItem("Auth"));
+    // const authUser = JSON.parse(localStorage.getItem("Auth"));
 
-    authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
+    // authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
 
-    const id = authUser.id;
+    // const id = authUser.id;
 
-    this.props.fetchAuthor(id);
+    // console.log(id);
+
+    // this.props.fetchAuthor(id);
+
+    const authorName = {
+      authorFirtName: authorProfile.first_name,
+      authorLastName: authorProfile.last_name,
+    };
 
     this.props.fetchAuthors();
+    this.props.fetchAuthorArticles(authorName);
 
     // let authorName
 
@@ -135,11 +41,18 @@ class Profile2 extends Component {
   }
   render() {
     const { author, authors, loading } = this.props.authors;
+    const { articles } = this.props.articles;
+
+    console.log(articles);
     // const { category } = this.props.categories
 
     let renderProfile;
 
-    if (author === null || loading) {
+    // if (author === null || loading) {
+    //   renderProfile = (
+    //     <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
+    //   );
+    if (authorProfile === null || loading) {
       renderProfile = (
         <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
       );
@@ -148,20 +61,21 @@ class Profile2 extends Component {
         <div>
           <div className="contributor-profile__card">
             <img
-              src={author.profile.picture.data.url} //todo use real image when added
+              src={authorProfile.profilePicture}
               alt="contributor"
               className="contributor-profile__card-img"
             />
             <p className="contributor-profile__card-title">
-              {author.profile.name}
+              <span className="mr-2">{authorProfile.first_name}</span>
+              <span>{authorProfile.last_name}</span>
               <span>
                 <BadgeGrey className="ml-3 contributor-profile__card-img1" />
                 <i className="fas fa-pencil-alt mar-left"></i>
               </span>
             </p>
-            {/* <p className="contributor-profile__card-subtitle pt-2">
-              {author.location}
-            </p> */}
+            <p className="contributor-profile__card-subtitle pt-2">
+              {authorProfile.nationality}
+            </p>
           </div>
           {/* <p className="mt-5 contributor-profile__card-text">
             Women are smart, resourceful and resilient. I believe every woman
@@ -180,13 +94,15 @@ class Profile2 extends Component {
             {authorProfile.socialUrl}
           </a>
           <h5 className="heading heading__tertiary-2 mt-5">Articles</h5>
-          {this.state.showPost ? (
+
+          {articles && articles.length === 0 ? (
             <h5 className="heading heading__tertiary-2 heading__tertiary-2-light mt-5">
               No Post Yet
             </h5>
           ) : (
             <div className="mt-5">
-              <Categories categories={this.state.category} />
+              <Categories categories={articles} />
+              {/* <Categories categories={this.state.category} /> */}
             </div>
           )}
         </div>

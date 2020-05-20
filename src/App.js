@@ -65,7 +65,7 @@ class App extends Component {
               path="/create-profile"
               component={CreateProfile}
             />
-            <PrivateRoute exact path="/contributors/:id" component={Profile2} />
+            <PrivateRoute exact path="/profile" component={Profile2} />
             <Route exact path="/contact" component={Contact} />
           </Switch>
         </BrowserRouter>

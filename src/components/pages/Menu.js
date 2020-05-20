@@ -17,7 +17,7 @@ class Menu extends Component {
               <ul>
                 <li className="menu__links">
                   {/* // todo => make id dymanic */}
-                  <Link to="/contributors/:id">Profile</Link>
+                  <Link to="/profile">Profile</Link>
                 </li>
                 <li className="menu__links">
                   <Link to="/contributors">Contributors</Link>

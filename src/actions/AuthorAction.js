@@ -39,6 +39,7 @@ export const fetchAuthor = (authorId) => async (dispatch) => {
     const author = res.data.payload.results[0];
 
     console.log(res.data.payload);
+    console.log(author);
 
     dispatch({ type: FETCH_AUTHOR, payload: author });
   } catch (error) {
@@ -129,7 +130,8 @@ export const createAuthorProfile = (authorData, history) => async (
       nationality,
     };
 
-    // dispatch(setCurrentUser(profile));
+    dispatch(setCurrentUser(profile));
+
     // save token to localstorage
     if (token) {
       localStorage.setItem("Auth", JSON.stringify(profile));
