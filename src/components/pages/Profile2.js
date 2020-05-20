@@ -14,6 +14,7 @@ import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY
 import Categories from "../utils/Categories";
 import Footer from "../utils/Footer";
 
+let authorProfile;
 class Profile2 extends Component {
   state = {
     showPost: false,
@@ -118,15 +119,11 @@ class Profile2 extends Component {
   };
 
   componentDidMount() {
-    // const { id } = this.props.match.params;
-
     const authUser = JSON.parse(localStorage.getItem("Auth"));
 
-    const authorProfile = JSON.parse(localStorage.getItem("Auth"));
+    authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
 
     const id = authUser.id;
-
-    // console.log(id);
 
     this.props.fetchAuthor(id);
 
@@ -151,32 +148,36 @@ class Profile2 extends Component {
         <div>
           <div className="contributor-profile__card">
             <img
-              src={author.author_img} //todo use real image when added
+              src={author.profile.picture.data.url} //todo use real image when added
               alt="contributor"
               className="contributor-profile__card-img"
             />
             <p className="contributor-profile__card-title">
-              {author.name}
+              {author.profile.name}
               <span>
                 <BadgeGrey className="ml-3 contributor-profile__card-img1" />
                 <i className="fas fa-pencil-alt mar-left"></i>
               </span>
             </p>
-            <p className="contributor-profile__card-subtitle pt-2">
+            {/* <p className="contributor-profile__card-subtitle pt-2">
               {author.location}
-            </p>
+            </p> */}
           </div>
-          <p className="mt-5 contributor-profile__card-text">
+          {/* <p className="mt-5 contributor-profile__card-text">
             Women are smart, resourceful and resilient. I believe every woman
             should be empowered to be bright and bold enough to take up life as
             a formidable individual.
+          </p> */}
+          <p className="mt-5 contributor-profile__card-text">
+            {authorProfile.bio}
           </p>
           <a
             href="https://web.facebook.com/amina.able"
             target="_blank"
             rel="noopener noreferrer"
           >
-            https://web.facebook.com/amina.able
+            {/* https://web.facebook.com/amina.able */}
+            {authorProfile.socialUrl}
           </a>
           <h5 className="heading heading__tertiary-2 mt-5">Articles</h5>
           {this.state.showPost ? (
@@ -191,6 +192,8 @@ class Profile2 extends Component {
         </div>
       );
     }
+
+    console.log(authorProfile);
 
     let renderOtherAuthors;
 

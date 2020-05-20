@@ -18,7 +18,7 @@ class CreateProfile extends Component {
     password: "",
     dateOfBirth: "",
     bio: "",
-    url: "",
+    socialUrl: "",
     phone: "",
     errors: {},
   };
@@ -34,7 +34,7 @@ class CreateProfile extends Component {
     const {
       nationality,
       bio,
-      url,
+      socialUrl,
       phone,
       email,
       profilePicture,
@@ -47,7 +47,7 @@ class CreateProfile extends Component {
     const userData = {
       nationality,
       bio,
-      url,
+      socialUrl,
       phone,
       email,
       profilePicture,
@@ -73,10 +73,11 @@ class CreateProfile extends Component {
       this.setState({ errors: { bio: "The Bio is required" } });
       return;
     }
-    if (url === "") {
+    if (socialUrl === "") {
       this.setState({
         errors: {
-          url: "The Website or preferred social media URL field  is required",
+          socialUrl:
+            "The Website or preferred social media URL field  is required",
         },
       });
       return;
@@ -111,7 +112,7 @@ class CreateProfile extends Component {
       email: "",
       nationality: "",
       bio: "",
-      url: "",
+      socialUrl: "",
       phone: "",
       password: "",
       dateOfBirth: "",
@@ -122,7 +123,7 @@ class CreateProfile extends Component {
     const {
       bio,
       nationality,
-      url,
+      socialUrl,
       phone,
       errors,
       profilePicture,
@@ -171,11 +172,11 @@ class CreateProfile extends Component {
                   />
                   <TextInput
                     label="Website or a preferred social media URL"
-                    name="url"
+                    name="socialUrl"
                     type="url"
-                    value={url}
+                    value={socialUrl}
                     onChange={this.handleChange}
-                    error={errors.url}
+                    error={errors.socialUrl}
                   />
                 </div>
 

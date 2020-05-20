@@ -36,11 +36,11 @@ export const fetchAuthor = (authorId) => async (dispatch) => {
   try {
     const res = await axios.get(url);
 
-    // const author = res.data.payload.results[0];
+    const author = res.data.payload.results[0];
 
     console.log(res.data.payload);
 
-    // dispatch({ type: FETCH_AUTHOR, payload: author });
+    dispatch({ type: FETCH_AUTHOR, payload: author });
   } catch (error) {
     console.log(error);
   }
@@ -83,7 +83,7 @@ export const createAuthorProfile = (authorData, history) => async (
             dob: authorData.dateOfBirth,
           },
           {
-            social_url: authorData.url,
+            social_url: authorData.socialUrl,
           },
           {
             whatsapp: authorData.phone,
@@ -129,14 +129,13 @@ export const createAuthorProfile = (authorData, history) => async (
       nationality,
     };
 
-    dispatch(setCurrentUser(profile));
+    // dispatch(setCurrentUser(profile));
     // save token to localstorage
     if (token) {
       localStorage.setItem("Auth", JSON.stringify(profile));
     }
 
     localStorage.setItem("sisterShareAuthFB", JSON.stringify(authorProfile));
-
 
     history.push("/");
   } catch (error) {
