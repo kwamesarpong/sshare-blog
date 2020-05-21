@@ -17,25 +17,12 @@ import Footer from "../utils/Footer";
 const authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
 class Profile2 extends Component {
   componentDidMount() {
-    // const authUser = JSON.parse(localStorage.getItem("Auth"));
-
-    // authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
-
-    // const id = authUser.id;
-
-    // console.log(id);
-
-    // this.props.fetchAuthor(id);
-
-    const authorName = {
-      authorFirtName: authorProfile.first_name,
-      authorLastName: authorProfile.last_name,
-    };
-
     this.props.fetchAuthors();
-    this.props.fetchAuthorArticles(authorName);
 
-    // let authorName
+    this.props.fetchAuthorArticles(
+      authorProfile.first_name,
+      authorProfile.last_name
+    );
 
     // this.props.fetchAuthorArticles(authorName);
   }
