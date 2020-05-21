@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Category from "./Category";
 
-
 class Categories extends Component {
   render() {
     const { categories } = this.props;
@@ -13,7 +12,7 @@ class Categories extends Component {
         ) : (
           <div>
             <Category categories={categories} />
-            <hr />
+            <hr className="mb-5" />
           </div>
         )}
       </div>

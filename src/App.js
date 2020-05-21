@@ -58,7 +58,7 @@ class App extends Component {
             <Route exact path="/tell-a-friend" component={TellAFriend} />
             <Route exact path="/contributors" component={Contributors} />
             {/* <Route exact path="/profile" component={Profile} /> */}
-            <Route exact path="/series" component={Series} />
+            {/* <Route exact path="/series" component={Series} /> */}
             <Route exact path="/signup" component={SignUp} />
             <PrivateRoute
               exact

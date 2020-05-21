@@ -73,7 +73,7 @@ const Golive = ({ text }) => {
                 />
               </div>
             </div>
-            <div className="text-center pt-5">
+            <div className="text-center py-5">
               <Link className="nav-link button button__black" to="/">
                 Request
               </Link>

@@ -132,6 +132,7 @@ class ContributePost extends Component {
         <SharePost text="Share Your Articles" />
         <Golive text="Go live" />
 
+
         <Footer />
       </div>
     );

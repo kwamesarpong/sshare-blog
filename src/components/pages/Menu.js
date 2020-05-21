@@ -28,29 +28,29 @@ class Menu extends Component {
                 <li className="menu__links">
                   <Link to="/series">Series</Link>
                 </li>
-                <li className="menu__links">
+                {/* <li className="menu__links">
                   <Link to="/events">Events</Link>
-                </li>
+                </li> */}
                 <li className="menu__links">
                   <Link to="/about">About</Link>
                 </li>
               </ul>
 
-              <input
+              {/* <input
                 type="text"
                 name="search"
                 id="search"
                 placeholder="Search ..."
-              />
+              /> */}
               <div className="pb-3 pt-5">
                 <Link to="" className="button button__black">
                   join us
                 </Link>
               </div>
               <div>
-                <Link to="" className="button button__black">
+                {/* <Link to="" className="button button__black">
                   tell a friend
-                </Link>
+                </Link> */}
               </div>
             </div>
             <div className="col-md-6">

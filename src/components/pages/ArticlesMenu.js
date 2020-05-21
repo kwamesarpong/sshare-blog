@@ -27,7 +27,7 @@ class ArticlesMenu extends Component {
         <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
       );
     } else {
-      renderLinks = categories.map(category => (
+      renderLinks = categories.map((category) => (
         // this let links fadein nicely
         <Animated
           animationIn="fadeIn"
@@ -57,22 +57,22 @@ class ArticlesMenu extends Component {
 
               <ul>{renderLinks}</ul>
 
-              <input
+              {/* <input
                 type="text"
                 name="search"
                 id="search"
                 placeholder="Search ..."
-              />
-              <div className="pb-3 pt-5">
-                <Link to="" className="button button__black">
+              /> */}
+              <div className="pb-3 py-5">
+                <Link to="/signup" className="button button__black">
                   join us
                 </Link>
               </div>
-              <div>
+              {/* <div>
                 <Link to="" className="button button__black">
                   tell a friend
                 </Link>
-              </div>
+              </div> */}
             </div>
             <div className="col-md-6">
               <ArticleMenu className="img-fluid" />
@@ -85,9 +85,9 @@ class ArticlesMenu extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   return {
-    categories: state.categories
+    categories: state.categories,
   };
 };
 

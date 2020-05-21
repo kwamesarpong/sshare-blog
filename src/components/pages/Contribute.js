@@ -130,9 +130,9 @@ class Contribute extends Component {
                 <Link className="nav-link button button__black " to="/signup">
                   JOIN US
                 </Link>
-                <p className="contribute__badge--text">
+                {/* <p className="contribute__badge--text">
                   Tell Your Friends About Sistaz Share
-                </p>
+                </p> */}
               </div>
 
               <div className="col-md-5">
