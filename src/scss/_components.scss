@@ -27,6 +27,15 @@
       color: #fff;
     }
   }
+  &__red {
+    border: 2px solid #ff0000;
+    color: #fff;
+    background-color: #ff0000;
+
+    &:hover {
+      color: #fff;
+    }
+  }
 
   &__white {
     border: 2px solid #000;

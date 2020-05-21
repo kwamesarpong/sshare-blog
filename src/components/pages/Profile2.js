@@ -4,7 +4,11 @@ import { connect } from "react-redux";
 import Loader from "react-loader-spinner";
 import { Animated } from "react-animated-css";
 
-import { fetchAuthor, fetchAuthors } from "../../actions/AuthorAction";
+import {
+  fetchAuthor,
+  fetchAuthors,
+  logoutUser,
+} from "../../actions/AuthorAction";
 import { fetchAuthorArticles } from "../../actions/ArticlesAction";
 import Navbar from "./Navbar";
 
@@ -73,7 +77,7 @@ class Profile2 extends Component {
             {authorProfile.bio}
           </p>
           <a
-            href="https://web.facebook.com/amina.able"
+            href={authorProfile.socialUrl}
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -131,6 +135,18 @@ class Profile2 extends Component {
               >
                 {renderProfile}
               </Animated>
+
+              <div className="profile__logout mr-3">
+                {/* <button className="button button__red" to="">
+                  Log out
+                </button> */}
+                <p
+                  className="text-danger"
+                  onClick={() => this.props.logoutUser(this.props.history)}
+                >
+                  Log out
+                </p>
+              </div>
             </div>
             <div className="col-md-3 pl-5">
               <Animated
@@ -174,4 +190,5 @@ export default connect(mapStateToProps, {
   fetchAuthor,
   fetchAuthors,
   fetchAuthorArticles,
+  logoutUser,
 })(Profile2);

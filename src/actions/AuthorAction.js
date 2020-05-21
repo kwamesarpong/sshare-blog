@@ -162,6 +162,7 @@ export const setCurrentUser = (token) => {
 export const logoutUser = (history) => (dispatch) => {
   //Remove token from localStorage
   localStorage.removeItem("Auth");
+  localStorage.removeItem("sisterShareAuthFB");
 
   //set current user to {}
   dispatch(setCurrentUser({}));
