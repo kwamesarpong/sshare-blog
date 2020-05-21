@@ -1,6 +1,6 @@
 import React from "react";
 
-const ImageMiniCard = ({ title, imgNum }) => {
+const ImageMiniCard = ({ title, imgNum, link }) => {
   return (
     <div className="col-lg-2 col-md-4">
       <div className={`category__image category__image-${imgNum}`}>

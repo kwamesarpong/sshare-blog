@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
 import { fetchCategories } from "../../actions/categoriesAction";
+import { fetchAuthors } from "../../actions/AuthorAction";
 
 import Navbar from "./Navbar";
 
@@ -20,6 +21,8 @@ import Footer from "../utils/Footer";
 class About extends Component {
   componentDidMount() {
     this.props.fetchCategories();
+
+    this.props.fetchAuthors();
   }
 
   state = {
@@ -32,7 +35,9 @@ class About extends Component {
   };
 
   render() {
-    const { categories } = this.props;
+    const { categories, authors } = this.props;
+
+    console.log(authors[0]);
 
     return (
       <div className="about">
@@ -138,24 +143,30 @@ class About extends Component {
               From the Community ...
             </h3>
             <div className="row">
-              <CommunityCard
-                name={this.state.name}
-                country={this.state.country}
-                message={this.state.message}
-                img={commPerson}
-              />
-              <CommunityCard
-                name={this.state.name}
-                country={this.state.country}
-                message={this.state.message}
-                img={commPerson}
-              />
-              <CommunityCard
-                name={this.state.name}
-                country={this.state.country}
-                message={this.state.message}
-                img={commPerson}
-              />
+              {authors[0] ? (
+                <CommunityCard
+                  name={authors[0].name}
+                  country={authors[0].location}
+                  message={this.state.message} //todo: pull bio from author. ask kay to add bio to user data
+                  img={authors[0].author_img}
+                />
+              ) : null}
+              {authors[1] ? (
+                <CommunityCard
+                  name={authors[1].name}
+                  country={authors[1].location}
+                  message={this.state.message}
+                  img={authors[1].author_img}
+                />
+              ) : null}
+              {authors[2] ? (
+                <CommunityCard
+                  name={authors[2].name}
+                  country={authors[2].location}
+                  message={this.state.message}
+                  img={authors[2].author_img}
+                />
+              ) : null}
             </div>
           </div>
         </div>
@@ -170,7 +181,10 @@ class About extends Component {
               <div className="row">
                 <div className="col-md-4">
                   <div>
-                    <Link to="/articles" className="button button__black mb-3 ml-4">
+                    <Link
+                      to="/articles"
+                      className="button button__black mb-3 ml-4"
+                    >
                       Explore
                     </Link>
                   </div>
@@ -201,7 +215,10 @@ class About extends Component {
 const mapStateToProps = (state) => {
   return {
     categories: state.categories.categories,
+    authors: state.authors.authors,
   };
 };
 
-export default connect(mapStateToProps, { fetchCategories })(About);
+export default connect(mapStateToProps, { fetchCategories, fetchAuthors })(
+  About
+);

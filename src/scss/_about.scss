@@ -2,7 +2,7 @@
   overflow: hidden;
   &__img {
     max-width: 85%;
-    transform: translateY(-1.1rem);
+    transform: translateY(-1rem);
   }
 }
 
@@ -39,7 +39,7 @@
 
     transition: all 0.3s;
 
-    cursor: pointer;
+    // cursor: pointer;
 
     @include respond(tab-land) {
       margin-bottom: 1rem;
@@ -66,27 +66,27 @@
 
     &-1 {
       //   background-image: url("../assets/mind-and-body.png");
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/mind-and-body.png");
     }
     &-2 {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/feminism.png");
     }
     &-3 {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/lifestyle2.png");
     }
     &-4 {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/motivation2.png");
     }
     &-5 {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/love-and-rela2.png");
     }
     &-6 {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+      background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url("../assets/money.png");
     }
   }
