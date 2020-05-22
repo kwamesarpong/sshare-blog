@@ -57,6 +57,9 @@ class App extends Component {
             <Route exact path="/team" component={Team} />
             <Route exact path="/tell-a-friend" component={TellAFriend} />
             <Route exact path="/contributors" component={Contributors} />
+            <Route exact path="/contact" component={Contact} />
+
+
             {/* <Route exact path="/profile" component={Profile} /> */}
             {/* <Route exact path="/series" component={Series} /> */}
             <Route exact path="/signup" component={SignUp} />
@@ -66,7 +69,6 @@ class App extends Component {
               component={CreateProfile}
             />
             <PrivateRoute exact path="/profile" component={Profile2} />
-            <Route exact path="/contact" component={Contact} />
           </Switch>
         </BrowserRouter>
       </Provider>

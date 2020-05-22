@@ -8,14 +8,14 @@ import TextInput from "../utils/TextInput";
 import Navbar from "./Navbar";
 import { ReactComponent as BadgeGreyGreen } from "../../assets/SISTAZSHARE-BADGE.svg";
 import Footer from "../utils/Footer";
-import queryString from "query-string";
+
 
 class CreateProfile extends Component {
   state = {
     profilePicture: this.props.author.author.profile.picture.data.url,
     email: this.props.author.author.profile.email,
     nationality: "",
-    password: "",
+    // password: "",
     dateOfBirth: "",
     bio: "",
     socialUrl: "",
@@ -38,7 +38,7 @@ class CreateProfile extends Component {
       phone,
       email,
       profilePicture,
-      password,
+      // password,
       dateOfBirth,
     } = this.state;
 
@@ -51,7 +51,7 @@ class CreateProfile extends Component {
       phone,
       email,
       profilePicture,
-      password,
+      // password,
       dateOfBirth,
       first_name,
       last_name,
@@ -92,10 +92,10 @@ class CreateProfile extends Component {
       this.setState({ errors: { email: "The email field is required" } });
       return;
     }
-    if (password === "") {
-      this.setState({ errors: { password: "The Password field is required" } });
-      return;
-    }
+    // if (password === "") {
+    //   this.setState({ errors: { password: "The Password field is required" } });
+    //   return;
+    // }
     if (dateOfBirth === "") {
       this.setState({
         errors: { confirmPassword: "The confirm password field is required" },
@@ -114,7 +114,7 @@ class CreateProfile extends Component {
       bio: "",
       socialUrl: "",
       phone: "",
-      password: "",
+      // password: "",
       dateOfBirth: "",
       errors: {},
     });
@@ -128,7 +128,7 @@ class CreateProfile extends Component {
       errors,
       profilePicture,
       email,
-      password,
+      // password,
       dateOfBirth,
     } = this.state;
 
@@ -207,14 +207,14 @@ class CreateProfile extends Component {
                     error={errors.email}
                   />
 
-                  <TextInput
+                  {/* <TextInput
                     label="Password"
                     name="password"
                     type="password"
                     value={password}
                     onChange={this.handleChange}
                     error={errors.password}
-                  />
+                  /> */}
 
                   <div className="text-center  mt-5">
                     <button className="button button__black px-5">save</button>

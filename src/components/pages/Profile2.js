@@ -18,15 +18,17 @@ import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY
 import Categories from "../utils/Categories";
 import Footer from "../utils/Footer";
 
-const authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
+const authorId = localStorage.getItem("sisterShareAuth");
 class Profile2 extends Component {
   componentDidMount() {
     this.props.fetchAuthors();
+    this.props.fetchAuthor(authorId);
 
-    this.props.fetchAuthorArticles(
-      authorProfile.first_name,
-      authorProfile.last_name
-    );
+    this.props
+      .fetchAuthorArticles
+      // authorProfile.first_name,
+      // authorProfile.last_name
+      ();
 
     // this.props.fetchAuthorArticles(authorName);
   }
@@ -35,72 +37,70 @@ class Profile2 extends Component {
     const { articles } = this.props.articles;
 
     console.log(articles);
-    // const { category } = this.props.categories
+
+    console.log("author from db", author);
+
 
     let renderProfile;
 
-    // if (author === null || loading) {
-    //   renderProfile = (
-    //     <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
-    //   );
-    if (authorProfile === null || loading) {
+    if (author === null || loading) {
       renderProfile = (
         <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
       );
-    } else {
-      renderProfile = (
-        <div>
-          <div className="contributor-profile__card">
-            <img
-              src={authorProfile.profilePicture}
-              alt="contributor"
-              className="contributor-profile__card-img"
-            />
-            <p className="contributor-profile__card-title">
-              <span className="mr-2">{authorProfile.first_name}</span>
-              <span>{authorProfile.last_name}</span>
-              <span>
-                <BadgeGrey className="ml-3 contributor-profile__card-img1" />
-                <i className="fas fa-pencil-alt mar-left"></i>
-              </span>
-            </p>
-            <p className="contributor-profile__card-subtitle pt-2">
-              {authorProfile.nationality}
-            </p>
-          </div>
-          {/* <p className="mt-5 contributor-profile__card-text">
-            Women are smart, resourceful and resilient. I believe every woman
-            should be empowered to be bright and bold enough to take up life as
-            a formidable individual.
-          </p> */}
-          <p className="mt-5 contributor-profile__card-text">
-            {authorProfile.bio}
-          </p>
-          <a
-            href={authorProfile.socialUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {/* https://web.facebook.com/amina.able */}
-            {authorProfile.socialUrl}
-          </a>
-          <h5 className="heading heading__tertiary-2 mt-5">Articles</h5>
 
-          {articles && articles.length === 0 ? (
-            <h5 className="heading heading__tertiary-2 heading__tertiary-2-light mt-5">
-              No Post Yet
-            </h5>
-          ) : (
-            <div className="mt-5">
-              <Categories categories={articles} />
-              {/* <Categories categories={this.state.category} /> */}
-            </div>
-          )}
-        </div>
-      );
+    } else {
+      // renderProfile = (
+      //   <div>
+      //     <div className="contributor-profile__card">
+      //       <img
+      //         src={authorProfile.profilePicture}
+      //         alt="contributor"
+      //         className="contributor-profile__card-img"
+      //       />
+      //       <p className="contributor-profile__card-title">
+      //         <span className="mr-2">{authorProfile.first_name}</span>
+      //         <span>{authorProfile.last_name}</span>
+      //         <span>
+      //           <BadgeGrey className="ml-3 contributor-profile__card-img1" />
+      //           <i className="fas fa-pencil-alt mar-left"></i>
+      //         </span>
+      //       </p>
+      //       <p className="contributor-profile__card-subtitle pt-2">
+      //         {authorProfile.nationality}
+      //       </p>
+      //     </div>
+      //     {/* <p className="mt-5 contributor-profile__card-text">
+      //       Women are smart, resourceful and resilient. I believe every woman
+      //       should be empowered to be bright and bold enough to take up life as
+      //       a formidable individual.
+      //     </p> */}
+      //     <p className="mt-5 contributor-profile__card-text">
+      //       {authorProfile.bio}
+      //     </p>
+      //     <a
+      //       href={authorProfile.socialUrl}
+      //       target="_blank"
+      //       rel="noopener noreferrer"
+      //     >
+      //       {/* https://web.facebook.com/amina.able */}
+      //       {authorProfile.socialUrl}
+      //     </a>
+      //     <h5 className="heading heading__tertiary-2 mt-5">Articles</h5>
+      //     {articles && articles.length === 0 ? (
+      //       <h5 className="heading heading__tertiary-2 heading__tertiary-2-light mt-5">
+      //         No Post Yet
+      //       </h5>
+      //     ) : (
+      //       <div className="mt-5">
+      //         <Categories categories={articles} />
+      //         {/* <Categories categories={this.state.category} /> */}
+      //       </div>
+      //     )}
+      //   </div>
+      // );
     }
 
-    console.log(authorProfile);
+    console.log(authorId);
 
     let renderOtherAuthors;
 

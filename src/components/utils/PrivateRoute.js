@@ -5,16 +5,16 @@ import { Route, Redirect } from "react-router-dom";
 // 3 levels ternary
 // var variable = (condition) ? (true block) : ((condition2) ? (true block2) : (else block2))
 
-const authorProfile = JSON.parse(localStorage.getItem("sisterShareAuthFB"));
+const authorID = localStorage.getItem("sisterShareAuth");
 
-let renderRoutes;
+console.log(authorID);
 
 const PrivateRoute = ({ component: Component, author, ...rest }) => (
   <Route
     {...rest}
     render={
       (props) =>
-        author.tokenDetail ? (
+        localStorage.sisterShareAuth && authorID ? (
           <Component {...props} />
         ) : (
           <Redirect to="/signup" />

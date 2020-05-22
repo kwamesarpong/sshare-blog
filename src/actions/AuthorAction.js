@@ -60,84 +60,41 @@ export const fetchAuthorFromFacebook = (userData) => async (dispatch) => {
 export const createAuthorProfile = (authorData, history) => async (
   dispatch
 ) => {
-  // post url here
-
-  const url = `https://api-sistazshare.herokuapp.com/api/v1/service/devless/rpc?action=signUp`;
+  const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db`;
 
   dispatch(setAuthorsLoading());
 
   try {
     const res = await axios.post(url, {
-      jsonrpc: "2.0",
-      method: "devless",
-      id: "1000",
-      params: [
-        authorData.email,
-        authorData.password,
-        null,
-        null,
-        authorData.first_name,
-        authorData.last_name,
-        null,
-        [
-          {
-            dob: authorData.dateOfBirth,
-          },
-          {
-            social_url: authorData.socialUrl,
-          },
-          {
-            whatsapp: authorData.phone,
-          },
-          {
-            bio: authorData.bio,
-          },
-          {
-            profile_picture: authorData.profilePicture,
-          },
-          {
-            nationality: authorData.nationality,
-          },
-        ],
+      resource: [
+        {
+          name: "author",
+          field: [
+            {
+              whatsapp_number: authorData.phone,
+              social_url: authorData.socialUrl,
+              last_name: authorData.last_name,
+              first_name: authorData.first_name,
+              bio: authorData.bio,
+              author_img: authorData.profilePicture,
+              location: authorData.nationality,
+              name: `${authorData.first_name} ${authorData.last_name}`,
+              email: authorData.email,
+            },
+          ],
+        },
       ],
     });
 
     console.log(res);
 
-    const { token, profile } = res.data.payload.result;
+    const authorId = res.data.payload.entry_id;
 
-    const {
-      first_name,
-      last_name,
-      email,
-      dateOfBirth,
-      socialUrl,
-      phone,
-      bio,
-      profilePicture,
-      nationality,
-    } = authorData;
-
-    const authorProfile = {
-      first_name,
-      last_name,
-      email,
-      dateOfBirth,
-      socialUrl,
-      bio,
-      phone,
-      profilePicture,
-      nationality,
-    };
-
-    dispatch(setCurrentUser(profile));
+    // dispatch(setCurrentUser(profile));
 
     // save token to localstorage
-    if (token) {
-      localStorage.setItem("Auth", JSON.stringify(profile));
-    }
 
-    localStorage.setItem("sisterShareAuthFB", JSON.stringify(authorProfile));
+    localStorage.setItem("sisterShareAuth", JSON.stringify(authorId));
 
     history.push("/");
   } catch (error) {
@@ -161,8 +118,8 @@ export const setCurrentUser = (token) => {
 
 export const logoutUser = (history) => (dispatch) => {
   //Remove token from localStorage
-  localStorage.removeItem("Auth");
-  localStorage.removeItem("sisterShareAuthFB");
+
+  localStorage.removeItem("sisterShareAuth");
 
   //set current user to {}
   dispatch(setCurrentUser({}));
