@@ -38,8 +38,7 @@ export const fetchAuthor = (authorId) => async (dispatch) => {
 
     const author = res.data.payload.results[0];
 
-    console.log(res.data.payload);
-    console.log(author);
+    // console.log(author);
 
     dispatch({ type: FETCH_AUTHOR, payload: author });
   } catch (error) {

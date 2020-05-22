@@ -20,26 +20,41 @@ import Footer from "../utils/Footer";
 
 const authorId = localStorage.getItem("sisterShareAuth");
 class Profile2 extends Component {
+  // state = {
+  //   authorName: "",
+  // };
+
   componentDidMount() {
     this.props.fetchAuthors();
     this.props.fetchAuthor(authorId);
 
-    this.props
-      .fetchAuthorArticles
-      // authorProfile.first_name,
-      // authorProfile.last_name
-      ();
+    if (this.props.authors.author.name) {
+      console.log("author name comdidmo", this.props.authors.author.name);
 
-    // this.props.fetchAuthorArticles(authorName);
+      this.props.fetchAuthorArticles(this.props.authors.author.name);
+    }
+
+    // this.setState({ authorName: this.props.authors.author.name });
   }
+
+  componentDidUpdate(prevProps) {
+    // console.log("prev prop", prevProps);
+    // console.log("prev state", prevState);
+
+    if (this.props.authors.author.name !== prevProps.authors.author.name) {
+      this.props.fetchAuthorArticles(this.props.authors.author.name);
+    }
+
+    // console.log("author name after update", this.props.authors.author.name);
+  }
+
   render() {
     const { author, authors, loading } = this.props.authors;
     const { articles } = this.props.articles;
 
-    console.log(articles);
+    // console.log(articles);
 
-    console.log("author from db", author);
-
+    // console.log("author from db", author);
 
     let renderProfile;
 
@@ -47,60 +62,52 @@ class Profile2 extends Component {
       renderProfile = (
         <Loader type="ThreeDots" color="#00b399" height={100} width={100} />
       );
-
     } else {
-      // renderProfile = (
-      //   <div>
-      //     <div className="contributor-profile__card">
-      //       <img
-      //         src={authorProfile.profilePicture}
-      //         alt="contributor"
-      //         className="contributor-profile__card-img"
-      //       />
-      //       <p className="contributor-profile__card-title">
-      //         <span className="mr-2">{authorProfile.first_name}</span>
-      //         <span>{authorProfile.last_name}</span>
-      //         <span>
-      //           <BadgeGrey className="ml-3 contributor-profile__card-img1" />
-      //           <i className="fas fa-pencil-alt mar-left"></i>
-      //         </span>
-      //       </p>
-      //       <p className="contributor-profile__card-subtitle pt-2">
-      //         {authorProfile.nationality}
-      //       </p>
-      //     </div>
-      //     {/* <p className="mt-5 contributor-profile__card-text">
-      //       Women are smart, resourceful and resilient. I believe every woman
-      //       should be empowered to be bright and bold enough to take up life as
-      //       a formidable individual.
-      //     </p> */}
-      //     <p className="mt-5 contributor-profile__card-text">
-      //       {authorProfile.bio}
-      //     </p>
-      //     <a
-      //       href={authorProfile.socialUrl}
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       {/* https://web.facebook.com/amina.able */}
-      //       {authorProfile.socialUrl}
-      //     </a>
-      //     <h5 className="heading heading__tertiary-2 mt-5">Articles</h5>
-      //     {articles && articles.length === 0 ? (
-      //       <h5 className="heading heading__tertiary-2 heading__tertiary-2-light mt-5">
-      //         No Post Yet
-      //       </h5>
-      //     ) : (
-      //       <div className="mt-5">
-      //         <Categories categories={articles} />
-      //         {/* <Categories categories={this.state.category} /> */}
-      //       </div>
-      //     )}
-      //   </div>
-      // );
+      renderProfile = (
+        <div>
+          <div className="contributor-profile__card">
+            <img
+              src={author.author_img}
+              alt="contributor"
+              className="contributor-profile__card-img"
+            />
+            <p className="contributor-profile__card-title">
+              {author.name}
+              <span>
+                <BadgeGrey className="ml-3 contributor-profile__card-img1" />
+                <i className="fas fa-pencil-alt mar-left"></i>
+              </span>
+            </p>
+            <p className="contributor-profile__card-subtitle pt-2">
+              {author.location}
+            </p>
+          </div>
+          {/* <p className="mt-5 contributor-profile__card-text">
+            Women are smart, resourceful and resilient. I believe every woman
+            should be empowered to be bright and bold enough to take up life as
+            a formidable individual.
+          </p> */}
+          <p className="mt-5 contributor-profile__card-text">{author.bio}</p>
+          <a href={author.social_url} target="_blank" rel="noopener noreferrer">
+            {/* https://web.facebook.com/amina.able */}
+            {author.social_url}
+          </a>
+          <h5 className="heading heading__tertiary-2 mt-5">Articles</h5>
+          {articles && articles.length === 0 ? (
+            <h5 className="heading heading__tertiary-2 heading__tertiary-2-light mt-5">
+              No Post Yet
+            </h5>
+          ) : (
+            <div className="mt-5">
+              <Categories categories={articles} />
+              {/* <Categories categories={this.state.category} /> */}
+            </div>
+          )}
+        </div>
+      );
     }
 
-    console.log(authorId);
+    // console.log(authorId);
 
     let renderOtherAuthors;
 

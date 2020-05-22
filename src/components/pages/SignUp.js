@@ -15,9 +15,6 @@ class SignUp extends Component {
     this.props.fetchAuthorFromFacebook(data);
 
     this.props.history.push("/create-profile");
-
-    console.log(data);
-    console.log("got here");
   };
 
   handleError = (error) => {

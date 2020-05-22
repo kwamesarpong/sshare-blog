@@ -18,15 +18,10 @@ export const fetchArticle = (articleId) => async (dispatch) => {
   }
 };
 
-export const fetchAuthorArticles = (firstName, lastName) => async (
-  dispatch
-) => {
-  // const authorName = firstName + " " + lastName;
-  const authorName = `${firstName} ${lastName}`;
-
+export const fetchAuthorArticles = (authorName) => async (dispatch) => {
   const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${authorName}`;
 
-  console.log(url);
+  // console.log(url);
   // const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts&where=author,${"Bibi Trap"}`;
   // const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db?table=blog_posts`;
 
