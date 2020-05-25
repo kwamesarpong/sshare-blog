@@ -65,14 +65,14 @@ class Contributors extends Component {
       <div className="contributors">
         <Navbar whitePage={true} />
 
-        <div className="container">
-          <input
+        <div className="container mt-5">
+          {/* <input
             type="text"
             name="search"
             id="search"
             placeholder="Search People ..."
             className="mb-5"
-          />
+          /> */}
 
           <div className="row">
             <div className="col-md-9">

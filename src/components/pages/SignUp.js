@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { fetchAuthorFromFacebook } from "../../actions/AuthorAction";
+import {
+  fetchAuthorFromFacebook,
+  fetchAuthors,
+} from "../../actions/AuthorAction";
 
 import { ReactComponent as LogoSvgBlack } from "../../assets/LOGO/ICON/SISTAZSHARE-ICON-B.svg";
 import { ReactComponent as LoginImg1 } from "../../assets/SISTAZSHARE-LOGIN-1.svg";
@@ -11,10 +14,40 @@ import { FacebookProvider, LoginButton } from "react-facebook";
 import Navbar from "./Navbar";
 
 class SignUp extends Component {
+  componentDidMount() {
+    this.props.fetchAuthors();
+  }
+
   handleResponse = (data) => {
     this.props.fetchAuthorFromFacebook(data);
 
-    this.props.history.push("/create-profile");
+    const authorEmail = this.props.author.author.profile.email;
+
+    console.log(authorEmail);
+
+    const authors = this.props.author.authors;
+
+    let authorId;
+
+    // check if author email already exist
+    if (authors.length === 0 || authors === null) {
+      this.props.history.push("/create-profile");
+    } else {
+      for (let author of authors) {
+        if (author.email === authorEmail) {
+          authorId = author.id;
+          localStorage.setItem("sisterShareAuth", JSON.stringify(authorId));
+          console.log("got here, pushing to home");
+
+          this.props.history.push("/");
+        } else {
+          console.log("got here, pushing to create profile");
+          this.props.history.push("/create-profile");
+        }
+      }
+    }
+
+    console.log("got here");
   };
 
   handleError = (error) => {
@@ -60,18 +93,6 @@ class SignUp extends Component {
               </h3>
 
               <div className="py-3 text-center">
-                {/* <Link className="nav-link button button__black" to={URL}>
-                  Sign In With Facebook
-                </Link> */}
-                {/* <a
-                  href={URL}
-                  // target="_blank"
-                  rel="noopener noreferrer"
-                  className="nav-link button button__black"
-                >
-                  Sign In With Facebook
-                </a> */}
-
                 <FacebookProvider appId="533753947579439">
                   <LoginButton
                     scope="email"
@@ -110,4 +131,7 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { fetchAuthorFromFacebook })(SignUp);
+export default connect(mapStateToProps, {
+  fetchAuthorFromFacebook,
+  fetchAuthors,
+})(SignUp);

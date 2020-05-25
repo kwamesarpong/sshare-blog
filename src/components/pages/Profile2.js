@@ -13,48 +13,30 @@ import { fetchAuthorArticles } from "../../actions/ArticlesAction";
 import Navbar from "./Navbar";
 
 import ProfileCard from "../utils/ProfileCard";
-// import commPerson from "./../../assets/comm-person.png";
 import { ReactComponent as BadgeGrey } from "../../assets/SISTAZSHARE-BADGE-GREY.svg";
 import Categories from "../utils/Categories";
 import Footer from "../utils/Footer";
 
 const authorId = localStorage.getItem("sisterShareAuth");
 class Profile2 extends Component {
-  // state = {
-  //   authorName: "",
-  // };
-
   componentDidMount() {
     this.props.fetchAuthors();
     this.props.fetchAuthor(authorId);
 
     if (this.props.authors.author.name) {
-      console.log("author name comdidmo", this.props.authors.author.name);
-
       this.props.fetchAuthorArticles(this.props.authors.author.name);
     }
-
-    // this.setState({ authorName: this.props.authors.author.name });
   }
 
   componentDidUpdate(prevProps) {
-    // console.log("prev prop", prevProps);
-    // console.log("prev state", prevState);
-
     if (this.props.authors.author.name !== prevProps.authors.author.name) {
       this.props.fetchAuthorArticles(this.props.authors.author.name);
     }
-
-    // console.log("author name after update", this.props.authors.author.name);
   }
 
   render() {
     const { author, authors, loading } = this.props.authors;
     const { articles } = this.props.articles;
-
-    // console.log(articles);
-
-    // console.log("author from db", author);
 
     let renderProfile;
 
@@ -82,11 +64,7 @@ class Profile2 extends Component {
               {author.location}
             </p>
           </div>
-          {/* <p className="mt-5 contributor-profile__card-text">
-            Women are smart, resourceful and resilient. I believe every woman
-            should be empowered to be bright and bold enough to take up life as
-            a formidable individual.
-          </p> */}
+
           <p className="mt-5 contributor-profile__card-text">{author.bio}</p>
           <a href={author.social_url} target="_blank" rel="noopener noreferrer">
             {/* https://web.facebook.com/amina.able */}
@@ -106,8 +84,6 @@ class Profile2 extends Component {
         </div>
       );
     }
-
-    // console.log(authorId);
 
     let renderOtherAuthors;
 
@@ -179,7 +155,7 @@ class Profile2 extends Component {
             </div>
           </div>
         </div>
-        {!loading ? <Footer /> : null}
+        <Footer />
       </div>
     );
   }

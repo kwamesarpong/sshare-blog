@@ -29,11 +29,12 @@ import SignUp from "./components/pages/SignUp";
 import Contact from "./components/pages/Contact";
 import PrivateRoute from "./components/utils/PrivateRoute";
 import { setCurrentUser } from "./actions/AuthorAction";
+import CreateProfileGuard from "./components/utils/CreateProfileGuard";
 
 // check for token and user payload
-if (localStorage.Auth) {
+if (localStorage.sisterShareAuth) {
   // set auth token header
-  store.dispatch(setCurrentUser(localStorage.Auth));
+  store.dispatch(setCurrentUser(localStorage.sisterShareAuth));
 }
 
 class App extends Component {
@@ -59,11 +60,15 @@ class App extends Component {
             <Route exact path="/contributors" component={Contributors} />
             <Route exact path="/contact" component={Contact} />
 
-
             {/* <Route exact path="/profile" component={Profile} /> */}
             {/* <Route exact path="/series" component={Series} /> */}
             <Route exact path="/signup" component={SignUp} />
-            <PrivateRoute
+            {/* <PrivateRoute
+              exact
+              path="/create-profile"
+              component={CreateProfile}
+            /> */}
+            <CreateProfileGuard
               exact
               path="/create-profile"
               component={CreateProfile}

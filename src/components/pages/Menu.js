@@ -25,9 +25,9 @@ class Menu extends Component {
                 <li className="menu__links">
                   <Link to="/articles"> Articles</Link>
                 </li>
-                <li className="menu__links">
+                {/* <li className="menu__links">
                   <Link to="/series">Series</Link>
-                </li>
+                </li> */}
                 {/* <li className="menu__links">
                   <Link to="/events">Events</Link>
                 </li> */}
