@@ -34,6 +34,21 @@ class Menu extends Component {
                 <li className="menu__links">
                   <Link to="/about">About</Link>
                 </li>
+                {/* <li className="menu__links">
+                  <Link to="/tell-a-friend">Tell A Friend</Link>
+                </li> */}
+                <li className="menu__links">
+                  <Link to="/careers">Careers</Link>
+                </li>
+                <li className="menu__links">
+                  <Link to="/legal">Legal</Link>
+                </li>
+                <li className="menu__links">
+                  <Link to="/partnerships">Partnerships</Link>
+                </li>
+                <li className="menu__links">
+                  <Link to="/contact">Contact</Link>
+                </li>
               </ul>
 
               {/* <input
