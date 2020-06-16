@@ -59,7 +59,7 @@ export const fetchAuthorFromFacebook = (userData) => async (dispatch) => {
 export const createAuthorProfile = (authorData, history) => async (
   dispatch
 ) => {
-  const url = `http://api-sistazshare.herokuapp.com/api/v1/service/stories/db`;
+  const url = `https://api-sistazshare.herokuapp.com/api/v1/service/stories/db`;
 
   dispatch(setAuthorsLoading());
 
